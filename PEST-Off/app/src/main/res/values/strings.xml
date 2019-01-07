@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">MPEST-PestOff</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_aboutus">About Us</string>
+    <string name="nav_item_sitemap">Site Map</string>
+    <string name="nav_item_siteupdate">Site Update</string>
+    <string name="nav_item_whatson">Whats ON!</string>
+    <string name="nav_item_rules">Rules &amp; Regulations</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_aboutus</item>
+        <item>@string/nav_item_sitemap</item>
+        <item>@string/nav_item_siteupdate</item>
+        <item>@string/nav_item_whatson</item>
+        <item>@string/nav_item_rules</item>
+    </string-array>
+
+    <string name="internal_storage">Internal storage</string>
+    <string name="Font_Regular">Avenir-Book</string>
+    <string name="Font_Bold">Avenir-Heavy</string>
+    <string name="Font_Light">Avenir-Light</string>
+    <string name="Font_Medium">Avenir-Medium</string>
+
+    <string name="title_messages">Messages</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_home">Home</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="powered_by">Powered by Amana Asia Pte Ltd. Version 1.0.1</string>
+    <string name="mytask">My Task</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="data_not_available">Data not available</string>
+</resources>

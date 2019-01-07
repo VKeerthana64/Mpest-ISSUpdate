@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".myschedule.MyScheduleActivity">
+
+<com.prolificinteractive.materialcalendarview.MaterialCalendarView
+    android:id="@+id/cv_setDate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        />
+
+    <com.amana.CLEANSolutions.components.CustomFontTextView
+        android:id="@+id/noData_txt"
+        android:visibility="visible"
+        app:fontName="Font_Bold"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textSize="@dimen/_14sdp"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:text="Jobs not available for the selected date."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

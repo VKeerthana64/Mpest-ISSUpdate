@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/ll_booknow"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/rl_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Service Id"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/serviceId_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Work Order No"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/work_orderno_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Contract No"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/contract_no_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Customer Name"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/customer_name_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Job Type"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/Types_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:textColor="@color/oil"
+                    android:text=""
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Scheduled Date"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/scheduled_date_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Actual Start Time"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/scheduled_start_time_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Actual End Time"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/scheduled_end_time_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Team"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/team_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Team Member"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/team_members_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Pest Types"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/pest_type_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Job Performed By"
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    app:fontName="Font_Light" />
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/performedBy_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:textColor="@color/oil"
+                    android:text=""
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:text="Location"
+                app:fontName="Font_Light" />
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="  : "
+                app:fontName="Font_Light" />
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:id="@+id/location_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:text=""
+                android:textColor="@color/colorAccent"
+                app:fontName="Font_Bold" />
+
+        </LinearLayout>
+
+
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:text="SERVICES"
+                app:fontName="Font_Bold" />
+
+            <!--Service Tablayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/button_border"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:weightSum="100"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:textColor="@color/black"
+                        android:text="S.No"
+                        app:fontName="Font_Bold" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:textColor="@color/black"
+                        android:text="Pest Type"
+                        app:fontName="Font_Bold" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="55"
+                        android:text="Services"
+                        android:textColor="@color/black"
+                        app:fontName="Font_Bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/jumbo"
+                    android:layout_height="0.5dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:text="MATERIALS"
+                app:fontName="Font_Bold" />
+
+            <!--Service Tablayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/button_border"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:weightSum="100"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:textColor="@color/black"
+                        android:text="Pest Type"
+                        app:fontName="Font_Bold" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:textColor="@color/black"
+                        android:text="Materials"
+                        app:fontName="Font_Bold" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="20"
+                        android:textColor="@color/black"
+                        android:text="Quantity"
+                        app:fontName="Font_Bold" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Unit"
+                        android:textColor="@color/black"
+                        app:fontName="Font_Bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/jumbo"
+                    android:layout_height="0.5dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_materials"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:text="PAYMENT"
+                app:fontName="Font_Bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="Payment Mode"
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="  : "
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:id="@+id/payment_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:text=""
+                        android:textColor="@color/oil"
+                        app:fontName="Font_Bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="Total Payment"
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="  : "
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:id="@+id/totalPayment_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:text=""
+                        android:textColor="@color/oil"
+                        app:fontName="Font_Bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="Payment Notes/Cheque No"
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="  : "
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:id="@+id/notes_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:text=""
+                        android:textColor="@color/oil"
+                        app:fontName="Font_Bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="Total Area Planned (Sq.mt)"
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="  : "
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:id="@+id/AreaPlanned_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:text=""
+                        android:textColor="@color/oil"
+                        app:fontName="Font_Bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="Total Area Completed (Sq.mt)"
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="  : "
+                        app:fontName="Font_Light" />
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:id="@+id/AreaComp_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:text=""
+                        android:textColor="@color/oil"
+                        app:fontName="Font_Bold" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="PHOTO BEFORE"
+                app:fontName="Font_Bold" />
+
+            <!--PHOTO BEFORE Tablayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_photoBefore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <com.amana.CLEANSolutions.components.CustomFontTextView
+                    android:id="@+id/no_photobefore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="No Records"
+                    android:visibility="gone"
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Regular"/>
+            </LinearLayout>
+
+
+            <com.amana.CLEANSolutions.components.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="PHOTO AfTER"
+                app:fontName="Font_Bold" />
+
+            <!--PHOTO BEFORE Tablayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_photoAfter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                    <com.amana.CLEANSolutions.components.CustomFontTextView
+                        android:id="@+id/no_photoafter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="No Records"
+                        android:visibility="gone"
+                        android:textColor="@color/oil"
+                        app:fontName="Font_Regular"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/ll_booknow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.amana.CLEANSolutions.components.CustomFontButton
+            android:id="@+id/cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_border"
+            android:text="Cancel"
+            android:textAllCaps="true"
+
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="gone"
+            app:fontName="Font_Bold" />
+
+        <com.amana.CLEANSolutions.components.CustomFontButton
+            android:id="@+id/upload_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="2"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Upload to server"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:fontName="Font_Bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "19315809381",
+    "firebase_url": "https://myfirstapp-b10e0.firebaseio.com",
+    "project_id": "myfirstapp-b10e0",
+    "storage_bucket": "myfirstapp-b10e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19315809381:android:925cee4554749baf",
+        "android_client_info": {
+          "package_name": "com.amana.CLEANSolutions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19315809381-tcvk8vl706dl3kpk7vts70e7fhtesuha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk0_h7-JizJ_bpaMidrnL2YC1a5wUSmVc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

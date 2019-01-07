@@ -1,0 +1,6 @@
+
+Signed APk Details:
+
+Alias name : MPESTPestoff
+Key alias : key0
+Key PWD & key store PWD : 123456

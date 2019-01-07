@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "294866786626",
+    "firebase_url": "https://mpestpestoff.firebaseio.com",
+    "project_id": "mpestpestoff",
+    "storage_bucket": "mpestpestoff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294866786626:android:3d63f3e89c39c7c6",
+        "android_client_info": {
+          "package_name": "com.amana.MPESTPestoff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294866786626-q8vkcd8d8vjr1suf9uq0fu9ru8m5bpd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwCExGgw0OU5yFZ3S6czFpQlN0ctXkLhE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

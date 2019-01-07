@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/swipe_item"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:orientation="vertical">
+
+<com.amana.MPESTPestoff.components.CustomFontTextView
+    android:id="@+id/cb_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:text="text"
+    android:textSize="@dimen/_12sdp"
+    android:textStyle="bold"
+    app:fontName="Font_Bold" />
+
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.amana.mpest.components.CustomFontTextView
+                app:fontName="Font_Medium"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:visibility="invisible"
+                android:layout_below="@+id/ll_tab"
+                android:background="@color/base" />
+
+        </LinearLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/ll_filter"
+            android:layout_marginTop="1dp"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:reverseLayout="true"
+                android:scrollbars="none" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <com.amana.mpest.components.CustomFontTextView
+            android:id="@+id/noData_txt"
+            android:visibility="visible"
+            app:fontName="Font_Bold"
+              android:textSize="@dimen/_14sdp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:textColor="@color/black"
+            android:text="@string/data_not_available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            app:backgroundTint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_delete_white" />
+
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
+

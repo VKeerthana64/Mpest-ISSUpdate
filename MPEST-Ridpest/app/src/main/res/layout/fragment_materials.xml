@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+       android:layout_above="@+id/proceed_btn"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/pests_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:orientation="horizontal"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:reverseLayout="false" />
+
+
+        <com.amana.MPESTRidpest.components.CustomFontTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="15dp"
+            android:theme="@style/TextLabelDialog"
+            app:fontName="Font_Medium">
+
+            <com.amana.MPESTRidpest.components.CustomFontEditText
+                android:id="@+id/materials_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableRight="@drawable/ic_edit_green"
+                android:focusable="false"
+                android:hint="Materials *"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Medium" />
+        </com.amana.MPESTRidpest.components.CustomFontTextInputLayout>
+
+        <com.amana.MPESTRidpest.components.CustomFontTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:theme="@style/TextLabelDialog"
+            app:fontName="Font_Medium">
+
+            <com.amana.MPESTRidpest.components.CustomFontEditText
+                android:id="@+id/input_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Others"
+                android:inputType="textMultiLine"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Medium" />
+        </com.amana.MPESTRidpest.components.CustomFontTextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_materiallist"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+        <com.amana.MPESTRidpest.components.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center_horizontal"
+            android:text="Material Details"
+            android:textColor="@color/oil"
+            android:textSize="@dimen/_12sdp"
+            app:fontName="Font_Bold" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Materiallist_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:divider="@null" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <com.amana.MPESTRidpest.components.CustomFontButton
+        android:id="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+          android:layout_gravity="right"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Proceed"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:fontName="Font_Bold" />
+</RelativeLayout>

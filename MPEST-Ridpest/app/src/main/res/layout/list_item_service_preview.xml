@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/swipe_item"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:weightSum="100"
+        android:layout_height="wrap_content">
+
+        <com.amana.MPESTRidpest.components.CustomFontTextView
+            android:id="@+id/txt_sno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:textColor="@color/black"
+            android:text="SNo"
+            app:fontName="Font_Regular" />
+
+        <com.amana.MPESTRidpest.components.CustomFontTextView
+            android:id="@+id/txt_pesttype"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:textColor="@color/black"
+            android:text="Pest Type"
+            app:fontName="Font_Regular" />
+
+        <com.amana.MPESTRidpest.components.CustomFontTextView
+            android:id="@+id/txt_servcie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="55"
+            android:text="Servcie"
+            android:textColor="@color/black"
+            app:fontName="Font_Regular" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "841073709438",
+    "firebase_url": "https://my-sample2-48280.firebaseio.com",
+    "project_id": "my-sample2-48280",
+    "storage_bucket": "my-sample2-48280.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841073709438:android:175a485323247b3b",
+        "android_client_info": {
+          "package_name": "com.amana.mpest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841073709438-ib7fqcbc2frjj146ir08739i6a9ntl0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4I-1AJlSdsEBetavnYqWFDSCIEYj6_VU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

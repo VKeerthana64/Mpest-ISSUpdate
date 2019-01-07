@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "582576831527",
+    "firebase_url": "https://ridpest-fe0a6.firebaseio.com",
+    "project_id": "ridpest-fe0a6",
+    "storage_bucket": "ridpest-fe0a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582576831527:android:00675b5b4b19f62f",
+        "android_client_info": {
+          "package_name": "com.amana.MPESTRidpest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582576831527-kqcgl6rh7mc1kflk1m1bpjuqula3rvpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV7oi5pt4O_HZjLT6ecsi9pN6clr6ZO84"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myjob.MyJobActivity">
+
+    <LinearLayout
+        android:layout_above="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+
+            <com.amana.MPESTRidpest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MPESTRidpest.components.CustomFontEditText
+                    android:id="@+id/input_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:focusable="false"
+                    android:enabled="false"
+                    android:inputType="text"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.MPESTRidpest.components.CustomFontTextInputLayout>
+
+
+            <com.amana.MPESTRidpest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MPESTRidpest.components.CustomFontEditText
+                    android:id="@+id/input_members"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Team Member"
+                    android:focusable="false"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.MPESTRidpest.components.CustomFontTextInputLayout>
+
+            <com.amana.MPESTRidpest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MPESTRidpest.components.CustomFontEditText
+                    android:id="@+id/input_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Remarks"
+                    android:inputType="text"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.MPESTRidpest.components.CustomFontTextInputLayout>
+
+            <com.amana.MPESTRidpest.components.CustomFontTextView
+                app:fontName="Font_Medium"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                android:text="Technician Signature :"
+                android:layout_height="wrap_content" />
+
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:layout_width="match_parent"
+                android:background="@drawable/button_border"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:id="@+id/signature_pad" />
+
+            <com.amana.MPESTRidpest.components.CustomFontButton
+                android:id="@+id/clear_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/btn_shape_green"
+                android:text="Clear"
+                app:fontName="Font_Medium" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+    <com.amana.MPESTRidpest.components.CustomFontButton
+        app:fontName="Font_Bold"
+        android:id="@+id/proceed_btn"
+      android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+    android:background="@color/colorPrimary"
+     android:padding="8dp"
+        android:text="Proceed"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
