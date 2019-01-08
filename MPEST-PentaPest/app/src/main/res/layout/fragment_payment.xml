@@ -1,0 +1,182 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myjob.MyJobActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_paymentMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Payment Mode"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:inputType="text"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_total_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Total Payment"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_note_chqno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Payment Notes/Cheque No."
+                    android:inputType="text"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Remarks"
+                    android:inputType="text"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_planned_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Total Area Planned (Sq.mt)"
+                    android:inputType="numberDecimal"
+                    android:focusable="false"
+                    android:text="0"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_completed_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Total Area Completed (Sq.mt)"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+            <com.amana.pentapest.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.pentapest.components.CustomFontEditText
+                    android:id="@+id/input_sor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="SOR (Schedule of Rates)"
+                    android:inputType="text"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+            </com.amana.pentapest.components.CustomFontTextInputLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+    <com.amana.pentapest.components.CustomFontButton
+        app:fontName="Font_Bold"
+        android:id="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:text="End Service"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

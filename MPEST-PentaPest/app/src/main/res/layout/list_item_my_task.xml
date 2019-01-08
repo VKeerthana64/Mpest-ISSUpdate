@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.amana.pentapest.components.CustomFontTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorPrimary"
+                    app:fontName="Font_Medium" />
+
+                <LinearLayout
+                    android:id="@+id/ll_view_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="5dp"
+                        android:weightSum="100">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="60"
+                            android:orientation="horizontal">
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/quote_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                app:fontName="Font_Medium" />
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Service Id : "
+                                android:textSize="12dp"
+                                app:fontName="Font_Light" />
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/service_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:text=""
+                                android:textColor="@color/colorAccent"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                app:fontName="Font_Bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="40"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/lbl_quote_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Paid Amt  "
+                                android:visibility="gone"
+                                app:fontName="Font_Medium" />
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/datetime_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:maxLines="2"
+                                android:text="01-Jun-18 8:30 AM"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold"
+                                app:fontName="Font_Regular" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:weightSum="100">
+
+
+                       <!-- <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="60"
+                                android:orientation="horizontal">
+
+                                <com.amana.pentapest.components.CustomFontTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Customer : "
+                                    android:textSize="12dp"
+                                    app:fontName="Font_Light" />
+
+                                <com.amana.pentapest.components.CustomFontTextView
+                                    android:id="@+id/customer_txt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold"
+                                    app:fontName="Font_Bold" />
+                            </LinearLayout>
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/ReSubmit_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="40"
+                                android:gravity="right"
+                                android:maxLines="1"
+                                android:text="RE-Submit"
+                                android:textAllCaps="true"
+                                android:textColor="@color/Orange"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                app:fontName="Font_Bold" />
+
+
+                        </LinearLayout>-->
+
+                        <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="left"
+                             android:layout_marginTop="@dimen/_5sdp"
+                             android:orientation="horizontal">
+
+                             <com.amana.pentapest.components.CustomFontTextView
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:text="Customer : "
+                                 android:textSize="12dp"
+                                 app:fontName="Font_Light" />
+
+                             <com.amana.pentapest.components.CustomFontTextView
+                                 android:id="@+id/customer_txt"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:maxLines="1"
+                                 android:text=""
+                                 android:textColor="@color/colorAccent"
+                                 android:textSize="12dp"
+                                 android:textStyle="bold"
+                                 app:fontName="Font_Bold" />
+                         </LinearLayout>
+
+                      <!--  <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Location   : "
+                                android:textSize="12dp"
+                                app:fontName="Font_Light" />
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/location_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:maxLines="1"
+                                android:text=""
+                                android:textColor="@color/colorAccent"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                app:fontName="Font_Bold" />
+                        </LinearLayout>-->
+
+                       <!-- <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+                            <com.amana.pentapest.components.CustomFontTextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pest Type  : "
+                                android:textSize="12dp"
+                                app:fontName="Font_Light" />
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/team_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text=""
+                                android:textColor="@color/oil"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                app:fontName="Font_Bold" />
+                        </LinearLayout>-->
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="75"
+                                android:orientation="horizontal">
+
+                                <com.amana.pentapest.components.CustomFontTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Location   : "
+                                    android:textSize="12dp"
+                                    app:fontName="Font_Light" />
+
+                                <com.amana.pentapest.components.CustomFontTextView
+                                    android:id="@+id/location_txt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold"
+                                    app:fontName="Font_Bold" />
+                            </LinearLayout>
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/UploadStatus_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="25"
+                                android:gravity="right"
+                                android:maxLines="1"
+                                android:text="UPLOADED"
+                                android:textAllCaps="true"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                app:fontName="Font_Bold" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="75"
+                                android:orientation="horizontal">
+
+                                <com.amana.pentapest.components.CustomFontTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pest Type  : "
+                                    android:textSize="12dp"
+                                    app:fontName="Font_Light" />
+
+                                <com.amana.pentapest.components.CustomFontTextView
+                                    android:id="@+id/team_txt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="2"
+
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold"
+                                    app:fontName="Font_Bold" />
+                            </LinearLayout>
+
+                            <com.amana.pentapest.components.CustomFontTextView
+                                android:id="@+id/ReSubmit_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="2dp"
+                                android:layout_weight="25"
+                                android:gravity="right"
+                                android:maxLines="1"
+                                android:textAlignment="center"
+                                android:text="RE-UPLOAD"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp"
+
+                                android:background="@drawable/button_border_color"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                app:fontName="Font_Bold" />
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <com.amana.pentapest.components.CustomFontTextView
+                    android:id="@+id/Line_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@color/base"
+                    app:fontName="Font_Medium" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.pentapest.components.CustomFontTextView
+                        android:id="@+id/comments_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="5dp"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Comments"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold"
+                        app:fontName="Font_Bold" />
+
+                    <com.amana.pentapest.components.CustomFontTextView
+                        android:id="@+id/preview_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="PREVIEW"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold"
+                        app:fontName="Font_Bold" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+</LinearLayout>

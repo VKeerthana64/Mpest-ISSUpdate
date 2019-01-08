@@ -1,0 +1,75 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/close_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:elevation="@dimen/_2sdp"
+        android:padding="10dp"
+        android:src="@drawable/ic_close"
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="1dp"
+        app:civ_fill_color="@color/white" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border_shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.amana.pentapest.components.CustomFontTextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:gravity="center_horizontal"
+                android:text="Synchronization"
+                android:textAllCaps="true"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_14sdp"
+                app:fontName="Font_Bold" />
+
+
+            <com.amana.pentapest.components.CustomFontTextView
+                android:id="@+id/msg_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:gravity="center_horizontal"
+                android:text="This process will take about 2 minitues approximately to synchronize all the data. Do you want to proceed?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Regular" />
+
+            <com.amana.pentapest.components.CustomFontButton
+                android:id="@+id/ok_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:elevation="@dimen/_10sdp"
+                android:text="OK"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/btn_shape_green"
+                android:layout_gravity="center"
+                app:fontName="Font_Bold" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>
