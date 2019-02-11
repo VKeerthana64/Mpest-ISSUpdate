@@ -262,7 +262,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
         if(mStatus.equalsIgnoreCase("Completed")){
 
 
-          //  adhocRequestRmsList = MasterDbLists.GetAdhocList();
+            //  adhocRequestRmsList = MasterDbLists.GetAdhocList();
 
             ArrayList<Datum> WithUploadArray = new ArrayList<Datum>();
 
@@ -291,7 +291,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
             }
 
 
-           Collections.reverse(mList);
+            Collections.reverse(mList);
 
         }
 
@@ -380,7 +380,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
         if (id == R.id.action_filter) {
 
             JobsListDatePicker();
-           // new GetTaskListByDateFilter().execute();
+            // new GetTaskListByDateFilter().execute();
             return true;
         }
 
@@ -650,15 +650,15 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
             Calendar now = Calendar.getInstance();
 
-                String dateInString = Utils.getCurrentTime(); // Start date
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                Calendar c = Calendar.getInstance();
-                try {
-                    c.setTime(sdf.parse(dateInString));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                now.setTime(c.getTime());
+            String dateInString = Utils.getCurrentTime(); // Start date
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Calendar c = Calendar.getInstance();
+            try {
+                c.setTime(sdf.parse(dateInString));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            now.setTime(c.getTime());
 
 
 
@@ -688,8 +688,8 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
             dpd.dismissOnPause(false);
             dpd.showYearPickerFirst(false);
             dpd.setVersion(com.wdullaer.materialdatetimepicker.date.DatePickerDialog.Version.VERSION_2);
-          /*  dpd.setAccentColor(Color.parseColor("#F08200"));
-*/
+            /*  dpd.setAccentColor(Color.parseColor("#F08200"));
+             */
             dpd.show(getFragmentManager(), "Datepickerdialog");
 
         } catch (Exception e) {

@@ -70,7 +70,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Service Id : "
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_10sdp"
                                 app:fontName="Font_Light" />
 
                             <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -79,9 +79,8 @@
                                 android:layout_height="wrap_content"
                                 android:maxLines="2"
                                 android:text="12345"
-
                                 android:textColor="@color/colorAccent"
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_11sdp"
                                 android:textStyle="bold"
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
@@ -109,7 +108,7 @@
                                 android:layout_gravity="right"
                                 android:maxLines="2"
                                 android:text="01-Jun-18 8:30 AM"
-                                android:textSize="@dimen/_10sdp"
+                                android:textSize="@dimen/_11sdp"
                                 android:textStyle="bold"
                                 app:fontName="Font_Regular" />
                         </LinearLayout>
@@ -139,7 +138,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Start Time : "
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_10sdp"
                                 app:fontName="Font_Light" />
 
                             <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -149,7 +148,7 @@
                                 android:maxLines="2"
                                 android:text=""
 
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_11sdp"
                                 android:textStyle="bold"
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
@@ -166,7 +165,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="End Time : "
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_11sdp"
                                 app:fontName="Font_Light" />
 
                             <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -175,7 +174,7 @@
                                 android:layout_height="wrap_content"
                                 android:maxLines="2"
                                 android:text=""
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_11sdp"
                                 android:textStyle="bold"
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
@@ -204,7 +203,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Actual Start Time : "
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_8sdp"
                                 app:fontName="Font_Light" />
 
                             <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -213,7 +212,7 @@
                                 android:layout_height="wrap_content"
                                 android:maxLines="2"
                                 android:text=""
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_11sdp"
                                 android:textStyle="bold"
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
@@ -230,7 +229,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Actual End Time : "
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_8sdp"
                                 app:fontName="Font_Light" />
 
                             <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -239,7 +238,7 @@
                                 android:layout_height="wrap_content"
                                 android:maxLines="2"
                                 android:text=""
-                                android:textSize="12dp"
+                                android:textSize="@dimen/_11sdp"
                                 android:textStyle="bold"
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
@@ -270,7 +269,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text=""
                         android:textColor="@color/colorAccent"
-                        android:textSize="12dp"
+                        android:textSize="@dimen/_11sdp"
                         android:textStyle="bold"
                         app:fontName="Font_Bold" />
 
@@ -284,7 +283,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="VIEW"
                         android:textColor="@color/colorAccent"
-                        android:textSize="14dp"
+                        android:textSize="@dimen/_12sdp"
                         android:textStyle="bold"
                         app:fontName="Font_Bold" />
 

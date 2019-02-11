@@ -8,37 +8,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.amana.MpestISS.R;
 import com.amana.MpestISS.model.realm.LogsTable;
-import com.amana.MpestISS.model.realm.taskdetail.Contracterdetail;
-import com.amana.MpestISS.model.realm.taskdetail.Customerdetail;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
-import com.amana.MpestISS.model.realm.taskdetail.JobOrdersdetail;
-import com.amana.MpestISS.model.realm.taskdetail.MyTaskRealm;
-import com.amana.MpestISS.model.realm.taskdetail.Teamdetail;
-import com.amana.MpestISS.restApi.ApiClient;
-import com.amana.MpestISS.restApi.ApiInterface;
 import com.amana.MpestISS.utils.AppPreferences;
 import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class LogsActivity extends AppCompatActivity {

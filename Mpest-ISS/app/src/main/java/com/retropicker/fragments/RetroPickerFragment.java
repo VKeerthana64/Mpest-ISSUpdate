@@ -221,7 +221,7 @@ public class RetroPickerFragment extends Fragment {
     }
 
 
-    private Bitmap getPicBitmap() throws IOException {
+    private Bitmap getPicBitmap() {
 
 	    /* Get the size of the ImageView */
 //        int targetW = ivPhotoDoc.getWidth();
@@ -290,7 +290,7 @@ public class RetroPickerFragment extends Fragment {
                 try {
                     bitmap = getPicBitmap();
                     callbackPicker.onSuccess(bitmap, mCurrentPhotoPath);
-                } catch (IOException e) {
+                } catch (Exception e) {
                     callbackPicker.onFailure(e);
                     e.printStackTrace();
                 }

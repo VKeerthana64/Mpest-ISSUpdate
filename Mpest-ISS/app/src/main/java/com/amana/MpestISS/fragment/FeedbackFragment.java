@@ -1,20 +1,14 @@
 package com.amana.MpestISS.fragment;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,20 +21,17 @@ import com.amana.MpestISS.components.tokenAutoComplete.ContactsCompletionView;
 import com.amana.MpestISS.components.tokenAutoComplete.Person;
 import com.amana.MpestISS.model.AdhocRequest;
 import com.amana.MpestISS.model.realm.jobdetails.FeedbackCaptureRmModel;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.myjob.MyJobActivity;
 import com.amana.MpestISS.utils.AppLogger;
 import com.amana.MpestISS.utils.AppPreferences;
 import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
-import com.geniusforapp.fancydialog.FancyAlertDialog;
 import com.github.gcacace.signaturepad.views.SignaturePad;
 import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static android.view.inputmethod.EditorInfo.*;
 
 public class FeedbackFragment extends Fragment implements FragmentLifecycle {
     AppPreferences _appPrefs;
@@ -50,7 +41,7 @@ public class FeedbackFragment extends Fragment implements FragmentLifecycle {
     private String TAG = this.getClass().getSimpleName();
 
     FeedbackCaptureRmModel feedbackCaptureRmModel = new FeedbackCaptureRmModel();
-    Datum datum = new Datum();
+    ListData datum = new ListData();
 
     @BindView(R.id.proceed_btn)
     Button bn_Proceed;
@@ -126,8 +117,8 @@ public class FeedbackFragment extends Fragment implements FragmentLifecycle {
                 }
 
             } else {
-                if (datum.getCustomerServicedetails().getsEmail().length() > 0) {
-                    completionView.addObject(new Person("", datum.getCustomerServicedetails().getsEmail()), "");
+                if (datum.getCustomerServicedetails().get(0).getsEmail().length() > 0) {
+                    completionView.addObject(new Person("", datum.getCustomerServicedetails().get(0).getsEmail()), "");
                 } else {
                     completionView.clear();
                 }

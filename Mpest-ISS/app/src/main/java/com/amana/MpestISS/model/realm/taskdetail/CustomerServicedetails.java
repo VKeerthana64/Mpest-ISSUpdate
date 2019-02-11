@@ -1,13 +1,9 @@
 
 package com.amana.MpestISS.model.realm.taskdetail;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 import io.realm.RealmObject;
 
 public class CustomerServicedetails extends RealmObject {
-
 
     private String _id;
 
@@ -37,7 +33,7 @@ public class CustomerServicedetails extends RealmObject {
 
     private String sBuildingType;
 
-    private String sEmail;
+    private String sEmail="";
 
     private String Type;
 

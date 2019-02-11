@@ -220,7 +220,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                 finish();
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }else{
-                if(mList.get(0).getCustomerdetails().get(0).getMultipleJobs()){
+               /* if(mList.get(0).getCustomerdetails().get(0).getMultipleJobs()){
 
                     if(MasterDbLists.checkInProgressExist() == 1){
                         if(tv_customer_name.getText().toString().equalsIgnoreCase(""+ MasterDbLists.getCustomerName_InProgressExist())){
@@ -233,7 +233,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                     }
 
                 }
-                else if (MasterDbLists.checkInProgressExist() == 0 ) {
+                else*/ if (MasterDbLists.checkInProgressExist() == 0 ) {
                     popup_AllowToStartService();
 
                 } else {

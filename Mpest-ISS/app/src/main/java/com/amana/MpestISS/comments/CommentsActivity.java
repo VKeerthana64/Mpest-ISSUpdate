@@ -284,7 +284,7 @@ public class CommentsActivity extends AppCompatActivity {
         // create alert dialog
         alertDialog = alertDialogBuilder.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        CircleImageView img_close = (CircleImageView) promptsView
+        CircleImageView img_close = promptsView
                 .findViewById(R.id.close_img);
         img_close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -292,9 +292,9 @@ public class CommentsActivity extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
-        final EditText edt_qty = (EditText) promptsView.findViewById(R.id.input_comment);
-        final TextInputLayout err_commm = (TextInputLayout) promptsView.findViewById(R.id.err_comments);
-        Button btn_ok = (Button) promptsView.findViewById(R.id.ok_btn);
+        final EditText edt_qty = promptsView.findViewById(R.id.input_comment);
+        final TextInputLayout err_commm = promptsView.findViewById(R.id.err_comments);
+        Button btn_ok = promptsView.findViewById(R.id.ok_btn);
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,28 +1,22 @@
 package com.amana.MpestISS.fragment;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.abdeveloper.library.MultiSelectDialog;
 import com.abdeveloper.library.MultiSelectModel;
 import com.amana.MpestISS.R;
 import com.amana.MpestISS.adapter.FragmentLifecycle;
-import com.amana.MpestISS.adapter.MaterialQuantityAdapter;
-import com.amana.MpestISS.model.AdhocModel;
 import com.amana.MpestISS.model.AdhocRequest;
-import com.amana.MpestISS.model.realm.jobdetails.MaterialsCapturesRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.TeamCaptureRmModel;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.myjob.MyJobActivity;
 import com.amana.MpestISS.utils.AppLogger;
 import com.amana.MpestISS.utils.AppPreferences;
@@ -30,10 +24,8 @@ import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
 import com.github.gcacace.signaturepad.views.SignaturePad;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +37,7 @@ public class TeamsFragment extends Fragment implements FragmentLifecycle {
     ArrayList<MultiSelectModel> arr_Teams = new ArrayList<>();
     ArrayList<Integer> arr_SelectedList = new ArrayList<>();
     ArrayList<Integer> arr_getselected = new ArrayList<>();
-    Datum datum = new Datum();
+    ListData datum = new ListData();
 
     TeamCaptureRmModel teamCaptureRmModel = new TeamCaptureRmModel();
     private String TAG = this.getClass().getSimpleName();

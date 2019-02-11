@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 import com.amana.MpestISS.MapsActivity;
 import com.amana.MpestISS.R;
-import com.amana.MpestISS.dashboard.DashboardActivity;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
-import com.amana.MpestISS.myjob.MyJobActivity;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.restApi.ApiClient;
 import com.amana.MpestISS.restApi.ApiInterface;
 import com.amana.MpestISS.utils.AppPreferences;
@@ -40,7 +38,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
     Context mContext;
     String mServiceId = "", mStatus = "";
 
-    ArrayList<Datum> mList;
+    ArrayList<ListData> mList;
     @BindView(R.id.serviceId_txt)
     TextView tv_serviceId;
     @BindView(R.id.work_orderno_txt)
@@ -88,7 +86,6 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
         init();
 
-
     }
 
     public void init() {
@@ -119,6 +116,8 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                 }else{
                     tv_customer_name.setText(mList.get(0).getCustomerdetails().get(0).getCompanyName());
                 }
+
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -155,17 +154,15 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                 _appPrefs.saveTEAMNAME(mList.get(0).getTeamdetails().get(0).getTeamName());
             }
 
-            if (mList.get(0).getContracterdetails().size() > 0) {
-                tv_contract_no.setText(mList.get(0).getContracterdetails().get(0).getContractReferenceNo());
-            }
 
             if (mList.get(0).getJobOrdersdetails().size() > 0) {
-                tv_work_orderno.setText(mList.get(0).getJobOrdersdetails().get(0).getSalesOrderNo());
+                tv_work_orderno.setText(mList.get(0).getJobOrdersdetails().get(0).getJobPlanningNo());
+                tv_contract_no.setText(mList.get(0).getJobOrdersdetails().get(0).getAGNO());
 
             }
 
-            if (mList.get(0).getCustomerdetails().size() > 0) {
-                _appPrefs.saveCUSTOMEREMAIL(mList.get(0).getCustomerServicedetails().getsEmail());
+            if (mList.get(0).getCustomerServicedetails().size() > 0) {
+                _appPrefs.saveCUSTOMEREMAIL(mList.get(0).getCustomerServicedetails().get(0).getsEmail());
             }
 
 

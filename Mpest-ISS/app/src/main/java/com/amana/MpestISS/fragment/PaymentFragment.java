@@ -20,29 +20,15 @@ import com.abdeveloper.library.MultiSelectDialog;
 import com.abdeveloper.library.MultiSelectModel;
 import com.amana.MpestISS.R;
 import com.amana.MpestISS.adapter.FragmentLifecycle;
-import com.amana.MpestISS.joblist.JobDetailsActivity;
-import com.amana.MpestISS.model.comments.CommetsResponse;
 import com.amana.MpestISS.model.realm.jobdetails.FeedbackCaptureRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.PaymentCaptureRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.ServiceMaterialRMModel;
-import com.amana.MpestISS.model.realm.taskdetail.Adhocdata;
-import com.amana.MpestISS.model.realm.taskdetail.Contracterdetail;
-import com.amana.MpestISS.model.realm.taskdetail.Customerdetail;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
-import com.amana.MpestISS.model.realm.taskdetail.JobOrdersdetail;
-import com.amana.MpestISS.model.realm.taskdetail.MyTaskRealm;
-import com.amana.MpestISS.model.realm.taskdetail.Teamdetail;
 import com.amana.MpestISS.myjob.PreviewActivity;
-import com.amana.MpestISS.restApi.ApiClient;
-import com.amana.MpestISS.restApi.ApiInterface;
 import com.amana.MpestISS.utils.AppPreferences;
 import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
-import org.json.JSONObject;
-
-import java.text.FieldPosition;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,8 +36,6 @@ import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
-import retrofit2.Call;
 
 public class PaymentFragment extends Fragment implements FragmentLifecycle, DatePickerDialog.OnDateSetListener{
     AppPreferences _appPrefs;

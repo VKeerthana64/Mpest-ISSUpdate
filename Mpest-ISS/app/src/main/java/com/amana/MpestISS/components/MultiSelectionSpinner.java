@@ -66,7 +66,7 @@ public class MultiSelectionSpinner extends android.support.v7.widget.AppCompatSp
     @Override
     public boolean performClick() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        TextView textView = (TextView) findViewById(android.R.id.message);
+        TextView textView = findViewById(android.R.id.message);
         Typeface tf = Typeface.createFromAsset(getResources().getAssets(), "fonts/Avenir-Heavy.otf");
 
         textView.setTypeface(tf);

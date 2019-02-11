@@ -51,7 +51,7 @@ public class LocalStorageProvider extends DocumentsProvider {
     };
 
     @Override
-    public Cursor queryRoots(final String[] projection) throws FileNotFoundException {
+    public Cursor queryRoots(final String[] projection) {
         // Create a cursor with either the requested fields, or the default
         // projection if "projection" is null.
         final MatrixCursor result = new MatrixCursor(projection != null ? projection
@@ -76,7 +76,7 @@ public class LocalStorageProvider extends DocumentsProvider {
 
     @Override
     public String createDocument(final String parentDocumentId, final String mimeType,
-                                 final String displayName) throws FileNotFoundException {
+                                 final String displayName) {
         File newFile = new File(parentDocumentId, displayName);
         try {
             newFile.createNewFile();
@@ -197,7 +197,7 @@ public class LocalStorageProvider extends DocumentsProvider {
     }
 
     @Override
-    public String getDocumentType(final String documentId) throws FileNotFoundException {
+    public String getDocumentType(final String documentId) {
         File file = new File(documentId);
         if (file.isDirectory())
             return Document.MIME_TYPE_DIR;
@@ -214,7 +214,7 @@ public class LocalStorageProvider extends DocumentsProvider {
     }
 
     @Override
-    public void deleteDocument(final String documentId) throws FileNotFoundException {
+    public void deleteDocument(final String documentId) {
         new File(documentId).delete();
     }
 

@@ -1,10 +1,8 @@
 package com.amana.MpestISS.utils;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 
 import com.abdeveloper.library.MultiSelectModel;
-import com.amana.MpestISS.model.AdhocRequest;
 import com.amana.MpestISS.model.RemarskModel;
 import com.amana.MpestISS.model.masterdetails.MaterialData;
 import com.amana.MpestISS.model.masterdetails.MaterialsResponse;
@@ -31,19 +29,15 @@ import com.amana.MpestISS.model.realm.jobdetails.ServiceMaterialRMModel;
 import com.amana.MpestISS.model.realm.jobdetails.ServicesCapturesRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.TeamCaptureRmModel;
 import com.amana.MpestISS.model.realm.logdetails.LogFeedbackCaptureRmModel;
-import com.amana.MpestISS.model.realm.logdetails.LogMaterialsCapturesRmModel;
 import com.amana.MpestISS.model.realm.logdetails.LogPaymentCaptureRmModel;
 import com.amana.MpestISS.model.realm.logdetails.LogPhotoRemarkRMModel;
-import com.amana.MpestISS.model.realm.logdetails.LogServiceMaterialRMModel;
-import com.amana.MpestISS.model.realm.logdetails.LogServicesCapturesRmModel;
 import com.amana.MpestISS.model.realm.logdetails.LogTeamCaptureRmModel;
 import com.amana.MpestISS.model.realm.logdetails.LogsServiceDetails;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.restApi.ApiClient;
 import com.amana.MpestISS.restApi.ApiInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import io.realm.Case;
 import io.realm.Realm;
@@ -407,20 +401,20 @@ public class MasterDbLists {
 
 
     /**
-     * fetch Task list from Datum Table and filters based on Status and Search
+     * fetch Task list from ListData Table and filters based on Status and Search
      *
      * @param mStatus
      * @param mSearch
      * @return
      */
-    public static ArrayList<Datum> getMytaskListFromdb(String mStatus, String mSearch) {
+    public static ArrayList<ListData> getMytaskListFromdb(String mStatus, String mSearch) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
-        RealmQuery<Datum> query;
+        RealmQuery<ListData> query;
         if (mSearch.length() > 0) {
             //  mSearch = "?"+mSearch+"*";
-            query = realm.where(Datum.class).equalTo("Status", "" + mStatus)
+            query = realm.where(ListData.class).equalTo("Status", "" + mStatus)
                     .and()
                     .contains("ServiceID", mSearch, Case.INSENSITIVE)
                     .or()
@@ -430,15 +424,15 @@ public class MasterDbLists {
 
 
         } else {
-            query = realm.where(Datum.class).equalTo("Status", "" + mStatus);
+            query = realm.where(ListData.class).equalTo("Status", "" + mStatus);
 
         }
         // Execute the query:
-        RealmResults<Datum> result1 = query.sort("Startsat").findAll();
+        RealmResults<ListData> result1 = query.sort("Startsat").findAll();
         realm.commitTransaction();
 
 
-        return (ArrayList<Datum>) realm.copyFromRealm(result1);
+        return (ArrayList<ListData>) realm.copyFromRealm(result1);
     }
 
 
@@ -448,18 +442,18 @@ public class MasterDbLists {
      *
      * @return
      */
-    public static ArrayList<Datum> getMytaskListFromdb() {
+    public static ArrayList<ListData> getMytaskListFromdb() {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
-        RealmQuery<Datum> query;
+        RealmQuery<ListData> query;
         //  mSearch = "?"+mSearch+"*";
-        query = realm.where(Datum.class);
+        query = realm.where(ListData.class);
 
         // Execute the query:
-        RealmResults<Datum> result1 = query.findAll();
+        RealmResults<ListData> result1 = query.findAll();
         realm.commitTransaction();
-        return (ArrayList<Datum>) realm.copyFromRealm(result1);
+        return (ArrayList<ListData>) realm.copyFromRealm(result1);
     }
 
 
@@ -475,9 +469,9 @@ public class MasterDbLists {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                Datum obj = realm.where(Datum.class).equalTo("ServiceID", mServiceID).findFirst();
+                ListData obj = realm.where(ListData.class).equalTo("ServiceID", mServiceID).findFirst();
                 if (obj == null) {
-                    obj = realm.createObject(Datum.class);
+                    obj = realm.createObject(ListData.class);
                 }
                 obj.setCommentCount(Count);
 
@@ -487,18 +481,18 @@ public class MasterDbLists {
 
 
     /**
-     * Get Service details from Datum table by passing Service id
+     * Get Service details from ListData table by passing Service id
      *
      * @param mServiceId
      * @return
      */
-    public static ArrayList<Datum> getServiceDetailsfromDb(String mServiceId) {
+    public static ArrayList<ListData> getServiceDetailsfromDb(String mServiceId) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
-        RealmResults<Datum> result1 = realm.where(Datum.class).equalTo("ServiceID", mServiceId).findAll();
+        RealmResults<ListData> result1 = realm.where(ListData.class).equalTo("ServiceID", mServiceId).findAll();
         realm.commitTransaction();
-        return (ArrayList<Datum>) realm.copyFromRealm(result1);
+        return (ArrayList<ListData>) realm.copyFromRealm(result1);
     }
 
     public static LogsServiceDetails getLOGServiceDetailsfromDb(String mServiceId) {
@@ -678,9 +672,9 @@ public class MasterDbLists {
         final Realm realm = Realm.getDefaultInstance(); // opens db
 
         realm.beginTransaction();
-        RealmQuery<Datum> query1 = realm.where(Datum.class).equalTo("ServiceID", mServiceid);
+        RealmQuery<ListData> query1 = realm.where(ListData.class).equalTo("ServiceID", mServiceid);
         // Execute the query:
-        Datum datum = query1.findFirst();
+        ListData datum = query1.findFirst();
         realm.commitTransaction();
         try {
             String[] TeamList = datum.getTeamdetails().get(0).getTeamMembers().split(",");
@@ -731,14 +725,14 @@ public class MasterDbLists {
      *
      * @return
      */
-    public static Datum GetTeamDetails(String mServiceid) {
+    public static ListData GetTeamDetails(String mServiceid) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
 
         realm.beginTransaction();
-        RealmQuery<Datum> query1 = realm.where(Datum.class).equalTo("ServiceID", mServiceid);
+        RealmQuery<ListData> query1 = realm.where(ListData.class).equalTo("ServiceID", mServiceid);
         // Execute the query:
-        Datum datum = query1.findFirst();
+        ListData datum = query1.findFirst();
         realm.commitTransaction();
 
         return datum;
@@ -1455,11 +1449,11 @@ public class MasterDbLists {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                Datum obj = realm.where(Datum.class)
+                ListData obj = realm.where(ListData.class)
                         .equalTo("ServiceID", mServiceID)
                         .findFirst();
                 if (obj == null) {
-                    obj = realm.createObject(Datum.class);
+                    obj = realm.createObject(ListData.class);
                 }
 
                 obj.setStatus(mStatus);
@@ -1475,11 +1469,11 @@ public class MasterDbLists {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                Datum obj = realm.where(Datum.class)
+                ListData obj = realm.where(ListData.class)
                         .equalTo("ServiceID", mServiceID)
                         .findFirst();
                 if (obj == null) {
-                    obj = realm.createObject(Datum.class);
+                    obj = realm.createObject(ListData.class);
                 }
 
                 obj.setStatus(mStatus);
@@ -1715,7 +1709,7 @@ public class MasterDbLists {
     public static void DeleteDuplicate(String mServiceID) {
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
-        realm.where(Datum.class)
+        realm.where(ListData.class)
                 .equalTo("ServiceID", mServiceID)
                 .and()
                 .notEqualTo("UploadStatus", "Upload InProgress")
@@ -1737,13 +1731,13 @@ public class MasterDbLists {
         final Realm realm = Realm.getDefaultInstance(); // opens db
 
         realm.beginTransaction();
-        RealmResults<Datum> result1 = realm.where(Datum.class)
+        RealmResults<ListData> result1 = realm.where(ListData.class)
                 .equalTo("Status", "In-Progress")
                 .findAll();
         // Execute the query:
         realm.commitTransaction();
 
-        ArrayList<Datum> teamCaptureRmModels = (ArrayList<Datum>) realm.copyFromRealm(result1);
+        ArrayList<ListData> teamCaptureRmModels = (ArrayList<ListData>) realm.copyFromRealm(result1);
 
         return teamCaptureRmModels.size();
     }
@@ -1757,7 +1751,7 @@ public class MasterDbLists {
         final Realm realm = Realm.getDefaultInstance(); // opens db
 
         realm.beginTransaction();
-        Datum result1 = realm.where(Datum.class)
+        ListData result1 = realm.where(ListData.class)
                 .equalTo("Status", "In-Progress")
                 .findFirst();
         // Execute the query:
@@ -1812,7 +1806,7 @@ public class MasterDbLists {
 
 
     /**
-     * Get Service details from Datum table by passing Service id
+     * Get Service details from ListData table by passing Service id
      *
      * @param mServiceId
      * @return

@@ -10,7 +10,7 @@ public class MyTaskRealm extends RealmObject{
 
     private String message;
 
-    private RealmList<Datum> data = null;
+    private RealmList<ListData> data = null;
 
     public String getStatusCode() {
         return statusCode;
@@ -28,11 +28,11 @@ public class MyTaskRealm extends RealmObject{
         this.message = message;
     }
 
-    public RealmList<Datum> getData() {
+    public RealmList<ListData> getData() {
         return data;
     }
 
-    public void setData(RealmList<Datum> data) {
+    public void setData(RealmList<ListData> data) {
         this.data = data;
     }
 

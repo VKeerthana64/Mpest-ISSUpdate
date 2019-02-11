@@ -195,10 +195,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         // create alert dialog
         alertDialog = alertDialogBuilder.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        CircleImageView img_close= (CircleImageView) promptsView
+        CircleImageView img_close= promptsView
                 .findViewById(R.id.close_img);
 
-       Button btn_ok = (Button) promptsView.findViewById(R.id.ok_btn);
+       Button btn_ok = promptsView.findViewById(R.id.ok_btn);
         img_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

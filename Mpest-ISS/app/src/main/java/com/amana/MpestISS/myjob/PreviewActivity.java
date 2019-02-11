@@ -4,16 +4,13 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -38,6 +35,7 @@ import com.amana.MpestISS.MapsActivity;
 import com.amana.MpestISS.R;
 import com.amana.MpestISS.adapter.PreviewMaterialsAdapter;
 import com.amana.MpestISS.adapter.PreviewServicesAdapter;
+import com.amana.MpestISS.joblist.JobDetailsActivity;
 import com.amana.MpestISS.model.AdhocRequest;
 import com.amana.MpestISS.model.MaterialPreviewModel;
 import com.amana.MpestISS.model.UploadRequest;
@@ -45,23 +43,19 @@ import com.amana.MpestISS.model.finalUpload.MaterialsRequest;
 import com.amana.MpestISS.model.finalUpload.PhotoAfterRequest;
 import com.amana.MpestISS.model.finalUpload.PhotoBeforeRequest;
 import com.amana.MpestISS.model.finalUpload.ServicesRequest;
-import com.amana.MpestISS.model.realm.Materials;
 import com.amana.MpestISS.model.realm.jobdetails.FeedbackCaptureRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.PaymentCaptureRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.PhotoRemarkRMModel;
 import com.amana.MpestISS.model.realm.jobdetails.ServiceMaterialRMModel;
 import com.amana.MpestISS.model.realm.jobdetails.ServicesCapturesRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.TeamCaptureRmModel;
-import com.amana.MpestISS.model.realm.logdetails.LogsServiceDetails;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.restApi.ApiClient;
 import com.amana.MpestISS.restApi.ApiInterface;
-import com.amana.MpestISS.joblist.JobDetailsActivity;
 import com.amana.MpestISS.utils.AppLogger;
 import com.amana.MpestISS.utils.AppPreferences;
 import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
-import com.geniusforapp.fancydialog.FancyAlertDialog;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -88,18 +82,12 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.zelory.compressor.Compressor;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
-import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -136,7 +124,7 @@ public class PreviewActivity extends AppCompatActivity {
     FeedbackCaptureRmModel feedbackCaptureRmModel = new FeedbackCaptureRmModel();
     ArrayList<MaterialPreviewModel> arr_previewMaterial = new ArrayList<>();
 
-    ArrayList<Datum> mList;
+    ArrayList<ListData> mList;
     ArrayList<ServiceMaterialRMModel> arr_servicedetail = new ArrayList<>();
     ArrayList<ServiceMaterialRMModel> arr_materialedetail = new ArrayList<>();
 
@@ -292,7 +280,6 @@ public class PreviewActivity extends AppCompatActivity {
     public void init() {
 
        // Utils.showCustomDialog(mContext);
-
         if(_appPrefs.getSERVICEID().contains("ADHOC_")){
             tv_serviceId.setText(_appPrefs.getSERVICEID());
             tv_customer_name.setText(adhocRequest.getContactPerson());
@@ -353,42 +340,32 @@ public class PreviewActivity extends AppCompatActivity {
                 _appPrefs.saveTEAMNAME(mList.get(0).getTeamdetails().get(0).getTeamName());
             }
 
-            if(mList.get(0).getContracterdetails().size() >0){
-                tv_contract_no.setText(mList.get(0).getContracterdetails().get(0).getContractReferenceNo());
-            }
-
 
             if(mList.get(0).getJobOrdersdetails().size()>0){
                 Types_txt.setText(mList.get(0).getJobOrdersdetails().get(0).getTypes());
+                tv_contract_no.setText(mList.get(0).getJobOrdersdetails().get(0).getAGNO());
             }
 
             if(mList.get(0).getJobOrdersdetails().size() > 0){
-                tv_work_orderno.setText(mList.get(0).getJobOrdersdetails().get(0).getSalesOrderNo());
+                tv_work_orderno.setText(mList.get(0).getJobOrdersdetails().get(0).getJobPlanningNo());
 
             }
 
             if(mList.get(0).getCustomerdetails().size() > 0){
-                _appPrefs.saveCUSTOMEREMAIL(mList.get(0).getCustomerServicedetails().getsEmail());
+                _appPrefs.saveCUSTOMEREMAIL(mList.get(0).getCustomerServicedetails().get(0).getsEmail());
             }
-
 
             try{
                 _appPrefs.savePESTS(mList.get(0).getPestType()); // set's Pest Type to preferrence
                 _appPrefs.saveCUSTOMER(mList.get(0).getContactPerson()); // set's Customer Name to preferrence
 
             }catch (Exception e){e.printStackTrace();}
-
-
         }
-
-
 
         tv_performedBy.setText(_appPrefs.getUserID());
 
-
         tv_scheduled_start_time.setText(Utils.CurrentTime(_appPrefs.getJobStartedTime().toString()));
         tv_scheduled_end_time.setText(Utils.CurrentTime());
-
 
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -410,9 +387,6 @@ public class PreviewActivity extends AppCompatActivity {
                     }
                 }
 
-
-
-
                 startActivity(intent_location);
             }
         });
@@ -423,7 +397,6 @@ public class PreviewActivity extends AppCompatActivity {
         rv_services.setAdapter(previewServicesAdapter);
         rv_services.setItemAnimator(new DefaultItemAnimator());
         // ------ //
-
 
          arr_previewMaterial.clear();
 
@@ -946,8 +919,8 @@ public class PreviewActivity extends AppCompatActivity {
 
         if(!_appPrefs.getSERVICEID().contains("ADHOC_")){
             if(mList.get(0).getJobOrdersdetails().size() > 0) {
-                StartTime= mList.get(0).getJobOrdersdetails().get(0).getServiceStartDate();
-                endTime=mList.get(0).getJobOrdersdetails().get(0).getServiceEndDate();
+                StartTime= mList.get(0).getJobOrdersdetails().get(0).getStartTime();
+                endTime=mList.get(0).getJobOrdersdetails().get(0).getEndTime();
             }
         }
 

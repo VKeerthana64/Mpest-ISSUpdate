@@ -1,7 +1,6 @@
 package com.amana.MpestISS.joblist;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,16 +16,14 @@ import android.widget.TextView;
 import com.amana.MpestISS.R;
 import com.amana.MpestISS.MapsActivity;
 import com.amana.MpestISS.comments.CommentsActivity;
-import com.amana.MpestISS.dashboard.DashboardActivity;
 import com.amana.MpestISS.myjob.MyJobActivity;
 import com.amana.MpestISS.myjob.PreviewActivity;
 import com.amana.MpestISS.myjob.ServiceDetailsActivity;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.restApi.ApiInterface;
 import com.amana.MpestISS.utils.AppPreferences;
 import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
-import com.geniusforapp.fancydialog.FancyAlertDialog;
 
 import java.util.ArrayList;
 
@@ -36,13 +33,13 @@ import java.util.ArrayList;
 
 public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder> {
     AppPreferences _appPrefs;
-    private ArrayList<Datum> arrayDatum;
+    private ArrayList<ListData> arrayDatum;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     Context mContext;
 
-    MyTaskAdapter(Context context, ArrayList<Datum> arrayDatum) {
+    MyTaskAdapter(Context context, ArrayList<ListData> arrayDatum) {
         this.mInflater = LayoutInflater.from(context);
         this.arrayDatum = arrayDatum;
         this.mContext = context;
@@ -59,7 +56,7 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
     // binds the data to the textview in each cell
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final Datum datum = arrayDatum.get(position);
+        final ListData datum = arrayDatum.get(position);
 
         holder.tvServiceId.setText(datum.getServiceID());
 
@@ -222,7 +219,7 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
                     i.putExtra("TeamLead", datum.getTeamdetails().get(0).getTeamLead());
                     i.putExtra("Customer", datum.getContactPerson());
                     if (datum.getCustomerdetails().size() > 0) {
-                        i.putExtra("CustomerEmail", datum.getCustomerServicedetails().getsEmail());
+                        i.putExtra("CustomerEmail", datum.getCustomerServicedetails().get(0).getsEmail());
                     } else {
                         i.putExtra("CustomerEmail", "");
                     }

@@ -588,7 +588,6 @@ public class LogPreviewActivity extends AppCompatActivity {
                     materialPreviewModel.setMaterials(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getMaterialName());
                     materialPreviewModel.setQuantity(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getQuantity());
                     materialPreviewModel.setUnit(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getUnit());
-                    materialPreviewModel.setDilution(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getDilution());
                     arr_previewMaterial.add(materialPreviewModel);
                 }
 
@@ -604,7 +603,6 @@ public class LogPreviewActivity extends AppCompatActivity {
                     materialPreviewModel.setMaterials(materialOthers);
                     materialPreviewModel.setQuantity("");
                     materialPreviewModel.setUnit("");
-                    materialPreviewModel.setDilution("");
                     arr_previewMaterial.add(materialPreviewModel);
 
                 }

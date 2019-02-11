@@ -70,7 +70,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
             holder.rgAnswer.addView(radioButton, rprms);
         }
 
-
     }
 
     // total number of cells
@@ -88,15 +87,15 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            tvQuestion = (TextView) itemView.findViewById(R.id.Question_txt);
-            rgAnswer = (RadioGroup) itemView.findViewById(R.id.rg_answers);
-            lnrRoot= (LinearLayout) itemView.findViewById(R.id.rg_answers);
+            tvQuestion = itemView.findViewById(R.id.Question_txt);
+            rgAnswer = itemView.findViewById(R.id.rg_answers);
+            lnrRoot= itemView.findViewById(R.id.rg_answers);
 
             rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     int selectedId=rgAnswer.getCheckedRadioButtonId();
-                     RadioButton radioSexButton=(RadioButton)itemView.findViewById(selectedId);
+                     RadioButton radioSexButton= itemView.findViewById(selectedId);
                     if (mClickListener != null) mClickListener.onItemClick(radioSexButton.getText().toString(),checkedId, getAdapterPosition());
                 }
             });

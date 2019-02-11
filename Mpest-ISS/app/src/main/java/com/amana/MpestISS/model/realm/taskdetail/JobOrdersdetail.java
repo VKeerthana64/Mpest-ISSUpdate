@@ -1,60 +1,104 @@
+
 package com.amana.MpestISS.model.realm.taskdetail;
 
 import io.realm.RealmObject;
 
-public class JobOrdersdetail extends RealmObject {
-
+public class JobOrdersdetail extends RealmObject{
+   
     private String _id;
-
-    private String SalesOrderNo;
-
-    private String OrderConfirmationDate;
-
-    private String ConfirmationReceivedBy;
-
-    private String ConfirmationReceivedDate;
-
+    
+    private String Client_Id;
+  
+    private String JobCode;
+ 
+    private String JobPlanningNo;
+ 
+    private String ProductOffering;
+  
     private String PestType;
-
-    private String CreatedBy;
-
-    private String EnquiryID;
-
-    private String SalesPerson_id;
-
-    private String EnquiryReferenceNo;
-
+   
+    private String SiteCardNo;
+   
+    private String CustomerID;
+  
+    private String SiteName;
+  
+    private String PostalCode;
+  
+    private String Address;
+  
     private String ContactPerson;
+   
+    private String Phone1;
+    
+    private String Phone2;
+   
+    private String Email;
 
-    private String Customer_id;
+    private String ServiceArea;
+  
+    private String AreaSize;
+   
+    private String AGNO;
+   
+    private String AGID;
 
-    private String ServiceStartDate;
 
-    private String ServiceEndDate;
+    private String StartDate;
+ 
+    private String EndDate;
 
     private String Frequency;
 
-    private String OrderType;
+    private String JobFrequency;
+
+    private String JobQuantity;
+ 
+    private String JobDescription;
+  
+    private String PostPre;
+  
+    private String PONO;
+
+    private String Status;
+   
+    private String CreatedBy;
+  
+    private String Technician;
+ 
+    private String InitialStartDate;
+  
+    private String StartTime;
+   
+    private String EndTime;
+   
+    private String Amount;
+  
+    private String AmountGST;
+    
+    private String JobType;
+    
+    private String PosttoNAV;
+    
+    private String ServiceLineCreated;
+    
+    private Boolean BatchEmail;
+  
+    private String UpdatedDate;
+   
+    private String CreatedDate;
+    
+    private Boolean IsActive;
 
     private String Types;
 
-    private String ContractDuration;
+    public String getTypes() {
+        return Types;
+    }
 
-    private String ContractStartDate;
-
-    private String ContractEndDate;
-
-    private String JobsPerFrequency;
-
-    private String ServicesRequired;
-
-    private int TotalArea=0;
-
-    private String Client_Id;
-
-    private String CreatedDate;
-
-    private Boolean IsActive;
+    public void setTypes(String types) {
+        Types = types;
+    }
 
     private Integer __v;
 
@@ -66,36 +110,36 @@ public class JobOrdersdetail extends RealmObject {
         this._id = _id;
     }
 
-    public String getSalesOrderNo() {
-        return SalesOrderNo;
+    public String getClient_Id() {
+        return Client_Id;
     }
 
-    public void setSalesOrderNo(String salesOrderNo) {
-        SalesOrderNo = salesOrderNo;
+    public void setClient_Id(String client_Id) {
+        Client_Id = client_Id;
     }
 
-    public String getOrderConfirmationDate() {
-        return OrderConfirmationDate;
+    public String getJobCode() {
+        return JobCode;
     }
 
-    public void setOrderConfirmationDate(String orderConfirmationDate) {
-        OrderConfirmationDate = orderConfirmationDate;
+    public void setJobCode(String jobCode) {
+        JobCode = jobCode;
     }
 
-    public String getConfirmationReceivedBy() {
-        return ConfirmationReceivedBy;
+    public String getJobPlanningNo() {
+        return JobPlanningNo;
     }
 
-    public void setConfirmationReceivedBy(String confirmationReceivedBy) {
-        ConfirmationReceivedBy = confirmationReceivedBy;
+    public void setJobPlanningNo(String jobPlanningNo) {
+        JobPlanningNo = jobPlanningNo;
     }
 
-    public String getConfirmationReceivedDate() {
-        return ConfirmationReceivedDate;
+    public String getProductOffering() {
+        return ProductOffering;
     }
 
-    public void setConfirmationReceivedDate(String confirmationReceivedDate) {
-        ConfirmationReceivedDate = confirmationReceivedDate;
+    public void setProductOffering(String productOffering) {
+        ProductOffering = productOffering;
     }
 
     public String getPestType() {
@@ -106,36 +150,44 @@ public class JobOrdersdetail extends RealmObject {
         PestType = pestType;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public String getSiteCardNo() {
+        return SiteCardNo;
     }
 
-    public void setCreatedBy(String createdBy) {
-        CreatedBy = createdBy;
+    public void setSiteCardNo(String siteCardNo) {
+        SiteCardNo = siteCardNo;
     }
 
-    public String getEnquiryID() {
-        return EnquiryID;
+    public String getCustomerID() {
+        return CustomerID;
     }
 
-    public void setEnquiryID(String enquiryID) {
-        EnquiryID = enquiryID;
+    public void setCustomerID(String customerID) {
+        CustomerID = customerID;
     }
 
-    public String getSalesPerson_id() {
-        return SalesPerson_id;
+    public String getSiteName() {
+        return SiteName;
     }
 
-    public void setSalesPerson_id(String salesPerson_id) {
-        SalesPerson_id = salesPerson_id;
+    public void setSiteName(String siteName) {
+        SiteName = siteName;
     }
 
-    public String getEnquiryReferenceNo() {
-        return EnquiryReferenceNo;
+    public String getPostalCode() {
+        return PostalCode;
     }
 
-    public void setEnquiryReferenceNo(String enquiryReferenceNo) {
-        EnquiryReferenceNo = enquiryReferenceNo;
+    public void setPostalCode(String postalCode) {
+        PostalCode = postalCode;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
     }
 
     public String getContactPerson() {
@@ -146,28 +198,76 @@ public class JobOrdersdetail extends RealmObject {
         ContactPerson = contactPerson;
     }
 
-    public String getCustomer_id() {
-        return Customer_id;
+    public String getPhone1() {
+        return Phone1;
     }
 
-    public void setCustomer_id(String customer_id) {
-        Customer_id = customer_id;
+    public void setPhone1(String phone1) {
+        Phone1 = phone1;
     }
 
-    public String getServiceStartDate() {
-        return ServiceStartDate;
+    public String getPhone2() {
+        return Phone2;
     }
 
-    public void setServiceStartDate(String serviceStartDate) {
-        ServiceStartDate = serviceStartDate;
+    public void setPhone2(String phone2) {
+        Phone2 = phone2;
     }
 
-    public String getServiceEndDate() {
-        return ServiceEndDate;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setServiceEndDate(String serviceEndDate) {
-        ServiceEndDate = serviceEndDate;
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getServiceArea() {
+        return ServiceArea;
+    }
+
+    public void setServiceArea(String serviceArea) {
+        ServiceArea = serviceArea;
+    }
+
+    public String getAreaSize() {
+        return AreaSize;
+    }
+
+    public void setAreaSize(String areaSize) {
+        AreaSize = areaSize;
+    }
+
+    public String getAGNO() {
+        return AGNO;
+    }
+
+    public void setAGNO(String AGNO) {
+        this.AGNO = AGNO;
+    }
+
+    public String getAGID() {
+        return AGID;
+    }
+
+    public void setAGID(String AGID) {
+        this.AGID = AGID;
+    }
+
+    public String getStartDate() {
+        return StartDate;
+    }
+
+    public void setStartDate(String startDate) {
+        StartDate = startDate;
+    }
+
+    public String getEndDate() {
+        return EndDate;
+    }
+
+    public void setEndDate(String endDate) {
+        EndDate = endDate;
     }
 
     public String getFrequency() {
@@ -178,68 +278,148 @@ public class JobOrdersdetail extends RealmObject {
         Frequency = frequency;
     }
 
-    public String getOrderType() {
-        return OrderType;
+    public String getJobFrequency() {
+        return JobFrequency;
     }
 
-    public void setOrderType(String orderType) {
-        OrderType = orderType;
+    public void setJobFrequency(String jobFrequency) {
+        JobFrequency = jobFrequency;
     }
 
-    public String getTypes() {
-        return Types;
+    public String getJobQuantity() {
+        return JobQuantity;
     }
 
-    public void setTypes(String types) {
-        Types = types;
+    public void setJobQuantity(String jobQuantity) {
+        JobQuantity = jobQuantity;
     }
 
-    public String getContractDuration() {
-        return ContractDuration;
+    public String getJobDescription() {
+        return JobDescription;
     }
 
-    public void setContractDuration(String contractDuration) {
-        ContractDuration = contractDuration;
+    public void setJobDescription(String jobDescription) {
+        JobDescription = jobDescription;
     }
 
-    public String getContractStartDate() {
-        return ContractStartDate;
+    public String getPostPre() {
+        return PostPre;
     }
 
-    public void setContractStartDate(String contractStartDate) {
-        ContractStartDate = contractStartDate;
+    public void setPostPre(String postPre) {
+        PostPre = postPre;
     }
 
-    public String getContractEndDate() {
-        return ContractEndDate;
+    public String getPONO() {
+        return PONO;
     }
 
-    public void setContractEndDate(String contractEndDate) {
-        ContractEndDate = contractEndDate;
+    public void setPONO(String PONO) {
+        this.PONO = PONO;
     }
 
-    public String getJobsPerFrequency() {
-        return JobsPerFrequency;
+    public String getStatus() {
+        return Status;
     }
 
-    public void setJobsPerFrequency(String jobsPerFrequency) {
-        JobsPerFrequency = jobsPerFrequency;
+    public void setStatus(String status) {
+        Status = status;
     }
 
-    public String getServicesRequired() {
-        return ServicesRequired;
+    public String getCreatedBy() {
+        return CreatedBy;
     }
 
-    public void setServicesRequired(String servicesRequired) {
-        ServicesRequired = servicesRequired;
+    public void setCreatedBy(String createdBy) {
+        CreatedBy = createdBy;
     }
 
-    public String getClient_Id() {
-        return Client_Id;
+    public String getTechnician() {
+        return Technician;
     }
 
-    public void setClient_Id(String client_Id) {
-        Client_Id = client_Id;
+    public void setTechnician(String technician) {
+        Technician = technician;
+    }
+
+    public String getInitialStartDate() {
+        return InitialStartDate;
+    }
+
+    public void setInitialStartDate(String initialStartDate) {
+        InitialStartDate = initialStartDate;
+    }
+
+    public String getStartTime() {
+        return StartTime;
+    }
+
+    public void setStartTime(String startTime) {
+        StartTime = startTime;
+    }
+
+    public String getEndTime() {
+        return EndTime;
+    }
+
+    public void setEndTime(String endTime) {
+        EndTime = endTime;
+    }
+
+    public String getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(String amount) {
+        Amount = amount;
+    }
+
+    public String getAmountGST() {
+        return AmountGST;
+    }
+
+    public void setAmountGST(String amountGST) {
+        AmountGST = amountGST;
+    }
+
+    public String getJobType() {
+        return JobType;
+    }
+
+    public void setJobType(String jobType) {
+        JobType = jobType;
+    }
+
+    public String getPosttoNAV() {
+        return PosttoNAV;
+    }
+
+    public void setPosttoNAV(String posttoNAV) {
+        PosttoNAV = posttoNAV;
+    }
+
+    public String getServiceLineCreated() {
+        return ServiceLineCreated;
+    }
+
+    public void setServiceLineCreated(String serviceLineCreated) {
+        ServiceLineCreated = serviceLineCreated;
+    }
+
+    public Boolean getBatchEmail() {
+        return BatchEmail;
+    }
+
+    public void setBatchEmail(Boolean batchEmail) {
+        BatchEmail = batchEmail;
+    }
+
+    public String getUpdatedDate() {
+        return UpdatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        UpdatedDate = updatedDate;
     }
 
     public String getCreatedDate() {
@@ -264,13 +444,5 @@ public class JobOrdersdetail extends RealmObject {
 
     public void set__v(Integer __v) {
         this.__v = __v;
-    }
-
-    public int getTotalArea() {
-        return TotalArea;
-    }
-
-    public void setTotalArea(int totalArea) {
-        TotalArea = totalArea;
     }
 }

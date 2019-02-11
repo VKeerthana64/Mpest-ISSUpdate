@@ -12,7 +12,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,19 +19,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.amana.MpestISS.R;
-import com.amana.MpestISS.model.AdhocRequest;
-import com.amana.MpestISS.model.comments.CommetsResponse;
 import com.amana.MpestISS.model.realm.AdhocRm.AdhocRequestRm;
-import com.amana.MpestISS.model.realm.taskdetail.Adhocdata;
-import com.amana.MpestISS.model.realm.taskdetail.Contracterdetail;
-import com.amana.MpestISS.model.realm.taskdetail.Customerdetail;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
-import com.amana.MpestISS.model.realm.taskdetail.JobOrdersdetail;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.model.realm.taskdetail.MyTaskRealm;
-import com.amana.MpestISS.model.realm.taskdetail.Teamdetail;
 import com.amana.MpestISS.restApi.ApiClient;
 import com.amana.MpestISS.restApi.ApiInterface;
-import com.amana.MpestISS.utils.AppLogger;
 import com.amana.MpestISS.utils.AppPreferences;
 import com.amana.MpestISS.utils.MasterDbLists;
 import com.amana.MpestISS.utils.Utils;
@@ -59,7 +50,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
     AppPreferences _appPrefs;
     Context mContext;
     MyTaskAdapter mListAdapter;
-    ArrayList<Datum> mList;
+    ArrayList<ListData> mList;
 
     private Menu menu;
     private SearchView search;
@@ -264,9 +255,9 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
           //  adhocRequestRmsList = MasterDbLists.GetAdhocList();
 
-            ArrayList<Datum> WithUploadArray = new ArrayList<Datum>();
+            ArrayList<ListData> WithUploadArray = new ArrayList<ListData>();
 
-            for(Datum event : mList){
+            for(ListData event : mList){
                 try {
                     if(event.getUploadStatus().contains("Upload")){
                         WithUploadArray.add(event);
@@ -279,7 +270,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
             if(WithUploadArray.size() >0){ // If found available i will delete from table and fetch again completed data
 
-                for(Datum event: WithUploadArray){
+                for(ListData event: WithUploadArray){
                     MasterDbLists.DeleteDuplicate(event.getServiceID());
                 }
 
@@ -424,14 +415,14 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
             Call<Object> call = apiService.getMyTaskDetails(_appPrefs.getCLIENTID().toString(), _appPrefs.getEMPLOYEEID().toString(), _appPrefs.getUserID());
 
             try {
-                final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(call.execute().body()));
+                final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(call.clone().execute().body()));
 
                 final Realm realm = Realm.getDefaultInstance(); // opens db
 
                 realm.beginTransaction();
                 realm.where(MyTaskRealm.class).findAll().deleteAllFromRealm();
-                //realm.rem(Datum.class).clear();
-                RealmResults<Datum> users = realm.where(Datum.class)
+                //realm.rem(ListData.class).clear();
+                RealmResults<ListData> users = realm.where(ListData.class)
                         .notEqualTo("Status", "In-Progress")
                         .and()
                         .notEqualTo("UploadStatus", "Upload InProgress")
@@ -471,11 +462,11 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 realm.createObjectFromJson(MyTaskRealm.class, object);// Insert from a string
                 realm.commitTransaction();
 
-            /*    ArrayList<Datum> arr_Datum = MasterDbLists.getMytaskListFromdb();
+            /*    ArrayList<ListData> arr_Datum = MasterDbLists.getMytaskListFromdb();
 
                 if (arr_Datum.size() > 0) {
 
-                    for (Datum datum : arr_Datum) {
+                    for (ListData datum : arr_Datum) {
 
                         Call<CommetsResponse> call2 = apiService.GetallComments(datum.get_id());
 
@@ -562,7 +553,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
             Call<Object> call = apiService.getMyTaskDetailsByFilter(_appPrefs.getCLIENTID().toString(), _appPrefs.getEMPLOYEEID().toString(), _appPrefs.getUserID(),""+mDateFilter);
 
             try {
-                final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(call.execute().body()));
+                final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(call.clone().execute().body()));
 
                 final Realm realm = Realm.getDefaultInstance(); // opens db
 
@@ -570,11 +561,11 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 realm.createObjectFromJson(MyTaskRealm.class, object);// Insert from a string
                 realm.commitTransaction();
 
-               /* ArrayList<Datum> arr_Datum = MasterDbLists.getMytaskListFromdb();
+               /* ArrayList<ListData> arr_Datum = MasterDbLists.getMytaskListFromdb();
 
                 if (arr_Datum.size() > 0) {
 
-                    for (Datum datum : arr_Datum) {
+                    for (ListData datum : arr_Datum) {
 
                         Call<CommetsResponse> call2 = apiService.GetallComments(datum.get_id());
 

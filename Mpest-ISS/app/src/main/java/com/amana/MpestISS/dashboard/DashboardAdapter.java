@@ -61,8 +61,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-            myTextView = (TextView) itemView.findViewById(R.id.info_text);
-            imgIcon = (ImageView) itemView.findViewById(R.id.imgIcon);
+            myTextView = itemView.findViewById(R.id.info_text);
+            imgIcon = itemView.findViewById(R.id.imgIcon);
 
             itemView.setOnClickListener(this);
         }

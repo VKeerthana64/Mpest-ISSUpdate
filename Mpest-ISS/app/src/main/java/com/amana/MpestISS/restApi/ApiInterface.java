@@ -32,10 +32,17 @@ import retrofit2.http.PUT;
 public interface ApiInterface {
 
     //Global URl
-    //UAT
-    String BASE_URL = "https://www.amanaasia.net:86/";// UAT
-    String REPORT_URL = "https://www.amanaasia.net/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+    //UAT ---- https://www.amanaasia.net:86
+   // String BASE_URL = "https://www.amanaasia.net:86/";// UAT
+   // String REPORT_URL = "https://www.amanaasia.net/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
    // String REPORT_URL = "http://www.amanaasia.net:8080/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+
+   // String BASE_URL = "https://203.127.124.197:86/";// prod
+    //String REPORT_URL = "https://203.127.124.197/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+
+    String BASE_URL = "https://mpest.isssg.biz:86/";// prod
+    String REPORT_URL = "https://mpest.isssg.biz/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+
 
     String POST_SIGNIN = "login";
     String POST_CHECKING = "attendance/updatepunch";
@@ -103,7 +110,6 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(BASE_URL + POST_SCHEDULERFILTER)
     Call<Object> getMyTaskDetailsByFilter(@Field("Client_Id") String Client_Id, @Field("EmployeeID") String EmployeeID, @Field("UserID") String UserID, @Field("FilterDate") String FilterDate );
-
 
     @FormUrlEncoded
     @POST(BASE_URL + POST_GETCALENDERLIST)

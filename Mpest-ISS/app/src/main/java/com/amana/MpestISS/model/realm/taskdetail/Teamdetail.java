@@ -1,39 +1,48 @@
 
 package com.amana.MpestISS.model.realm.taskdetail;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import io.realm.RealmObject;
 
 public class Teamdetail extends RealmObject{
 
-    private String _id;
 
-    private String TeamName;
+    public String _id;
 
-    private String TeamCode;
+    public String TeamName;
 
-    private String Zone;
+    public String TeamCode;
 
-    private String TeamLead;
+    public String Zone;
 
-    private String TeamMembers;
+    public String TeamLead;
 
-    private String FromDate;
+    public String TeamMembers;
 
-    private String ToDate;
+    public String FromDate;
 
-    private String CreatedBy;
+    public String ToDate;
 
-    private String Client_Id;
+   
+    public String CreatedBy;
 
-    private String CreateDate;
+    public String Client_Id;
 
-    private Boolean IsActive;
+   
+    public String CreateDate;
 
-    private Integer __v;
+    public Boolean IsActive;
 
-    private String UpdatedDate;
+   
+    public Integer __v;
 
-    private String UpdatedBy;
+   
+    public String UpdatedDate;
+
+   
+    public String UpdatedBy;
 
     public String get_id() {
         return _id;

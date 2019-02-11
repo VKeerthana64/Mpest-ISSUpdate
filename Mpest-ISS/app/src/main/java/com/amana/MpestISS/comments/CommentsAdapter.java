@@ -70,9 +70,9 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvCommentedBy = (TextView) itemView.findViewById(R.id.commmentedBy_txt);
-            tvDate = (TextView) itemView.findViewById(R.id.Date_txt);
-            tvComment = (TextView) itemView.findViewById(R.id.comment_txt);
+            tvCommentedBy = itemView.findViewById(R.id.commmentedBy_txt);
+            tvDate = itemView.findViewById(R.id.Date_txt);
+            tvComment = itemView.findViewById(R.id.comment_txt);
 
 
             itemView.setOnClickListener(this);

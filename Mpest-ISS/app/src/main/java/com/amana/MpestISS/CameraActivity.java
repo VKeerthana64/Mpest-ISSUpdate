@@ -47,7 +47,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView = findViewById(R.id.imageView);
 
 //        AlertDialog.Builder builder = new AlertDialog.Builder(this);
     }
@@ -110,7 +110,7 @@ public class CameraActivity extends AppCompatActivity {
         picturePath = imageUri.getPath();
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(cameraIntent, CAMERA_ACTIVITY_RESULT_CODE);
-    };
+    }
 
     private Uri getImageUri() {
         // Store image in Kaakateeya folder

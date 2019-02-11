@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Sample Clean.iml" filepath="$PROJECT_DIR$/Sample Clean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPEST-Ridpest.iml" filepath="$PROJECT_DIR$/MPEST-Ridpest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

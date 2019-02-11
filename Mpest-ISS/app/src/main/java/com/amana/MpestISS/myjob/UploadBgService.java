@@ -12,14 +12,12 @@ import com.amana.MpestISS.adapter.PreviewServicesAdapter;
 import com.amana.MpestISS.model.ADHOCUploadRequest;
 import com.amana.MpestISS.model.ADHOCUploadRequestWithID;
 import com.amana.MpestISS.model.AdhocModel;
-import com.amana.MpestISS.model.AdhocRequest;
 import com.amana.MpestISS.model.MaterialPreviewModel;
 import com.amana.MpestISS.model.UploadRequest;
 import com.amana.MpestISS.model.finalUpload.MaterialsRequest;
 import com.amana.MpestISS.model.finalUpload.PhotoAfterRequest;
 import com.amana.MpestISS.model.finalUpload.PhotoBeforeRequest;
 import com.amana.MpestISS.model.finalUpload.ServicesRequest;
-import com.amana.MpestISS.model.realm.AdhocRm.AdhocModelRm;
 import com.amana.MpestISS.model.realm.AdhocRm.AdhocRequestRm;
 import com.amana.MpestISS.model.realm.jobdetails.FeedbackCaptureRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.PaymentCaptureRmModel;
@@ -28,7 +26,7 @@ import com.amana.MpestISS.model.realm.jobdetails.ServiceMaterialRMModel;
 import com.amana.MpestISS.model.realm.jobdetails.ServicesCapturesRmModel;
 import com.amana.MpestISS.model.realm.jobdetails.TeamCaptureRmModel;
 import com.amana.MpestISS.model.realm.logdetails.LogsServiceDetails;
-import com.amana.MpestISS.model.realm.taskdetail.Datum;
+import com.amana.MpestISS.model.realm.taskdetail.ListData;
 import com.amana.MpestISS.restApi.ApiClient;
 import com.amana.MpestISS.restApi.ApiInterface;
 import com.amana.MpestISS.utils.AppLogger;
@@ -46,7 +44,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import io.realm.Realm;
-import io.realm.RealmList;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -92,7 +89,7 @@ public class UploadBgService extends IntentService {
     FeedbackCaptureRmModel feedbackCaptureRmModel = new FeedbackCaptureRmModel();
     ArrayList<MaterialPreviewModel> arr_previewMaterial = new ArrayList<>();
 
-    ArrayList<Datum> mList;
+    ArrayList<ListData> mList;
     ArrayList<ServiceMaterialRMModel> arr_servicedetail = new ArrayList<>();
     ArrayList<ServiceMaterialRMModel> arr_materialedetail = new ArrayList<>();
 
@@ -706,8 +703,8 @@ public class UploadBgService extends IntentService {
 
         if(!mServiceId.contains("ADHOC_")){
             if (mList.get(0).getJobOrdersdetails().size() > 0) {
-                StartTime = mList.get(0).getJobOrdersdetails().get(0).getServiceStartDate();
-                endTime = mList.get(0).getJobOrdersdetails().get(0).getServiceEndDate();
+                StartTime = mList.get(0).getJobOrdersdetails().get(0).getStartTime();
+                endTime = mList.get(0).getJobOrdersdetails().get(0).getEndTime();
             }
 
         }

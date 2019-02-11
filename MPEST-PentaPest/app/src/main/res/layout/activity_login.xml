@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:background="@color/white"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true">
@@ -40,7 +41,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="@dimen/_15sdp"
-                        android:src="@mipmap/icon" />
+                        android:src="@drawable/logo" />
 
 
                     <LinearLayout
@@ -129,15 +130,7 @@
                         android:textSize="@dimen/_12sdp"
                         app:fontName="Font_Bold" />
 
-                   <!-- <com.amana.mpestclean.components.CustomFontTextView
-                        android:id="@+id/success_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:visibility="gone"
-                        app:fontName="Font_Medium" />-->
-                </LinearLayout>
+                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 

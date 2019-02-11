@@ -31,8 +31,7 @@ public interface ApiInterface {
     //Global URl
     //UAT
     String BASE_URL = "http://www.amanaasia.net:91/";// UAT
-
-    String REPORT_URL = "www.amanaasia.net:8080/PentaPest.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+    String REPORT_URL = "http://www.amanaasia.net:8080/PentaPest.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
 
     String POST_SIGNIN = "login";
     String POST_CHECKING = "attendance/updatepunch";

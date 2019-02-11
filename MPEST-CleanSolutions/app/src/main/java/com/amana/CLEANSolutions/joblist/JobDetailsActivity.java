@@ -261,7 +261,6 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
         if(mStatus.equalsIgnoreCase("Completed")){
 
-
           //  adhocRequestRmsList = MasterDbLists.GetAdhocList();
 
             ArrayList<Datum> WithUploadArray = new ArrayList<Datum>();

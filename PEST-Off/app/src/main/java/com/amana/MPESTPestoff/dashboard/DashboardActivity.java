@@ -69,12 +69,11 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
 
         try {
 
-            String[] data = {"HOME", "LOGOUT", "CHECK IN/OUT", "MY TASKS",
-                    "MY SCHEDULE", "MASTER SYNC","ADHOC", "LOGS"};
+            String[] data = {"MATERIAL REQUEST", "CHEMICAL REQUEST", "MASTER SYNC", "MY TASKS",
+                              "MY SCHEDULE",  "LOGS"};
 
-            int[] icons = {R.drawable.db_home, R.drawable.db_logout, R.drawable.db_checkin, R.drawable.db_mytask,
-                    R.drawable.db_schedule, R.drawable.db_sync,
-                    R.drawable.db_adhoc, R.drawable.db_logs};
+            int[] icons = {R.drawable.db_material, R.drawable.db_chemical, R.drawable.db_sync, R.drawable.db_mytask,
+                    R.drawable.db_schedule,  R.drawable.db_logs};
             // set up the RecyclerView
             int numberOfColumns = 2;
             recyclerView.setLayoutManager(new GridLayoutManager(DashboardActivity.this, numberOfColumns));

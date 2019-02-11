@@ -73,7 +73,6 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
         }
 
 
-
         try {
             if (datum.getAdhocType().length() > 0) {
                 holder.tvCustomer.setText(datum.getAdhocdata().get(0).getCompanyName());
@@ -102,7 +101,7 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
             holder.tvPreview.setText("CONTINUE");
         } else if (datum.getStatus().toString().trim().equalsIgnoreCase("Completed")) {
 
-            holder.tvPreview.setText("VIEW");
+            holder.tvPreview.setText("DOWNLOAD PDF");
 
             try{
 
@@ -160,10 +159,12 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
         holder.tv_Resubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                _appPrefs.saveSERVICEID(datum.getServiceID().toString());
+
                 if(finalMAdhocid.length()>0){
+                    _appPrefs.saveSERVICEID("");
                     _appPrefs.saveSERVICEID(finalMAdhocid);
-                }else{
-                    _appPrefs.saveSERVICEID(datum.getServiceID().toString());
                 }
 
                 Intent previewIntent = new Intent(mContext, PreviewActivity.class);
@@ -250,6 +251,7 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
                 } else {
 
                     Intent i = new Intent(v.getContext(), ServiceDetailsActivity.class);
+                    i.putExtra("Id",datum.get_id());
                     i.putExtra("ServiceId", datum.getServiceID());
                     i.putExtra("Status", datum.getStatus());
                     i.putExtra("TeamName", datum.getTeamdetails().get(0).getTeamName());

@@ -262,7 +262,6 @@ public class AdhocActivity extends AppCompatActivity implements OnTimeSetListene
                 getAddress();
             }
 
-            ;
         };
 
         TimePickerDialog tpd = (TimePickerDialog) getFragmentManager().findFragmentByTag("Timepickerdialog");
@@ -997,18 +996,18 @@ public class AdhocActivity extends AppCompatActivity implements OnTimeSetListene
         // create alert dialog
         utilsAlertDialog = utilsAlertDialogBuilder.create();
         utilsAlertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        CircleImageView img_close = (CircleImageView) promptsView
+        CircleImageView img_close = promptsView
                 .findViewById(R.id.close_img);
         img_close.setVisibility(View.GONE);
-        TextView tvTitle = (TextView) promptsView
+        TextView tvTitle = promptsView
                 .findViewById(R.id.title_tv);
-        TextView tvMSG = (TextView) promptsView
+        TextView tvMSG = promptsView
                 .findViewById(R.id.msg_tv);
 
         tvTitle.setText(title);
         tvMSG.setText(msg);
 
-        Button btn_ok = (Button) promptsView.findViewById(R.id.ok_btn);
+        Button btn_ok = promptsView.findViewById(R.id.ok_btn);
         img_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

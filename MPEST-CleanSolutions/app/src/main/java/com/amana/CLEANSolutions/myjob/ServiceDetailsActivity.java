@@ -38,7 +38,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
     AppPreferences _appPrefs;
     Context mContext;
-    String mServiceId = "", mStatus = "";
+    String mServiceId = "", mStatus = "", mId="";
 
     ArrayList<Datum> mList;
     @BindView(R.id.serviceId_txt)

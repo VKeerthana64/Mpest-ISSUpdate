@@ -61,7 +61,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Work Order No"
+                    android:text="Job Plan No."
                     app:fontName="Font_Light" />
 
                 <com.amana.MpestISS.components.CustomFontTextView
@@ -93,7 +93,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Contract No"
+                    android:text="Agreement"
                     app:fontName="Font_Light" />
 
                 <com.amana.MpestISS.components.CustomFontTextView

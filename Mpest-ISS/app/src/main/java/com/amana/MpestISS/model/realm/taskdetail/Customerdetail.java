@@ -1,90 +1,69 @@
+
 package com.amana.MpestISS.model.realm.taskdetail;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmObject;
 
 public class Customerdetail extends RealmObject{
 
+    
     private String _id;
-
+  
     private String CustomerID;
-
+ 
     private String CustomerType;
-
+ 
     private String CustomerReference;
-
+ 
     private String Salutation;
-
+   
     private String FirstName;
-
-    private String LastName;
-
-    private String Website;
-
+ 
     private String CompanyName;
-
-    private String Note;
-
+  
     private String Address;
-
-    private String Address1;
-
+ 
     private String Postal;
-
+   
     private String Country;
-
+    
     private String ContactPerson;
-
-    private String Phone;
-
-    private String Fax;
-
-    private String Mobile;
-
-    private String Email;
-
-    private String BLK;
-
-    private String Unit;
-
+   
     private String StreetName;
-
+  
     private String BuildingName;
-
+  
     private String Client_Id;
-
+  
     private String CreditTerm;
-
+    
     private String MarketSection;
-
-    private String TypeofHouse;
-
-    private String OtherType;
-
-    private String Category;
-
+  
     private String SSREmail;
 
-    private String SSREmailTo;
-
     private String FixedTeam;
-
-    private String FixedTeamdata;
-
+   
     private String InvoiceEmail;
-
+   
     private String InvoiceCC;
-
+  
     private String CreatedBy;
-
-    private String createdDate;
-
-    private String State;
+ 
+    private String CreatedDate;
 
     private Boolean IsActive;
 
+    private String State;
+ 
     private Boolean MultipleJobs;
 
     private Integer __v;
+  
+    private String UpdatedDate;
+
+    private String UpdatedBy;
 
     public String get_id() {
         return _id;
@@ -134,22 +113,6 @@ public class Customerdetail extends RealmObject{
         FirstName = firstName;
     }
 
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
-
-    public String getWebsite() {
-        return Website;
-    }
-
-    public void setWebsite(String website) {
-        Website = website;
-    }
-
     public String getCompanyName() {
         return CompanyName;
     }
@@ -158,28 +121,12 @@ public class Customerdetail extends RealmObject{
         CompanyName = companyName;
     }
 
-    public String getNote() {
-        return Note;
-    }
-
-    public void setNote(String note) {
-        Note = note;
-    }
-
     public String getAddress() {
         return Address;
     }
 
     public void setAddress(String address) {
         Address = address;
-    }
-
-    public String getAddress1() {
-        return Address1;
-    }
-
-    public void setAddress1(String address1) {
-        Address1 = address1;
     }
 
     public String getPostal() {
@@ -204,54 +151,6 @@ public class Customerdetail extends RealmObject{
 
     public void setContactPerson(String contactPerson) {
         ContactPerson = contactPerson;
-    }
-
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String phone) {
-        Phone = phone;
-    }
-
-    public String getFax() {
-        return Fax;
-    }
-
-    public void setFax(String fax) {
-        Fax = fax;
-    }
-
-    public String getMobile() {
-        return Mobile;
-    }
-
-    public void setMobile(String mobile) {
-        Mobile = mobile;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getBLK() {
-        return BLK;
-    }
-
-    public void setBLK(String BLK) {
-        this.BLK = BLK;
-    }
-
-    public String getUnit() {
-        return Unit;
-    }
-
-    public void setUnit(String unit) {
-        Unit = unit;
     }
 
     public String getStreetName() {
@@ -294,30 +193,6 @@ public class Customerdetail extends RealmObject{
         MarketSection = marketSection;
     }
 
-    public String getTypeofHouse() {
-        return TypeofHouse;
-    }
-
-    public void setTypeofHouse(String typeofHouse) {
-        TypeofHouse = typeofHouse;
-    }
-
-    public String getOtherType() {
-        return OtherType;
-    }
-
-    public void setOtherType(String otherType) {
-        OtherType = otherType;
-    }
-
-    public String getCategory() {
-        return Category;
-    }
-
-    public void setCategory(String category) {
-        Category = category;
-    }
-
     public String getSSREmail() {
         return SSREmail;
     }
@@ -326,28 +201,12 @@ public class Customerdetail extends RealmObject{
         this.SSREmail = SSREmail;
     }
 
-    public String getSSREmailTo() {
-        return SSREmailTo;
-    }
-
-    public void setSSREmailTo(String SSREmailTo) {
-        this.SSREmailTo = SSREmailTo;
-    }
-
     public String getFixedTeam() {
         return FixedTeam;
     }
 
     public void setFixedTeam(String fixedTeam) {
         FixedTeam = fixedTeam;
-    }
-
-    public String getFixedTeamdata() {
-        return FixedTeamdata;
-    }
-
-    public void setFixedTeamdata(String fixedTeamdata) {
-        FixedTeamdata = fixedTeamdata;
     }
 
     public String getInvoiceEmail() {
@@ -375,19 +234,11 @@ public class Customerdetail extends RealmObject{
     }
 
     public String getCreatedDate() {
-        return createdDate;
+        return CreatedDate;
     }
 
     public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public String getState() {
-        return State;
-    }
-
-    public void setState(String state) {
-        State = state;
+        CreatedDate = createdDate;
     }
 
     public Boolean getActive() {
@@ -398,12 +249,12 @@ public class Customerdetail extends RealmObject{
         IsActive = active;
     }
 
-    public Integer get__v() {
-        return __v;
+    public String getState() {
+        return State;
     }
 
-    public void set__v(Integer __v) {
-        this.__v = __v;
+    public void setState(String state) {
+        State = state;
     }
 
     public Boolean getMultipleJobs() {
@@ -412,5 +263,29 @@ public class Customerdetail extends RealmObject{
 
     public void setMultipleJobs(Boolean multipleJobs) {
         MultipleJobs = multipleJobs;
+    }
+
+    public Integer get__v() {
+        return __v;
+    }
+
+    public void set__v(Integer __v) {
+        this.__v = __v;
+    }
+
+    public String getUpdatedDate() {
+        return UpdatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        UpdatedDate = updatedDate;
+    }
+
+    public String getUpdatedBy() {
+        return UpdatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        UpdatedBy = updatedBy;
     }
 }
