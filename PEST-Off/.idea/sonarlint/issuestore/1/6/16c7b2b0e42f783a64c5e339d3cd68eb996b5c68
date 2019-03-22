@@ -1,0 +1,180 @@
+
+6squid:S1643"Use a StringBuilder instead.(óñÚ¯ùÿÿÿÿ
+1squid:S1643"Use a StringBuilder instead.(À¢©
+=squid:S3398"#Move this method into "Initialise".(°ıÛ¥ıÿÿÿÿ
+:squid:S1659"%Declare "mStatus" on a separate line.(‰ØÔ­
+Csquid:S1659".Declare "SelectedServices" on a separate line.(‰ØÔ­
+Csquid:S1659".Declare "SelectedMaterial" on a separate line.(‰ØÔ­
+Asquid:S1659"'Declare "NoOfCulls" on a separate line.(”ò‘úÿÿÿÿ
+?squid:S1659"%Declare "Species" on a separate line.(”ò‘úÿÿÿÿ
+Jsquid:S1659"0Declare "MistingCariedOutNo" on a separate line.(”ò‘úÿÿÿÿ
+Hsquid:S1659".Declare "MistingCariedOut" on a separate line.(”ò‘úÿÿÿÿ
+?squid:S1659"%Declare "Density" on a separate line.(”ò‘úÿÿÿÿ
+>squid:S1659"$Declare "Instar" on a separate line.(îƒ‰üÿÿÿÿ
+Csquid:S1659")Declare "NoOfBurrows" on a separate line.(îƒ‰üÿÿÿÿ
+@squid:S1659"&Declare "NoOfDead" on a separate line.(îƒ‰üÿÿÿÿ
+?squid:S1659"%Declare "Habitat" on a separate line.(îƒ‰üÿÿÿÿ
+>squid:S1659"$Declare "Action" on a separate line.(îƒ‰üÿÿÿÿ
+Fsquid:S1659",Declare "Recommendation" on a separate line.(¡‘”Éøÿÿÿÿ
+>squid:S1659"$Declare "Others" on a separate line.(¡‘”Éøÿÿÿÿ
+>squid:S1659"$Declare "Reason" on a separate line.(¡‘”Éøÿÿÿÿ
+@squid:S1659"&Declare "TotalPay" on a separate line.(“Ùœ©ùÿÿÿÿ
+<squid:S1659""Declare "note" on a separate line.(“Ùœ©ùÿÿÿÿ
+Csquid:S1659")Declare "AreaPlanned" on a separate line.(“Ùœ©ùÿÿÿÿ
+Esquid:S1659"+Declare "AreaCompleted" on a separate line.(“Ùœ©ùÿÿÿÿ
+Esquid:S1659"+Declare "paymentRemark" on a separate line.(“Ùœ©ùÿÿÿÿ
+;squid:S1659"!Declare "sor" on a separate line.(“Ùœ©ùÿÿÿÿ
+?squid:S1659"%Declare "EmailId" on a separate line.(·‰Âìúÿÿÿÿ
+Gsquid:S1659"-Declare "CustomerRemarks" on a separate line.(·‰Âìúÿÿÿÿ
+Isquid:S1659"/Declare "CustomerSignature" on a separate line.(·‰Âìúÿÿÿÿ
+<squid:S1659"'Declare "materials" on a separate line.(şÇÕù
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ú»·º
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈÖ¿ üÿÿÿÿ
+msquid:S3776"SRefactor this method to reduce its Cognitive Complexity from 101 to the 15 allowed.(°ıÛ¥ıÿÿÿÿ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.( Üó
+<squid:S1185"(Remove this method to simply inherit it.(¹§ 
+osquid:S00116"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯‹ÿäùÿÿÿÿ
+qsquid:S00116"[Rename this field "SelectedServices" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ØÔ­
+qsquid:S00116"[Rename this field "SelectedMaterial" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ØÔ­
+nsquid:S00116"SRename this field "Breeding" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ò‘úÿÿÿÿ
+osquid:S00116"TRename this field "NoOfCulls" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ò‘úÿÿÿÿ
+msquid:S00116"RRename this field "Species" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ò‘úÿÿÿÿ
+xsquid:S00116"]Rename this field "MistingCariedOutNo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ò‘úÿÿÿÿ
+vsquid:S00116"[Rename this field "MistingCariedOut" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ò‘úÿÿÿÿ
+msquid:S00116"RRename this field "Density" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ò‘úÿÿÿÿ
+lsquid:S00116"QRename this field "Instar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îƒ‰üÿÿÿÿ
+qsquid:S00116"VRename this field "NoOfBurrows" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îƒ‰üÿÿÿÿ
+nsquid:S00116"SRename this field "NoOfDead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îƒ‰üÿÿÿÿ
+msquid:S00116"RRename this field "Habitat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îƒ‰üÿÿÿÿ
+lsquid:S00116"QRename this field "Action" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îƒ‰üÿÿÿÿ
+tsquid:S00116"YRename this field "Recommendation" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡‘”Éøÿÿÿÿ
+lsquid:S00116"QRename this field "Others" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡‘”Éøÿÿÿÿ
+lsquid:S00116"QRename this field "Reason" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡‘”Éøÿÿÿÿ
+jsquid:S00116"ORename this field "Mode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ùœ©ùÿÿÿÿ
+nsquid:S00116"SRename this field "TotalPay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ùœ©ùÿÿÿÿ
+qsquid:S00116"VRename this field "AreaPlanned" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ùœ©ùÿÿÿÿ
+ssquid:S00116"XRename this field "AreaCompleted" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ùœ©ùÿÿÿÿ
+vsquid:S00116"aRename this field "arr_photoBeforeRequest" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÓp
+vsquid:S00116"`Rename this field "arr_photoAfterRequest" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¹œ 
+xsquid:S00116"]Rename this field "arr_serviceRequest" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜¢–ÿÿÿÿÿÿ
+zsquid:S00116"_Rename this field "arr_materialsRequest" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚†¢¾şÿÿÿÿ
+ssquid:S00116"XRename this field "arr_FilePaths" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë ¢úÿÿÿÿ
+lsquid:S00116"QRename this field "Reting" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰Âìúÿÿÿÿ
+msquid:S00116"RRename this field "EmailId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰Âìúÿÿÿÿ
+usquid:S00116"ZRename this field "CustomerRemarks" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰Âìúÿÿÿÿ
+wsquid:S00116"\Rename this field "CustomerSignature" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‰Âìúÿÿÿÿ
+tsquid:S00116"^Rename this field "arr_previewMaterial" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢õ©²
+rsquid:S00116"\Rename this field "arr_servicedetail" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ ÂÄ
+ysquid:S00116"^Rename this field "arr_materialedetail" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁèŒÿúÿÿÿÿ
+osquid:S00116"YRename this field "arr_photoAFTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â¸Ğš
+usquid:S00116"ZRename this field "arr_photoBEFORE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ„å…ûÿÿÿÿ
+msquid:S00116"WRename this field "tv_serviceId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒàŸİ
+psquid:S00116"ZRename this field "tv_work_orderno" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôôÜ°
+tsquid:S00116"YRename this field "tv_contract_no" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¶ù¨şÿÿÿÿ
+msquid:S00116"RRename this field "tv_team" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª•¤íşÿÿÿÿ
+qsquid:S00116"[Rename this field "tv_customer_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğãÅù
+wsquid:S00116"\Rename this field "tv_scheduled_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß»é°ûÿÿÿÿ
+}squid:S00116"bRename this field "tv_scheduled_start_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Š½ßøÿÿÿÿ
+{squid:S00116"`Rename this field "tv_scheduled_end_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áôƒæùÿÿÿÿ
+psquid:S00116"ZRename this field "tv_team_members" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷¸üå
+msquid:S00116"WRename this field "tv_pest_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¦˜¦
+osquid:S00116"YRename this field "tv_performedBy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼£àŸ
+ksquid:S00116"VRename this field "tv_location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆòòY
+tsquid:S00116"YRename this field "no_photobefore" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î½¦ˆûÿÿÿÿ
+ssquid:S00116"XRename this field "no_photoafter" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öÿ—‚úÿÿÿÿ
+ksquid:S00116"URename this field "btn_cancel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ÙëÒ
+qsquid:S00116"VRename this field "rv_services" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èœŠ‰ıÿÿÿÿ
+msquid:S00116"WRename this field "rv_materials" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İø˜©
+tsquid:S00116"YRename this field "rv_photoBefore" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â‰ÅÓşÿÿÿÿ
+ssquid:S00116"XRename this field "rv_photoAfter" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹æÿñÿÿÿÿÿ
+qsquid:S00116"VRename this field "payment_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä±÷úÿÿÿÿ
+vsquid:S00116"[Rename this field "totalPayment_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¤¹°şÿÿÿÿ
+jsquid:S00116"TRename this field "notes_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Şµ­
+usquid:S00116"ZRename this field "AreaPlanned_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ï¤ºøÿÿÿÿ
+rsquid:S00116"WRename this field "AreaComp_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¦øøûÿÿÿÿ
+jsquid:S00116"TRename this field "Types_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´—‚Ç
+psquid:S00116"URename this field "upload_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çú­Óşÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷×™üÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üû¿
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æÛß„ûÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸Øƒ‡
+fsquid:S1858"L"arrServiceID" is an array of strings, there's no need to call "toString()".(ŒÓ¿±úÿÿÿÿ
+fsquid:S1858"L"arrServiceID" is an array of strings, there's no need to call "toString()".(Êğ¦şÿÿÿÿ
+gsquid:S1858"M"mServiceId" is already a string, there's no need to call "toString()" on it.(‹å™¯ûÿÿÿÿ
+gsquid:S1858"M"mServiceId" is already a string, there's no need to call "toString()" on it.(Ôå¢ºıÿÿÿÿ
+^squid:S1858"D"getRemarks" returns a string, there's no need to call "toString()".(Â»­ÿşÿÿÿÿ
+]squid:S1858"C"getOthers" returns a string, there's no need to call "toString()".(Â»­ÿşÿÿÿÿ
+]squid:S1858"C"getOthers" returns a string, there's no need to call "toString()".(ıÕÙ·ûÿÿÿÿ
+Ysquid:S1858"D"getRemarks" returns a string, there's no need to call "toString()".(ñ™ƒÜ
+[squid:S1858"F"getImgBase64" returns a string, there's no need to call "toString()".(Úø¢ñ
+`squid:S1858"F"getImgBase64" returns a string, there's no need to call "toString()".(Åü×Òøÿÿÿÿ
+`squid:S1858"F"getImgBase64" returns a string, there's no need to call "toString()".(¦Š›ÿøÿÿÿÿ
+^squid:S1858"D"getRemarks" returns a string, there's no need to call "toString()".(ôóš¼şÿÿÿÿ
+]squid:S1858"C"getOthers" returns a string, there's no need to call "toString()".(ôóš¼şÿÿÿÿ
+]squid:S1858"C"getOthers" returns a string, there's no need to call "toString()".(á´Ğÿûÿÿÿÿ
+Ysquid:S1858"D"getRemarks" returns a string, there's no need to call "toString()".(ºƒ´
+`squid:S1858"F"getImgBase64" returns a string, there's no need to call "toString()".(Öñˆäùÿÿÿÿ
+[squid:S1858"F"getImgBase64" returns a string, there's no need to call "toString()".(ÒİĞü
+[squid:S1858"F"getImgBase64" returns a string, there's no need to call "toString()".(µ†¥Ô
+]squid:S1858"H"getPaymentMode" returns a string, there's no need to call "toString()".(¦ú·İ
+usquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(½Ş‘ûÿÿÿÿ
+esquid:UselessImportCheck">Remove this unused import 'android.content.pm.PackageManager'.(€®¥õÿÿÿÿÿ
+ssquid:UselessImportCheck"LRemove this unused import 'com.google.android.gms.location.LocationRequest'.(´âêëÿÿÿÿÿ
+Ssquid:UselessImportCheck",Remove this unused import 'android.net.Uri'.(òêû‘ıÿÿÿÿ
+xsquid:UselessImportCheck"QRemove this unused import 'com.karumi.dexter.listener.single.PermissionListener'.(¾Ë°Éùÿÿÿÿ
+`squid:UselessImportCheck">Remove this unused import 'com.karumi.dexter.PermissionToken'.(áÿ•Š
+Tsquid:UselessImportCheck"-Remove this unused import 'android.Manifest'.(¦øïúÿÿÿÿ
+rsquid:UselessImportCheck"KRemove this unused import 'com.google.android.gms.location.SettingsClient'.(³²È¤ûÿÿÿÿ
+Wsquid:UselessImportCheck"0Remove this unused import 'org.json.JSONObject'.(œÖ´üşÿÿÿÿ
+Osquid:UselessImportCheck".Remove this unused import 'android.os.Looper'.(âå
+wsquid:UselessImportCheck"URemove this unused import 'com.google.android.gms.location.LocationSettingsResponse'.(ğŠº
+Tsquid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ
+psquid:UselessImportCheck"IRemove this unused import 'com.karumi.dexter.listener.PermissionRequest'.(ëììåüÿÿÿÿ
+Msquid:UselessImportCheck"+Remove this unused import 'io.realm.Realm'.(½¨ÀÜ
+wsquid:UselessImportCheck"PRemove this unused import 'com.karumi.dexter.listener.PermissionDeniedResponse'.(ñÀĞ…ûÿÿÿÿ
+ssquid:UselessImportCheck"LRemove this unused import 'com.google.android.gms.tasks.OnCompleteListener'.(Çğ¸Òÿÿÿÿÿ
+isquid:UselessImportCheck"BRemove this unused import 'android.support.v4.app.ActivityCompat'.(Äüşÿÿÿÿ
+[squid:UselessImportCheck"4Remove this unused import 'android.app.AlertDialog'.(ª½øşüÿÿÿÿ
+ssquid:UselessImportCheck"QRemove this unused import 'com.karumi.dexter.listener.PermissionGrantedResponse'.(‹“–ô
+usquid:UselessImportCheck"NRemove this unused import 'com.amana.MPESTPestoff.joblist.JobDetailsActivity'.(›±üÿÿÿÿ
+]squid:UselessImportCheck"6Remove this unused import 'android.location.Location'.(›¡ì®øÿÿÿÿ
+msquid:UselessImportCheck"KRemove this unused import 'com.google.android.gms.common.api.ApiException'.(šÄØ‚
+Msquid:UselessImportCheck"+Remove this unused import 'retrofit2.Call'.(Çö÷›
+squid:UselessImportCheck"XRemove this unused import 'com.google.android.gms.location.LocationSettingsStatusCodes'.(ùÍßøÿÿÿÿ
+lsquid:UselessImportCheck"JRemove this unused import 'com.geniusforapp.fancydialog.FancyAlertDialog'.(ÖÌ×Ã
+`squid:UselessImportCheck"?Remove this unused import 'android.support.annotation.NonNull'.(¼Åß
+Qsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Response'.(¾éçï
+`squid:UselessImportCheck">Remove this unused import 'com.google.android.gms.tasks.Task'.(¦âÏô
+`squid:UselessImportCheck"9Remove this unused import 'android.content.IntentSender'.(çÛÍüÿÿÿÿ
+rsquid:UselessImportCheck"KRemove this unused import 'com.google.android.gms.tasks.OnFailureListener'.(ï¿ŞŞúÿÿÿÿ
+Xsquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ
+Xsquid:UselessImportCheck"6Remove this unused import 'android.provider.Settings'.(Š¯„
+|squid:UselessImportCheck"URemove this unused import 'com.google.android.gms.common.api.ResolvableApiException'.(ÆÙÔşÿÿÿÿ
+\squid:UselessImportCheck"5Remove this unused import 'com.karumi.dexter.Dexter'.(¼ÅÉûÿÿÿÿ
+csquid:UselessImportCheck"<Remove this unused import 'android.content.DialogInterface'.(Š­›¨şÿÿÿÿ
+asquid:UselessImportCheck"?Remove this unused import 'com.amana.MPESTPestoff.BuildConfig'.(ä„´Ø
+osquid:UselessImportCheck"MRemove this unused import 'com.google.android.gms.location.LocationCallback'.(âÄºÅ
+Ysquid:UselessImportCheck"7Remove this unused import 'android.app.ProgressDialog'.(¶ÍÔÓ
+jsquid:UselessImportCheck"HRemove this unused import 'com.amana.MPESTPestoff.restApi.ApiInterface'.(—ÔŒÓ
+zsquid:UselessImportCheck"XRemove this unused import 'com.google.android.gms.location.FusedLocationProviderClient'.(øÜ³€
+Psquid:UselessImportCheck"/Remove this unused import 'retrofit2.Callback'.(›¨,
+msquid:UselessImportCheck"KRemove this unused import 'com.google.android.gms.tasks.OnSuccessListener'.(íå¡
+{squid:UselessImportCheck"TRemove this unused import 'com.google.android.gms.location.LocationSettingsRequest'.(ÄÍÕ¶ıÿÿÿÿ
+Ssquid:UselessImportCheck"1Remove this unused import 'android.app.Activity'.(‡ÊÍÆ
+gsquid:UselessImportCheck"ERemove this unused import 'com.amana.MPESTPestoff.restApi.ApiClient'.(ÂâÍ
+=squid:S1148"#Use a logger to log this exception.(¢ò¨½şÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(úÓ©
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ˆ¾’‹
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(õÆÏÄ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(šº¨
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(úÓ©
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ˆ¾’‹
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ßÚ¬Ñÿÿÿÿÿ

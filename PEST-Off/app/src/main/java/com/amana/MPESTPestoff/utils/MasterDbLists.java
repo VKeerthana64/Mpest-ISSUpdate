@@ -23,6 +23,7 @@ import com.amana.MPESTPestoff.model.realm.PaymentMode;
 import com.amana.MPESTPestoff.model.realm.ServiceType;
 import com.amana.MPESTPestoff.model.realm.SettingRemarks;
 import com.amana.MPESTPestoff.model.realm.Teams;
+import com.amana.MPESTPestoff.model.realm.chemicalInventory.ChemicalCaptureRmModel;
 import com.amana.MPESTPestoff.model.realm.jobdetails.FeedbackCaptureRmModel;
 import com.amana.MPESTPestoff.model.realm.jobdetails.MaterialsCapturesRmModel;
 import com.amana.MPESTPestoff.model.realm.jobdetails.PaymentCaptureRmModel;
@@ -440,7 +441,6 @@ public class MasterDbLists {
     }
 
 
-
     /**
      * Gets Total Task List
      *
@@ -723,7 +723,6 @@ public class MasterDbLists {
     }
 
 
-
     /**
      * Fetches TeamMembers based on ServiceID
      *
@@ -911,6 +910,58 @@ public class MasterDbLists {
         });
     }
 
+    // Insert Chemical Details based on type
+    public static void SaveChemicalList(final String mType, final ArrayList<ChemicalCaptureRmModel> chemicalCaptureRmModels) {
+
+       final Realm realm = Realm.getDefaultInstance(); // opens db
+        realm.beginTransaction();
+        realm.where(ChemicalCaptureRmModel.class)
+                .equalTo("Type", mType)
+                .findAll().deleteAllFromRealm();
+        realm.commitTransaction();
+
+        for (int i = 0; i < chemicalCaptureRmModels.size(); i++) {
+
+            final ChemicalCaptureRmModel list = chemicalCaptureRmModels.get(i);
+            realm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    // Get the current max id in the users table
+                    Number maxId = realm.where(ChemicalCaptureRmModel.class).max("id");
+                    int nextId = (maxId == null) ? 1 : maxId.intValue() + 1;
+                    //Create a user if there isn't one
+                    final ChemicalCaptureRmModel addList = realm.createObject(ChemicalCaptureRmModel.class, nextId);
+                    addList.setType(mType);
+                    addList.setName(list.getName());
+                    addList.setQuantity(list.getQuantity());
+                    addList.setUnit(list.getUnit());
+
+                }
+            });
+        }
+
+
+    }
+
+    /**
+     * Get Save Chemical List
+     * @param mType
+     * @return
+     */
+    public static ArrayList<ChemicalCaptureRmModel> getSavedChemicalList(String mType) {
+
+        final Realm realm = Realm.getDefaultInstance(); // opens db
+        realm.beginTransaction();
+        RealmResults<ChemicalCaptureRmModel> result1 = realm.where(ChemicalCaptureRmModel.class)
+                .equalTo("Type", mType)
+                .findAll();
+        // Execute the query:
+        realm.commitTransaction();
+
+        ArrayList<ChemicalCaptureRmModel> teamCaptureRmModels = (ArrayList<ChemicalCaptureRmModel>) realm.copyFromRealm(result1);
+
+        return teamCaptureRmModels;
+    }
 
     /**
      * Added data SERVICE/MATERIAL Db
@@ -963,29 +1014,6 @@ public class MasterDbLists {
         Utils.dismissDialog();
     }
 
-/*    public static void saveImageDetails(final String BeforeAfter, final String mPest, final String ServiceID, final Bitmap bitmap){
-        final Realm realm = Realm.getDefaultInstance(); // opens db
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-
-                // Get the current max id in the users table
-                Number maxId = realm.where(PhotoRemarkRMModel.class).max("id");
-                // If there are no rows, currentId is null, so the next id must be 1
-                // If currentId is not null, increment it by 1
-                int nextId = (maxId == null) ? 1 : maxId.intValue() + 1;
-                //Create a user if there isn't one
-                final PhotoRemarkRMModel photoRemarkRMModel = realm.createObject(PhotoRemarkRMModel.class, nextId);
-                photoRemarkRMModel.setImgBase64(Utils.convertBitmapToBase64(bitmap));
-                photoRemarkRMModel.setBeforeAfter(BeforeAfter);
-                photoRemarkRMModel.setPestType(mPest);
-                photoRemarkRMModel.setRemarks("");
-                photoRemarkRMModel.setOthers("");
-                photoRemarkRMModel.setServiceID(ServiceID);
-
-            }
-        });
-    }*/
 
     public static void saveImageDetails(final String BeforeAfter, final String mPest, final String ServiceID, final String imagePath) {
         final Realm realm = Realm.getDefaultInstance(); // opens db
@@ -1466,7 +1494,7 @@ public class MasterDbLists {
 
     }
 
-    public static void UploadAdhocJob(final String mAdhocId,final String mServiceID) {
+    public static void UploadAdhocJob(final String mAdhocId, final String mServiceID) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.executeTransaction(new Realm.Transaction() {
@@ -1487,7 +1515,7 @@ public class MasterDbLists {
     }
 
 
-    public static void UploadAdhocIdPrimaryKey(final String mAdhocId,final String mID) {
+    public static void UploadAdhocIdPrimaryKey(final String mAdhocId, final String mID) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.executeTransaction(new Realm.Transaction() {
@@ -1511,11 +1539,11 @@ public class MasterDbLists {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
-                AdhocRequestRm result1 = realm.where(AdhocRequestRm.class)
-                        .equalTo("ServiceId", mServiceID)
-                        .findFirst();
-                // Execute the query:
-                realm.commitTransaction();
+        AdhocRequestRm result1 = realm.where(AdhocRequestRm.class)
+                .equalTo("ServiceId", mServiceID)
+                .findFirst();
+        // Execute the query:
+        realm.commitTransaction();
 
 
         return result1.getADHOCServiceId();
@@ -1782,9 +1810,6 @@ public class MasterDbLists {
 
         return materialCount;
     }
-
-
-
 
 
     /**

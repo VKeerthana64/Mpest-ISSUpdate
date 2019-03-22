@@ -1,0 +1,27 @@
+
+Bsquid:S1659"(Declare "mServiceID" on a separate line.(¬Ô×”ûÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ñ«õéýÿÿÿÿ
+Asquid:S1481",Remove this unused "message" local variable.(¾íü
+Csquid:S1481".Remove this unused "err_commm" local variable.(áÀ¬°
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö†Ééûÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(å¥ž‡
+Dsquid:S00108")Either remove or fill this block of code.(éê«ÿÿÿÿÿ
+<squid:S1185"(Remove this method to simply inherit it.(¹§ 
+Psquid:S1854";Remove this useless assignment to local variable "message".(¾íü
+Rsquid:S1854"=Remove this useless assignment to local variable "err_commm".(áÀ¬°
+osquid:S00116"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯‹ÿäùÿÿÿÿ
+usquid:S00116"ZRename this field "arr_commnetList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ÓÞÏúÿÿÿÿ
+jsquid:S00116"TRename this field "tv_nodata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â´Ù
+nsquid:S00116"SRename this field "fab_sync" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ðÎ¿Åùÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡Êâûÿÿÿÿ
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜à‡
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÀ¬°
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Ù³½úÿÿÿÿ
+psquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢ÿÙð
+†squid:UselessImportCheck"_Remove this unused import 'com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner'.(„ûþîùÿÿÿÿ
+hsquid:UselessImportCheck"GRemove this unused import 'com.amana.MPESTPestoff.utils.MasterDbLists'.(Þ¦æ#
+_squid:UselessImportCheck"8Remove this unused import 'android.widget.ArrayAdapter'.( €ŠÑÿÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ž–¹Õ
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(’ï×œÿÿÿÿÿ

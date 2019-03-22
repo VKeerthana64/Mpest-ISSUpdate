@@ -14,6 +14,42 @@
             android:scaleType="fitXY"
             android:layout_height="@dimen/_200sdp" />
 
+        <LinearLayout
+            android:id="@+id/lnr_userdetails"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/img_icon"
+            android:layout_marginTop="@dimen/_minus50sdp"
+            android:alpha="0.5"
+            android:background="@color/oil"
+            android:layout_height="wrap_content">
+
+            <com.amana.MpestISS.components.CustomFontTextView
+                android:id="@+id/username_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="center_horizontal"
+                android:text="Hi, apptest!"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Medium" />
+
+            <com.amana.MpestISS.components.CustomFontTextView
+                android:id="@+id/checkStatus_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center_horizontal"
+                android:text="You are: Check OUT"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Bold" />
+
+        </LinearLayout>
+
         <android.support.v7.widget.RecyclerView
             android:layout_below="@+id/img_icon"
             android:id="@+id/rv_dashboard"

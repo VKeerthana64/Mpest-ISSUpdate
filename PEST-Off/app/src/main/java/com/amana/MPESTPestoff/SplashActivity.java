@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.amana.MPESTPestoff.dashboard.DashboardActivity;
+import com.amana.MPESTPestoff.jobtabs.NewJobActivity;
 import com.amana.MPESTPestoff.utils.AppPreferences;
 
 
@@ -24,8 +25,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent;
-                if(_appPrefs.getUserID().isEmpty()){
+                 Intent intent;
+
+               if(_appPrefs.getUserID().isEmpty()){
                     intent = new Intent(SplashActivity.this, LoginActivity.class);
                 }else {
                     intent = new Intent(SplashActivity.this, DashboardActivity.class);
@@ -33,6 +35,8 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+                //startActivity(new Intent(SplashActivity.this, NewJobActivity.class));
 
             }
         }, SPLASH_DISPLAY_LENGTH);

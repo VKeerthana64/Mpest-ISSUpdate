@@ -223,7 +223,7 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
                     i.putExtra("TeamLead", datum.getTeamdetails().get(0).getTeamLead());
                     i.putExtra("Customer", datum.getContactPerson());
                     if (datum.getCustomerdetails().size() > 0) {
-                        i.putExtra("CustomerEmail", datum.getCustomerServicedetails().getsEmail());
+                        i.putExtra("CustomerEmail", datum.getCustomerdetails().get(0).getEmail());
                     } else {
                         i.putExtra("CustomerEmail", "");
                     }

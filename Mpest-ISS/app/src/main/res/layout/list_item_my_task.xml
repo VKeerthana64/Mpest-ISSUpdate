@@ -82,7 +82,7 @@
                                 android:text=""
                                 android:textColor="@color/colorAccent"
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -110,7 +110,7 @@
                                 android:maxLines="2"
                                 android:text="01-Jun-18 8:30 AM"
                                 android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Regular" />
                         </LinearLayout>
 
@@ -153,7 +153,7 @@
 
                                     android:textColor="@color/colorAccent"
                                     android:textSize="12dp"
-                                    android:textStyle="bold"
+
                                     app:fontName="Font_Bold" />
                             </LinearLayout>
 
@@ -169,7 +169,7 @@
                                 android:textAllCaps="true"
                                 android:textColor="@color/Orange"
                                 android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold"
+
                                 android:visibility="gone"
                                 app:fontName="Font_Bold" />
 
@@ -198,7 +198,7 @@
                                  android:text=""
                                  android:textColor="@color/colorAccent"
                                  android:textSize="12dp"
-                                 android:textStyle="bold"
+
                                  app:fontName="Font_Bold" />
                          </LinearLayout>
 
@@ -224,7 +224,7 @@
                                 android:text=""
                                 android:textColor="@color/colorAccent"
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>-->
 
@@ -252,7 +252,7 @@
                                 android:text=""
                                 android:textColor="@color/oil"
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>-->
 
@@ -282,10 +282,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:maxLines="2"
-
+                                    android:drawableLeft="@drawable/ic_location"
+                                    android:drawablePadding="@dimen/_5sdp"
                                     android:textColor="@color/colorAccent"
                                     android:textSize="12dp"
-                                    android:textStyle="bold"
+
                                     app:fontName="Font_Bold" />
                             </LinearLayout>
 
@@ -300,7 +301,7 @@
                                 android:text="UPLOADED"
                                 android:textAllCaps="true"
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 android:visibility="gone"
                                 app:fontName="Font_Bold" />
 
@@ -335,7 +336,7 @@
 
                                     android:textColor="@color/colorAccent"
                                     android:textSize="12dp"
-                                    android:textStyle="bold"
+
                                     app:fontName="Font_Bold" />
                             </LinearLayout>
 
@@ -354,11 +355,100 @@
                                 android:textSize="@dimen/_10sdp"
 
                                 android:background="@drawable/button_border_color"
-                                android:textStyle="bold"
+
                                 android:visibility="gone"
                                 app:fontName="Font_Bold" />
 
 
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Team         : "
+                                android:textSize="12dp"
+                                app:fontName="Font_Light" />
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:id="@+id/teamlabel_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="12dp"
+
+                                app:fontName="Font_Bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Contact Person  : "
+                                android:textSize="12dp"
+                                app:fontName="Font_Light" />
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:id="@+id/contactPerson_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="12dp"
+
+                                app:fontName="Font_Bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:orientation="horizontal">
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Travel Time        : "
+                                android:textSize="12dp"
+                                app:fontName="Font_Light" />
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:id="@+id/start_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:text="Start"
+                                android:background="@drawable/button_border"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="12dp"
+                                android:padding="@dimen/_5sdp"
+                                app:fontName="Font_Bold" />
+
+                            <com.amana.MpestISS.components.CustomFontTextView
+                                android:id="@+id/stop_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:text="Stop"
+                                android:background="@drawable/button_border_light"
+                                android:textColor="@color/lightBlue"
+                                android:layout_marginLeft="@dimen/_20sdp"
+                                android:textSize="12dp"
+                                android:padding="@dimen/_5sdp"
+                                app:fontName="Font_Bold" />
                         </LinearLayout>
 
 
@@ -388,10 +478,10 @@
                         android:layout_marginLeft="5dp"
                         android:maxLines="1"
                         android:padding="@dimen/_5sdp"
-                        android:text="Comments"
+                        android:text="Comments From Tech/ office (0)"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold"
+
                         app:fontName="Font_Bold" />
 
                     <com.amana.MpestISS.components.CustomFontTextView
@@ -405,7 +495,7 @@
                         android:text="PREVIEW"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold"
+
                         app:fontName="Font_Bold" />
 
                 </RelativeLayout>

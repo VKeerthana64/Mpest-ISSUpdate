@@ -1,0 +1,79 @@
+
+1squid:S1643"Use a StringBuilder instead.(Ñ¼ÙÍ
+=squid:S1659"(Declare "str_speiec" on a separate line.(‹¸’Ä
+>squid:S1659")Declare "str_misting" on a separate line.(‹¸’Ä
+Csquid:S1659".Declare "str_misting_ifno" on a separate line.(‹¸’Ä
+]squid:S1192"HDefine a constant instead of duplicating this literal "SERVICE" 8 times.(õÝæô
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(µÃÐ²ÿÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ª€’Þ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¿Ýº
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ã‹Úö
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŽŸ àûÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆ¨ë‹ûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÛÐØÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(µÁŒ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¸Å¿ùÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(”“üËÿÿÿÿÿ
+squid:S1319"vThe type of the "selectedIds" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒõÄþøÿÿÿÿ
+’squid:S1319"xThe type of the "selectedNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒõÄþøÿÿÿÿ
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(Ý—¿úÿÿÿÿ
+=squid:S1185"(Remove this method to simply inherit it.(ßìê¯
+=squid:S1185"(Remove this method to simply inherit it.(¡Œþø
+osquid:S00116"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯‹ÿäùÿÿÿÿ
+lsquid:S00116"WRename this field "str_pestType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•”óv
+}squid:S00116"bRename this field "arr_ServiceSelectedList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÊˆ¢þÿÿÿÿ
+{squid:S00116"`Rename this field "arrRm_serviceCaptured" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Žñâøýÿÿÿÿ
+tsquid:S00116"^Rename this field "arr_serviceCaptured" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öý¬¨
+msquid:S00116"WRename this field "arr_services" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆŽ·»
+qsquid:S00116"[Rename this field "arr_SelectedList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ£Ô
+usquid:S00116"ZRename this field "arr_getselected" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã¯Š¢úÿÿÿÿ
+isquid:S00116"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§îæðøÿÿÿÿ
+ksquid:S00116"URename this field "edt_others" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ¨¨
+rsquid:S00116"WRename this field "edt_services" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çñš‚ýÿÿÿÿ
+msquid:S00116"WRename this field "rv_pestTypes" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†¤šª
+jsquid:S00116"TRename this field "lnr_birds" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è™©ê
+rsquid:S00116"WRename this field "edt_noculles" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«‚‰Öùÿÿÿÿ
+ksquid:S00116"URename this field "lnr_Rodent" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ñÞê
+nsquid:S00116"XRename this field "edt_noBorrows" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹È‚‘
+psquid:S00116"URename this field "edt_nodead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚£¾€üÿÿÿÿ
+msquid:S00116"WRename this field "lnr_mosquito" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¾Æð
+msquid:S00116"WRename this field "spnr_habitat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í¿¼ì
+ksquid:S00116"VRename this field "spnr_reason" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç˜„z
+lsquid:S00116"VRename this field "spnr_Action" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÏ˜£
+ssquid:S00116"^Rename this field "spnr_recommendation" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ñÂw
+qsquid:S00116"VRename this field "spnr_instar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Èòäýÿÿÿÿ
+wsquid:S00116"\Rename this field "lnr_misting_other" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ÁÔŸûÿÿÿÿ
+msquid:S00116"WRename this field "lnr_breeding" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ÁÃð
+qsquid:S00116"\Rename this field "radiomisting_ifNo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò…ÕW
+zsquid:S00116"_Rename this field "radiomisting_ifNoBtn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Å×àøÿÿÿÿ
+psquid:S00116"ZRename this field "rbn_breedingYES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¦ëÖ
+tsquid:S00116"YRename this field "rbn_breedingNO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Š£ßýÿÿÿÿ
+msquid:S00116"XRename this field "rbn_SpecieYES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éøŽS
+rsquid:S00116"WRename this field "rbn_SpecieNo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òª³þÿÿÿÿ
+osquid:S00116"YRename this field "rbn_mistingYES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¯¥¶
+ssquid:S00116"XRename this field "rbn_mistingNo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Íìâûÿÿÿÿ
+lsquid:S00116"VRename this field "rbn_raining" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¯†
+nsquid:S00116"XRename this field "rbn_cusReject" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èÑÇš
+jsquid:S00116"URename this field "rbn_others" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã»÷0
+qsquid:S00116"VRename this field "lnr_misting" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡þÈõÿÿÿÿÿ
+qsquid:S00116"VRename this field "edt_density" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ù úÿÿÿÿ
+xsquid:S00116"]Rename this field "edt_misting_others" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÞ³ùÿÿÿÿ
+nsquid:S00116"SRename this field "btn_save" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûï‚ÿÿÿÿÿ
+psquid:S00116"URename this field "bn_Proceed" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çß²›üÿÿÿÿ
+lsquid:S00116"VRename this field "arr_habitat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰¨²ª
+psquid:S00116"URename this field "arr_reason" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñƒžöüÿÿÿÿ
+psquid:S00116"URename this field "arr_action" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÖÍÎùÿÿÿÿ
+ssquid:S00116"]Rename this field "arr_recommendation" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×÷©ž
+psquid:S00116"URename this field "arr_instar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áª¨·ÿÿÿÿÿ
+msquid:S00116"WRename this field "str_breeding" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¸’Ä
+ksquid:S00116"URename this field "str_speiec" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¸’Ä
+lsquid:S00116"VRename this field "str_misting" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¸’Ä
+qsquid:S00116"[Rename this field "str_misting_ifno" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¸’Ä
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è°Ê¸þÿÿÿÿ
+\squid:S1858"B"getPESTS" returns a string, there's no need to call "toString()".(½ªÀ‰øÿÿÿÿ
+`squid:S1858"F"getSERVICEID" returns a string, there's no need to call "toString()".( µ›úþÿÿÿÿ
+\squid:S1858"B"getTitle" returns a string, there's no need to call "toString()".(ŒúË†üÿÿÿÿ
+psquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(æòÏÀ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ

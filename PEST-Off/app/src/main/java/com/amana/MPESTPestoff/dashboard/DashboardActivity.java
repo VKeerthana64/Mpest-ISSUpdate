@@ -19,6 +19,8 @@ import com.amana.MPESTPestoff.LoginActivity;
 import com.amana.MPESTPestoff.R;
 import com.amana.MPESTPestoff.adhoc.AdhocActivity;
 import com.amana.MPESTPestoff.attendance.CheckInAndOutActivity;
+import com.amana.MPESTPestoff.chemicals.ChemicalOrderActivity;
+import com.amana.MPESTPestoff.jobtabs.NewJobActivity;
 import com.amana.MPESTPestoff.logs.LogsActivity;
 import com.amana.MPESTPestoff.joblist.JobDetailsActivity;
 import com.amana.MPESTPestoff.myjob.PreviewActivity;
@@ -39,13 +41,15 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
     RecyclerView recyclerView;
     @BindView(R.id.copyRight_txt)
     TextView txt_copyRight;
-
+    @BindView(R.id.logout_txt)
+    TextView txtLogout;
     DashboardAdapter adapter;
     Context mcontext;
     private AppPreferences _appPrefs;
     private String TAG = this.getClass().getSimpleName();
     AlertDialog alertDialog;
     AlertDialog.Builder alertDialogBuilder;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,13 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         FooterTextWithUserName();
 
         updateGridAdapter();
+
+        txtLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout(mcontext);
+            }
+        });
     }
 
     public void FooterTextWithUserName() {
@@ -69,11 +80,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
 
         try {
 
-            String[] data = {"MATERIAL REQUEST", "CHEMICAL REQUEST", "MASTER SYNC", "MY TASKS",
-                              "MY SCHEDULE",  "LOGS"};
+            String[] data = {"MY SCHEDULE", "MY TASKS", "INVENTORY", "CHEMICAL ORDER", "MASTER SYNC", "LOGS"};
 
-            int[] icons = {R.drawable.db_material, R.drawable.db_chemical, R.drawable.db_sync, R.drawable.db_mytask,
-                    R.drawable.db_schedule,  R.drawable.db_logs};
+            int[] icons = {R.drawable.db_schedule, R.drawable.db_mytask, R.drawable.db_material, R.drawable.db_chemical, R.drawable.db_sync,
+                    R.drawable.db_logs};
             // set up the RecyclerView
             int numberOfColumns = 2;
             recyclerView.setLayoutManager(new GridLayoutManager(DashboardActivity.this, numberOfColumns));
@@ -101,37 +111,25 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         AppLogger.info(TAG, "Tab " + adapter.getItem(position) + ", position " + position);
 
         switch (position) {
+            case 0: // My Schedule
+                startActivity(new Intent(mcontext, MyScheduleActivity.class));
+                break;
+            case 1: // My Task
+                startActivity(new Intent(mcontext, NewJobActivity.class));
+                break;
+            case 2: // Inventory
 
-            case 0: // home
-                AppConstants.EXTRA_MENU = "HOME";
                 break;
-            case 1: // logOut
-                logout(mcontext);
-                break;
-            case 2: // Check in
-                Intent shedule = new Intent(mcontext, CheckInAndOutActivity.class);
-                startActivity(shedule);
-                break;
-            case 3: // My Task
-                Intent intent_myTask = new Intent(mcontext, JobDetailsActivity.class);
-                startActivity(intent_myTask);
+            case 3: // Chemical order
+                startActivity(new Intent(mcontext, ChemicalOrderActivity.class));
                 break;
 
-            case 4: // My Schedule
-                Intent intent_sche = new Intent(mcontext, MyScheduleActivity.class);
-                startActivity(intent_sche);
-                break;
-            case 5: // Master Sync
+            case 4: // Master Sync
                 masterSync(mcontext);
                 break;
-            case 6: //adhoc
-                Intent intent_ad = new Intent(mcontext, AdhocActivity.class);
-                //Intent intent_ad = new Intent(mcontext, PreviewActivity.class);
-                startActivity(intent_ad);
-                break;
-            case 7: // logs
-                Intent intent_logs = new Intent(mcontext, LogsActivity.class);
-                startActivity(intent_logs);
+
+            case 5: // logs
+                startActivity(new Intent(mcontext, LogsActivity.class));
                 break;
 
 
@@ -177,10 +175,11 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
     }
 
     /**
-     *  Master Sync
+     * Master Sync
+     *
      * @param context
      */
-    public void masterSync(Context context){
+    public void masterSync(Context context) {
 
         // get prompts.xml view
         LayoutInflater li = LayoutInflater.from(context);
@@ -191,10 +190,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         // create alert dialog
         alertDialog = alertDialogBuilder.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        CircleImageView img_close= (CircleImageView) promptsView
+        CircleImageView img_close = (CircleImageView) promptsView
                 .findViewById(R.id.close_img);
 
-       Button btn_ok = (Button) promptsView.findViewById(R.id.ok_btn);
+        Button btn_ok = (Button) promptsView.findViewById(R.id.ok_btn);
         img_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -206,7 +205,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
             public void onClick(View view) {
                 alertDialog.dismiss();
 
-                MasterDbLists.getMaterialList(mcontext,_appPrefs.getCLIENTID().toString());
+                MasterDbLists.getMaterialList(mcontext, _appPrefs.getCLIENTID().toString());
 
             }
         });

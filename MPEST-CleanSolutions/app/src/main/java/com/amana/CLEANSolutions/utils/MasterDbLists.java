@@ -2,8 +2,10 @@ package com.amana.CLEANSolutions.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.abdeveloper.library.MultiSelectModel;
+import com.amana.CLEANSolutions.joblist.model.InProgressData;
 import com.amana.CLEANSolutions.model.AdhocRequest;
 import com.amana.CLEANSolutions.model.RemarskModel;
 import com.amana.CLEANSolutions.model.masterdetails.MaterialData;
@@ -38,7 +40,14 @@ import com.amana.CLEANSolutions.model.realm.logdetails.LogServiceMaterialRMModel
 import com.amana.CLEANSolutions.model.realm.logdetails.LogServicesCapturesRmModel;
 import com.amana.CLEANSolutions.model.realm.logdetails.LogTeamCaptureRmModel;
 import com.amana.CLEANSolutions.model.realm.logdetails.LogsServiceDetails;
+import com.amana.CLEANSolutions.model.realm.taskdetail.Adhocdata;
+import com.amana.CLEANSolutions.model.realm.taskdetail.Commentsdetails;
+import com.amana.CLEANSolutions.model.realm.taskdetail.Contracterdetail;
+import com.amana.CLEANSolutions.model.realm.taskdetail.CustomerServicedetails;
+import com.amana.CLEANSolutions.model.realm.taskdetail.Customerdetail;
 import com.amana.CLEANSolutions.model.realm.taskdetail.Datum;
+import com.amana.CLEANSolutions.model.realm.taskdetail.JobOrdersdetail;
+import com.amana.CLEANSolutions.model.realm.taskdetail.Teamdetail;
 import com.amana.CLEANSolutions.restApi.ApiClient;
 import com.amana.CLEANSolutions.restApi.ApiInterface;
 
@@ -440,7 +449,6 @@ public class MasterDbLists {
     }
 
 
-
     /**
      * Gets Total Task List
      *
@@ -481,6 +489,236 @@ public class MasterDbLists {
 
             }
         });
+    }
+
+    /**
+     * Update Comments count in Mys Task List
+     *
+     * @param Id
+     */
+    public static void ChecknUpdateInProgressTaskList(final String Id, final InProgressData inProgressData) {
+        Realm realm = null;
+        try {
+            realm = Realm.getDefaultInstance();
+
+            realm.beginTransaction();
+            Datum result1 = realm.where(Datum.class)
+                    .equalTo("_id", "Id")
+                    .findFirst();
+            // Execute the query:
+            realm.commitTransaction();
+
+            if (result1.get_id().length() > 0 || !result1.get_id().isEmpty()) {
+                final Realm realm1 = Realm.getDefaultInstance(); // opens db
+                realm1.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        Datum obj = realm.where(Datum.class).equalTo("_id", Id).findFirst();
+                        if (obj == null) {
+                            obj = realm.createObject(Datum.class);
+                        }
+                        obj.setStatus("In-Progress");
+
+                    }
+                });
+            }
+
+        } catch (Exception e) {
+            realm.commitTransaction();
+            MasterDbLists.InsertNewInProgressJobs(inProgressData);
+
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Insert New In Progress Jobs
+     *
+     * @param inProgressData
+     */
+    public static void InsertNewInProgressJobs(final InProgressData inProgressData) {
+
+        try{
+           Realm realm = Realm.getDefaultInstance(); // opens db
+            realm.beginTransaction();
+            realm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    //Create a user if there isn't one
+                    final Datum pList = realm.createObject(Datum.class); // Create a new String
+                    pList.set_id(inProgressData.getId());
+                    pList.setJobsOrders(inProgressData.getJobsOrders());
+                    pList.setAssignedTo(inProgressData.getAssignedTo());
+                    pList.setFrequency(inProgressData.getFrequency());
+                    pList.setServiceOn(inProgressData.getServiceOn());
+                    pList.setTypes(inProgressData.getTypes());
+                    pList.setStatus(inProgressData.getStatus());
+                    pList.setUploadStatus(inProgressData.getStatus());
+                    pList.setCustomer(inProgressData.getCustomer());
+                    pList.setStartsat(inProgressData.getStartsat());
+                    pList.setEndsat(inProgressData.getEndsat());
+                    pList.setCreatedBy(inProgressData.getCreatedBy());
+                    pList.setPestType(inProgressData.getPestType());
+                    pList.setContractOrder(inProgressData.getContractOrder());
+                    pList.setServiceID(inProgressData.getServiceID());
+                    pList.setBillingAmount("");
+                    pList.setJobContinues(inProgressData.getJobContinues());
+                    pList.setLocation(inProgressData.getLocation());
+                    pList.setLatLong(inProgressData.getLatLong());
+                    pList.setClient_Id(inProgressData.getClientId());
+                    pList.setCustomerService_Id(inProgressData.getCustomerServiceId());
+                    pList.setContactPerson(inProgressData.getContactPerson());
+                    pList.setContactNumber("");
+                    pList.setCreateDate(inProgressData.getCreateDate());
+                    pList.setActive(inProgressData.getIsActive());
+                    pList.setInvoiceRaised(inProgressData.getIsInvoiceRaised());
+                    pList.setEmailSent(inProgressData.getEmailSent());
+                    pList.set__v(inProgressData.getV());
+                    pList.setUpdatedDate("");
+                    pList.setUpdatedBy("");
+                    pList.setInProgressedBy("");
+                    pList.setEmailSent(inProgressData.getEmailSent());
+                    pList.setEmailSentDate("");
+                    pList.setEmailSentTo("");
+                    pList.setCommentCount(0);
+                    pList.setAdhocType("");
+                    pList.setAdhocCustomerName("");
+
+                    try {
+                        JobOrdersdetail jobOrdersdetail = new JobOrdersdetail();
+                        jobOrdersdetail.set_id(inProgressData.getJobOrdersdetails().get(0).getId());
+                        jobOrdersdetail.setSalesOrderNo(inProgressData.getJobOrdersdetails().get(0).getSalesOrderNo());
+                        jobOrdersdetail.setOrderConfirmationDate(inProgressData.getJobOrdersdetails().get(0).getOrderConfirmationDate());
+                        jobOrdersdetail.setConfirmationReceivedBy(inProgressData.getJobOrdersdetails().get(0).getConfirmationReceivedBy());
+                        jobOrdersdetail.setConfirmationReceivedDate(inProgressData.getJobOrdersdetails().get(0).getConfirmationReceivedDate());
+                        jobOrdersdetail.setPestType(inProgressData.getJobOrdersdetails().get(0).getPestType());
+                        jobOrdersdetail.setCreatedBy(inProgressData.getJobOrdersdetails().get(0).getCreatedBy());
+                        jobOrdersdetail.setEnquiryID(inProgressData.getJobOrdersdetails().get(0).getEnquiryID());
+                        jobOrdersdetail.setSalesPerson_id(inProgressData.getJobOrdersdetails().get(0).getSalesPersonId());
+                        jobOrdersdetail.setEnquiryReferenceNo(inProgressData.getJobOrdersdetails().get(0).getEnquiryReferenceNo());
+                        jobOrdersdetail.setContactPerson(inProgressData.getJobOrdersdetails().get(0).getContactPerson());
+                        jobOrdersdetail.setCustomer_id(inProgressData.getJobOrdersdetails().get(0).getCustomerId());
+                        jobOrdersdetail.setServiceStartDate(inProgressData.getJobOrdersdetails().get(0).getServiceStartDate());
+                        jobOrdersdetail.setServiceEndDate(inProgressData.getJobOrdersdetails().get(0).getServiceEndDate());
+                        jobOrdersdetail.setFrequency(inProgressData.getJobOrdersdetails().get(0).getFrequency());
+                        jobOrdersdetail.setOrderType(inProgressData.getJobOrdersdetails().get(0).getOrderType());
+                        jobOrdersdetail.setTypes(inProgressData.getJobOrdersdetails().get(0).getTypes());
+                        jobOrdersdetail.setContractDuration(inProgressData.getJobOrdersdetails().get(0).getContractDuration());
+                        jobOrdersdetail.setContractStartDate(inProgressData.getJobOrdersdetails().get(0).getContractStartDate());
+                        jobOrdersdetail.setContractEndDate(inProgressData.getJobOrdersdetails().get(0).getContractEndDate());
+                        jobOrdersdetail.setJobsPerFrequency(inProgressData.getJobOrdersdetails().get(0).getJobsPerFrequency());
+                        jobOrdersdetail.setServicesRequired(inProgressData.getJobOrdersdetails().get(0).getServicesRequired());
+                        jobOrdersdetail.setTotalArea(0);
+                        jobOrdersdetail.setClient_Id(inProgressData.getJobOrdersdetails().get(0).getClientId());
+                        jobOrdersdetail.setCreatedDate(inProgressData.getJobOrdersdetails().get(0).getCreatedDate());
+                        jobOrdersdetail.setActive(inProgressData.getJobOrdersdetails().get(0).getIsActive());
+                        jobOrdersdetail.set__v(inProgressData.getJobOrdersdetails().get(0).getV());
+
+                        final RealmList<JobOrdersdetail> arr_JobList = new RealmList<>();
+                        arr_JobList.add(jobOrdersdetail);
+
+                        pList.setJobOrdersdetails(arr_JobList);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+
+                    try {
+                        Customerdetail customerdetail = new Customerdetail();
+
+                        customerdetail.set_id(inProgressData.getCustomerdetails().get(0).getId());
+
+                        customerdetail.setCompanyName(inProgressData.getCustomerdetails().get(0).getCompanyName());
+
+                        customerdetail.setNote(inProgressData.getCustomerdetails().get(0).getNote());
+                        customerdetail.setAddress(inProgressData.getCustomerdetails().get(0).getAddress());
+                        customerdetail.setPostal(inProgressData.getCustomerdetails().get(0).getPostal());
+                        customerdetail.setContactPerson(inProgressData.getCustomerdetails().get(0).getContactPerson());
+                        customerdetail.setPhone(inProgressData.getCustomerdetails().get(0).getPhone());
+                        customerdetail.setEmail(inProgressData.getCustomerdetails().get(0).getEmail());
+                        customerdetail.setUnit(inProgressData.getCustomerdetails().get(0).getUnit());
+                        customerdetail.setCategory(inProgressData.getCustomerdetails().get(0).getCategory());
+                        customerdetail.setCreatedBy(inProgressData.getCustomerdetails().get(0).getCreatedBy());
+                        customerdetail.setCreatedDate(inProgressData.getCustomerdetails().get(0).getCreatedDate());
+                        customerdetail.setState(inProgressData.getCustomerdetails().get(0).getState());
+
+                        final RealmList<Customerdetail> arr_cdetails = new RealmList<>();
+                        arr_cdetails.add(customerdetail);
+                        pList.setCustomerdetails(arr_cdetails);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+
+                    try {
+                        Teamdetail teamdetail = new Teamdetail();
+
+                        teamdetail.set_id(inProgressData.getTeamdetails().get(0).getId());
+                        teamdetail.setTeamName(inProgressData.getTeamdetails().get(0).getTeamName());
+                        teamdetail.setTeamCode(inProgressData.getTeamdetails().get(0).getTeamCode());
+                        teamdetail.setTeamLead(inProgressData.getTeamdetails().get(0).getTeamLead());
+                        teamdetail.setZone(inProgressData.getTeamdetails().get(0).getZone());
+                        teamdetail.setTeamMembers(inProgressData.getTeamdetails().get(0).getTeamMembers());
+                        teamdetail.setFromDate(inProgressData.getTeamdetails().get(0).getFromDate());
+                        teamdetail.setToDate(inProgressData.getTeamdetails().get(0).getToDate());
+                        teamdetail.setCreateDate(inProgressData.getTeamdetails().get(0).getCreateDate());
+                        teamdetail.setCreatedBy(inProgressData.getTeamdetails().get(0).getCreatedBy());
+                        teamdetail.setClient_Id(inProgressData.getTeamdetails().get(0).getClientId());
+                        teamdetail.setActive(inProgressData.getTeamdetails().get(0).getIsActive());
+
+                        final RealmList<Teamdetail> arr_Teamdetail = new RealmList<>();
+                        arr_Teamdetail.add(teamdetail);
+                        pList.setTeamdetails(arr_Teamdetail);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+
+                    try {
+                        Contracterdetail contracterdetail = new Contracterdetail();
+                        contracterdetail.set_id(inProgressData.getContracterdetails().get(0).getId());
+                        contracterdetail.setContractReferenceNo(inProgressData.getContracterdetails().get(0).getContractReferenceNo());
+                        contracterdetail.setPestType(inProgressData.getContracterdetails().get(0).getPestType());
+                        contracterdetail.setSalesPerson_id(inProgressData.getContracterdetails().get(0).getSalesPersonId());
+                        contracterdetail.setContractDuration(inProgressData.getContracterdetails().get(0).getContractDuration());
+                        contracterdetail.setContactPerson(inProgressData.getContracterdetails().get(0).getContactPerson());
+                        contracterdetail.setContractStartDate(inProgressData.getContracterdetails().get(0).getContractStartDate());
+                        contracterdetail.setContractEndDate(inProgressData.getContracterdetails().get(0).getContractEndDate());
+                        contracterdetail.setServiceStartDate(inProgressData.getContracterdetails().get(0).getServiceStartDate());
+                        contracterdetail.setServiceEndDate(inProgressData.getContracterdetails().get(0).getServiceEndDate());
+                        contracterdetail.setCreatedBy(inProgressData.getContracterdetails().get(0).getCreatedBy());
+                        contracterdetail.setCreatedDate(inProgressData.getContracterdetails().get(0).getCreatedDate());
+                        contracterdetail.setEnquiryID(inProgressData.getContracterdetails().get(0).getEnquiryID());
+                        contracterdetail.setCustomer_id(inProgressData.getContracterdetails().get(0).getCustomerId());
+                        contracterdetail.setSalesOrderID(inProgressData.getContracterdetails().get(0).getSalesOrderID());
+                        contracterdetail.setEnquiryReferenceNo(inProgressData.getContracterdetails().get(0).getEnquiryReferenceNo());
+                        contracterdetail.setContractStatus(inProgressData.getContracterdetails().get(0).getContractStatus());
+                        contracterdetail.setStatus(inProgressData.getContracterdetails().get(0).getStatus());
+                        contracterdetail.setFrequency(inProgressData.getContracterdetails().get(0).getFrequency());
+                        contracterdetail.setClient_Id(inProgressData.getContracterdetails().get(0).getClientId());
+                        contracterdetail.setActive(inProgressData.getContracterdetails().get(0).getIsActive());
+
+                        final RealmList<Contracterdetail> arr_Contracterdetail = new RealmList<>();
+                        arr_Contracterdetail.add(contracterdetail);
+                        pList.setContracterdetails(arr_Contracterdetail);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                    CustomerServicedetails customerServicedetails = new CustomerServicedetails();
+
+                    pList.setCustomerServicedetails(customerServicedetails);
+
+
+                }
+            });
+
+            realm.commitTransaction();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -721,7 +959,6 @@ public class MasterDbLists {
 
         return multiSelectModels;
     }
-
 
 
     /**
@@ -1466,7 +1703,7 @@ public class MasterDbLists {
 
     }
 
-    public static void UploadAdhocJob(final String mAdhocId,final String mServiceID) {
+    public static void UploadAdhocJob(final String mAdhocId, final String mServiceID) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.executeTransaction(new Realm.Transaction() {
@@ -1487,7 +1724,7 @@ public class MasterDbLists {
     }
 
 
-    public static void UploadAdhocIdPrimaryKey(final String mAdhocId,final String mID) {
+    public static void UploadAdhocIdPrimaryKey(final String mAdhocId, final String mID) {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.executeTransaction(new Realm.Transaction() {
@@ -1511,11 +1748,11 @@ public class MasterDbLists {
 
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
-                AdhocRequestRm result1 = realm.where(AdhocRequestRm.class)
-                        .equalTo("ServiceId", mServiceID)
-                        .findFirst();
-                // Execute the query:
-                realm.commitTransaction();
+        AdhocRequestRm result1 = realm.where(AdhocRequestRm.class)
+                .equalTo("ServiceId", mServiceID)
+                .findFirst();
+        // Execute the query:
+        realm.commitTransaction();
 
 
         return result1.getADHOCServiceId();
@@ -1688,6 +1925,129 @@ public class MasterDbLists {
         realm.commitTransaction();
     }
 
+
+    public static void DeleteFirst50LogRecords() {
+        final Realm realm = Realm.getDefaultInstance(); // opens db
+        realm.beginTransaction();
+        RealmResults<LogsTable> results = realm.where(LogsTable.class).findAll();
+
+        try{
+            Log.d("Result 1 -->",""+results.size());
+            if(results.size() > 50){
+                int dSize =  results.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    LogsTable recentViewItem = results.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        RealmResults<ServiceMaterialRMModel> res_ServiceM = realm.where(ServiceMaterialRMModel.class).findAll();
+        try{
+            Log.d("Result 2 -->",""+res_ServiceM.size());
+            if(res_ServiceM.size() > 50){
+                int dSize =  res_ServiceM.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    ServiceMaterialRMModel recentViewItem = res_ServiceM.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        RealmResults<MaterialsCapturesRmModel> res_MaterialsCapturesRmModel= realm.where(MaterialsCapturesRmModel.class).findAll();
+        try{
+            Log.d("Result 3 -->",""+res_MaterialsCapturesRmModel.size());
+            if(res_MaterialsCapturesRmModel.size() > 50){
+                int dSize =  res_MaterialsCapturesRmModel.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    MaterialsCapturesRmModel recentViewItem = res_MaterialsCapturesRmModel.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        RealmResults<ServicesCapturesRmModel> res_ServicesCapturesRmModel= realm.where(ServicesCapturesRmModel.class).findAll();
+        try{
+            Log.d("Result 4 -->",""+res_ServicesCapturesRmModel.size());
+            if(res_ServicesCapturesRmModel.size() > 50){
+                int dSize =  res_ServicesCapturesRmModel.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    ServicesCapturesRmModel recentViewItem = res_ServicesCapturesRmModel.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        RealmResults<LogsServiceDetails> res_LogsServiceDetails = realm.where(LogsServiceDetails.class).findAll();
+        try{
+            Log.d("Result 5 -->",""+res_LogsServiceDetails.size());
+            if(res_LogsServiceDetails.size() > 50){
+                int dSize =  res_LogsServiceDetails.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    LogsServiceDetails recentViewItem = res_LogsServiceDetails.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        RealmResults<LogFeedbackCaptureRmModel> res_LogFeedbackCaptureRmModel = realm.where(LogFeedbackCaptureRmModel.class).findAll();
+        try{
+            Log.d("Result 6 -->",""+res_LogFeedbackCaptureRmModel.size());
+            if(res_LogFeedbackCaptureRmModel.size() > 50){
+                int dSize =  res_LogFeedbackCaptureRmModel.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    LogFeedbackCaptureRmModel recentViewItem = res_LogFeedbackCaptureRmModel.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        RealmResults<LogPaymentCaptureRmModel> res_LogPaymentCaptureRmModel = realm.where(LogPaymentCaptureRmModel.class).findAll();
+        try{
+            Log.d("Result 7 -->",""+res_LogPaymentCaptureRmModel.size());
+            if(res_LogPaymentCaptureRmModel.size() > 50){
+                int dSize =  res_LogPaymentCaptureRmModel.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    LogPaymentCaptureRmModel recentViewItem = res_LogPaymentCaptureRmModel.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        RealmResults<LogTeamCaptureRmModel> res_LogTeamCaptureRmModel = realm.where(LogTeamCaptureRmModel.class).findAll();
+        try{
+            Log.d("Result 8 -->",""+res_LogTeamCaptureRmModel.size());
+            if(res_LogTeamCaptureRmModel.size() > 50){
+                int dSize =  res_LogTeamCaptureRmModel.size()- 50;
+                for(int i = 0; i < dSize; i++) {
+                    LogTeamCaptureRmModel recentViewItem = res_LogTeamCaptureRmModel.get(i);
+                    recentViewItem.deleteFromRealm();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+       realm.commitTransaction();
+    }
+
+
     public static void DeleteDuplicate(String mServiceID) {
         final Realm realm = Realm.getDefaultInstance(); // opens db
         realm.beginTransaction();
@@ -1702,6 +2062,23 @@ public class MasterDbLists {
 
 
         realm.commitTransaction();
+    }
+
+    public static void DeleteDuplicateInProgress(String id) {
+
+        try {
+            final Realm realm = Realm.getDefaultInstance(); // opens db
+            realm.beginTransaction();
+            realm.where(Datum.class)
+                    .equalTo("_id", id)
+                    .findAll()
+                    .deleteAllFromRealm();
+
+
+            realm.commitTransaction();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -1782,9 +2159,6 @@ public class MasterDbLists {
 
         return materialCount;
     }
-
-
-
 
 
     /**

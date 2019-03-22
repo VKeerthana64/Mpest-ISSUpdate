@@ -216,8 +216,6 @@ public class AdhocActivity extends AppCompatActivity implements OnTimeSetListene
 
     }
 
-
-    @SuppressLint("RestrictedApi")
     private void init() {
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);

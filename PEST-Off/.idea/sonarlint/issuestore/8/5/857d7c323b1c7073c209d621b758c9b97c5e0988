@@ -1,0 +1,50 @@
+
+Rsquid:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+?squid:S1068@"(Remove this unused "menu" private field.(î·öÁ
+vsquid:S00116I"YRename this field "inProgress_tab" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ˆƒóùÿÿÿÿ
+csquid:CommentedOutCodeLineÚ"<This block of commented-out lines of code should be removed.(Æ÷û”
+tsquid:S00116G"WRename this field "sheduled_tab" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßı£¼úÿÿÿÿ
+lsquid:UselessImportCheck#"CRemove this unused import 'com.amana.MPESTPestoff.utils.AppLogger'.(èáÅŒùÿÿÿÿ
+@squid:S1148ó"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+usquid:S00116K"XRename this field "completed_tab" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¯ôüúÿÿÿÿ
+lsquid:S00116M"TRename this field "tv_nodata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â´Ù
+osquid:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(û¦èşÿÿÿÿ
+hsquid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(£‘§õøÿÿÿÿ
+hsquid:CommentedOutCodeLine³"<This block of commented-out lines of code should be removed.(ƒÚíÄüÿÿÿÿ
+\squid:UselessImportCheck"3Remove this unused import 'android.text.TextUtils'.(û˜½Õøÿÿÿÿ
+\squid:S1858Ê"D"s" is already a string, there's no need to call "toString()" on it.(Ã¦Íõ
+esquid:S1192Š"HDefine a constant instead of duplicating this literal "#f3eedf" 6 times.(²ŒÌ’øÿÿÿÿ
+esquid:MaximumInheritanceDepth9"<This class has 7 parents which is greater than 5 authorized.(Â÷ÙÁ
+csquid:CommentedOutCodeLine–"<This block of commented-out lines of code should be removed.(±åÍ×
+jsquid:S00117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İî¯Ñ
+@squid:S1148¸"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+qsquid:S00116;"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯‹ÿäùÿÿÿÿ
+@squid:S1148“"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+~squid:UselessImportCheck "URemove this unused import 'com.amana.MPESTPestoff.model.realm.taskdetail.Teamdetail'.(áåğ‘şÿÿÿÿ
+}squid:UselessImportCheck"TRemove this unused import 'com.amana.MPESTPestoff.model.realm.taskdetail.Adhocdata'.(¸Ä‰Ôûÿÿÿÿ
+dsquid:S1192²"LDefine a constant instead of duplicating this literal "In-Progress" 4 times.(‰ëöå
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×ò­ˆşÿÿÿÿ
+jsquid:UselessImportCheck"FRemove this unused import 'com.amana.MPESTPestoff.model.AdhocRequest'.(Ûüíœ
+@squid:S1148‘"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+csquid:CommentedOutCodeLine½"<This block of commented-out lines of code should be removed.(Æ÷û”
+jsquid:S00117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”‘Ä
+jsquid:S1450@"SRemove the "menu" field and declare it as a local variable in the relevant methods.(î·öÁ
+_squid:S1858¨"G"getEMPLOYEEID" returns a string, there's no need to call "toString()".(Ù‹Ùø
+~squid:UselessImportCheck"ZRemove this unused import 'com.amana.MPESTPestoff.model.realm.taskdetail.JobOrdersdetail'.(êß»Ñ
+Vsquid:S1155˜">Use isEmpty() to check whether the collection is empty or not.(ı¤ê£
+qsquid:S2293‹"YReplace the type specification in this constructor call with the diamond operator ("<>").(è”‘Ä
+hsquid:CommentedOutCodeLineÿ"<This block of commented-out lines of code should be removed.(òÆÒîÿÿÿÿÿ
+psquid:S00116S"SRename this field "fab_sync" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÎ¿Åùÿÿÿÿ
+]squid:S1858²"E"getCLIENTID" returns a string, there's no need to call "toString()".(Ó£ú
+hsquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(™Ñ¨Êúÿÿÿÿ
+_squid:S1858²"G"getEMPLOYEEID" returns a string, there's no need to call "toString()".(Ó£ú
+@squid:S1148”"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+}squid:UselessImportCheck"YRemove this unused import 'com.amana.MPESTPestoff.model.realm.taskdetail.Customerdetail'.(ò®çš
+]squid:S1858¨"E"getCLIENTID" returns a string, there's no need to call "toString()".(Ù‹Ùø
+hsquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(Ñ«õéıÿÿÿÿ
+Bsquid:S00108Ğ")Either remove or fill this block of code.(”ı¾
+squid:UselessImportCheck"[Remove this unused import 'com.amana.MPESTPestoff.model.realm.taskdetail.Contracterdetail'.(½Û
+bsquid:CommentedOutCodeLineÎ"<This block of commented-out lines of code should be removed.(éŒı"
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ì¤Èÿÿÿÿÿ
+Usquid:S1155ª">Use isEmpty() to check whether the collection is empty or not.(­µË@
+?squid:S1185ğ"(Remove this method to simply inherit it.(¹§ 

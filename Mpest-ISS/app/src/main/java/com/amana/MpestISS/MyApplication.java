@@ -2,6 +2,7 @@ package com.amana.MpestISS;
 
 import android.app.Application;
 import android.os.StrictMode;
+import android.support.multidex.MultiDex;
 
 import com.crashlytics.android.Crashlytics;
 import io.fabric.sdk.android.Fabric;
@@ -14,6 +15,7 @@ public class MyApplication extends Application {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
         initRealm();
+        MultiDex.install(this);
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());

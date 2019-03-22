@@ -2,9 +2,11 @@ package com.amana.CLEANSolutions.dashboard;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,24 +16,37 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.amana.CLEANSolutions.BuildConfig;
 import com.amana.CLEANSolutions.LoginActivity;
 import com.amana.CLEANSolutions.R;
 import com.amana.CLEANSolutions.adhoc.AdhocActivity;
 import com.amana.CLEANSolutions.attendance.CheckInAndOutActivity;
 import com.amana.CLEANSolutions.logs.LogsActivity;
 import com.amana.CLEANSolutions.joblist.JobDetailsActivity;
+import com.amana.CLEANSolutions.model.checkinout.CheckingRequest;
+import com.amana.CLEANSolutions.model.checkinout.CheckingResponse;
 import com.amana.CLEANSolutions.myjob.PreviewActivity;
 import com.amana.CLEANSolutions.myschedule.MyScheduleActivity;
+import com.amana.CLEANSolutions.restApi.ApiClient;
+import com.amana.CLEANSolutions.restApi.ApiInterface;
 import com.amana.CLEANSolutions.utils.AppConstants;
 import com.amana.CLEANSolutions.utils.AppLogger;
 import com.amana.CLEANSolutions.utils.AppPreferences;
 import com.amana.CLEANSolutions.utils.MasterDbLists;
+import com.amana.CLEANSolutions.utils.Utils;
 import com.geniusforapp.fancydialog.FancyAlertDialog;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class DashboardActivity extends AppCompatActivity implements DashboardAdapter.ItemClickListener {
@@ -57,6 +72,12 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         FooterTextWithUserName();
 
         updateGridAdapter();
+
+        GetAppVersion();
+
+        MasterDbLists.DeleteFirst50LogRecords();
+
+
     }
 
     public void FooterTextWithUserName() {
@@ -142,13 +163,78 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
     }
 
 
+    public void GetAppVersion() {
+
+        final ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+        Call<AppVersionResponse> call = apiService.GetAppVersion();
+        call.enqueue(new Callback<AppVersionResponse>() {
+            @Override
+            public void onResponse(Call<AppVersionResponse> call, Response<AppVersionResponse> response) {
+
+                try {
+                    String mMsg = response.body().getMessage();
+
+                    if (response.body().getStatusCode() == 200) {
+
+                        if (!(BuildConfig.VERSION_NAME.equalsIgnoreCase(response.body().getData()))) {
+                          handleNewVersionUpdate();
+                        }
+
+                    }else{
+                        Toast.makeText(mcontext,"Something went wrong. Please try again",Toast.LENGTH_LONG).show();
+                    }
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<AppVersionResponse> call, Throwable t) {
+                Toast.makeText(mcontext,"Unable to get data from service. please try again later",Toast.LENGTH_LONG).show();
+            }
+
+        });
+    }
+
+
+    private void handleNewVersionUpdate() {
+
+        android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(mcontext).create();
+        alertDialog.setTitle("Alert");
+        alertDialog.setMessage("A new version of the application is available, please click below to update to the latest version.");
+        alertDialog.setCancelable(false);
+        alertDialog.setButton(android.app.AlertDialog.BUTTON_POSITIVE, "UPDATE",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        moveToPlayStore();
+
+                    }
+                });
+        alertDialog.show();
+    }
+
+    private void moveToPlayStore() {
+        final String appPackageName = BuildConfig.APPLICATION_ID;
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
+    }
+
     /**
      * LogOut Methods
      *
      * @param context
      */
     public void logout(final Context context) {
-        FancyAlertDialog.Builder alert = new FancyAlertDialog.Builder(context)
+        FancyAlertDialog.Builder alert1 = new FancyAlertDialog.Builder(context)
                 .setAlertFont("fonts/Avenir-Medium.otf")
                 .setSubTitleFont("fonts/Avenir-Heavy.otf")
                 .setTextSubTitle("Do you really want to logout?")
@@ -174,7 +260,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
                     }
                 })
                 .build();
-        alert.show();
+        alert1.show();
     }
 
     /**
@@ -214,5 +300,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         alertDialog.show();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        GetAppVersion();
+    }
 }
 

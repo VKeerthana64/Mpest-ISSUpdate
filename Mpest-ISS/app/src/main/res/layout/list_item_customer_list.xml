@@ -82,7 +82,7 @@
 
                                 android:textColor="@color/colorAccent"
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -110,7 +110,7 @@
                                 android:maxLines="2"
                                 android:text="01-Jun-18 8:30 AM"
                                 android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Regular" />
                         </LinearLayout>
 
@@ -150,7 +150,7 @@
                                 android:text=""
 
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -176,7 +176,7 @@
                                 android:maxLines="2"
                                 android:text=""
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -214,7 +214,7 @@
                                 android:maxLines="2"
                                 android:text=""
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -240,7 +240,7 @@
                                 android:maxLines="2"
                                 android:text=""
                                 android:textSize="12dp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -271,7 +271,7 @@
                         android:text=""
                         android:textColor="@color/colorAccent"
                         android:textSize="12dp"
-                        android:textStyle="bold"
+
                         app:fontName="Font_Bold" />
 
                     <com.amana.MpestISS.components.CustomFontTextView
@@ -285,7 +285,7 @@
                         android:text="VIEW"
                         android:textColor="@color/colorAccent"
                         android:textSize="14dp"
-                        android:textStyle="bold"
+
                         app:fontName="Font_Bold" />
 
                 </RelativeLayout>

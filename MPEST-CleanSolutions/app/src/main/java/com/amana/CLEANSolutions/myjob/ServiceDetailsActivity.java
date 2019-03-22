@@ -3,6 +3,7 @@ package com.amana.CLEANSolutions.myjob;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.amana.CLEANSolutions.BuildConfig;
 import com.amana.CLEANSolutions.MapsActivity;
 import com.amana.CLEANSolutions.R;
 import com.amana.CLEANSolutions.dashboard.DashboardActivity;
@@ -220,7 +222,10 @@ public class ServiceDetailsActivity extends AppCompatActivity {
                 finish();
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }else{
-                if(mList.get(0).getCustomerdetails().get(0).getMultipleJobs()){
+
+                popup_AllowToStartService(); // Recently allowing multiple jobs without any condition
+
+               /* if(mList.get(0).getCustomerdetails().get(0).getMultipleJobs()){
 
                     if(MasterDbLists.checkInProgressExist() == 1){
                         if(tv_customer_name.getText().toString().equalsIgnoreCase(""+ MasterDbLists.getCustomerName_InProgressExist())){
@@ -238,7 +243,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
 
                 } else {
                     popup_JobExist();
-                }
+                }*/
             }
 
     }
@@ -329,7 +334,7 @@ public class ServiceDetailsActivity extends AppCompatActivity {
         Utils.showCustomDialog(mContext);
         final ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<Object> call = apiService.JobStatusUpdate(_id, "In-Progress", UserID);
+        Call<Object> call = apiService.JobStatusUpdate(_id, "In-Progress", UserID, BuildConfig.VERSION_NAME,""+ Build.VERSION.RELEASE);
         call.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {

@@ -109,6 +109,13 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".announcement.AnnouncementActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name=".quiz.QuizActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"

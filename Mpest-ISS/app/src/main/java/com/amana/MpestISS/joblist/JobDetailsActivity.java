@@ -462,38 +462,6 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 realm.createObjectFromJson(MyTaskRealm.class, object);// Insert from a string
                 realm.commitTransaction();
 
-            /*    ArrayList<ListData> arr_Datum = MasterDbLists.getMytaskListFromdb();
-
-                if (arr_Datum.size() > 0) {
-
-                    for (ListData datum : arr_Datum) {
-
-                        Call<CommetsResponse> call2 = apiService.GetallComments(datum.get_id());
-
-                        CommetsResponse commetsResponse = (CommetsResponse) call2.execute().body();
-
-                        try {
-
-                            int mStatusCode = commetsResponse.getStatusCode();
-
-                            if (mStatusCode == 200) {
-
-                                if (commetsResponse.getData().size() > 0) {
-                                    MasterDbLists.UpdateMyTaskList(commetsResponse.getData().size(), datum.getServiceID());
-                                }
-
-                            }
-
-
-                        } catch (Exception e) {
-                            Utils.dismissDialog();
-                            e.printStackTrace();
-
-                        }
-
-                    }
-                }*/
-                Utils.dismissDialog();
             } catch (Exception e) {
 
                 Utils.dismissDialog();
@@ -519,6 +487,8 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
                 e.printStackTrace();
 
+            }finally {
+                Utils.dismissDialog();
             }
 
             return "true";

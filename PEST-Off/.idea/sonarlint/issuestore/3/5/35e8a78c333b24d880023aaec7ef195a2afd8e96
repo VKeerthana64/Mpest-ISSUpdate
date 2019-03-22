@@ -1,0 +1,16 @@
+
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆ¨ë‹ûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÛÐØÿ
+squid:S1319"vThe type of the "selectedIds" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒõÄþøÿÿÿÿ
+’squid:S1319"xThe type of the "selectedNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒõÄþøÿÿÿÿ
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±¾ê
+osquid:S00116"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯‹ÿäùÿÿÿÿ
+nsquid:S00116"XRename this field "edt_chemicals" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŽµØÐ
+osquid:S00116"TRename this field "edt_baits" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùËƒøýÿÿÿÿ
+ssquid:S00116"XRename this field "arr_chemicals" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À×ÁŒùÿÿÿÿ
+qsquid:S00116"[Rename this field "arr_SelectedList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ£Ô
+osquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯Éª@
+`squid:UselessImportCheck"9Remove this unused import 'com.retropicker.MainActivity'.(ú÷ÊÎüÿÿÿÿ
+bsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(¹ïî9

@@ -80,7 +80,7 @@ public class UploadBgService extends IntentService {
 
     String Reting = "", EmailId = "", CustomerRemarks = "", CustomerSignature = "";
 
-    AdhocRequestRm adhocRequest = new AdhocRequestRm();
+    AdhocRequestRm adhocRequestRM = new AdhocRequestRm();
 
     PreviewServicesAdapter previewServicesAdapter;
     PreviewMaterialsAdapter previewMaterialsAdapter;
@@ -149,20 +149,14 @@ public class UploadBgService extends IntentService {
 
     /**
      * Gets request body.
-     *
      * @return the request body
      */
     public static RequestBody getRequestBody(JSONObject objt) {
         return RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), objt.toString());
     }
 
-
     //Initialise details n get data
     class getInitialise extends AsyncTask<Object, Void, String> {
-
-        protected void onPreExecute() {
-
-        }
 
         protected String doInBackground(Object... parametros) {
 
@@ -175,7 +169,7 @@ public class UploadBgService extends IntentService {
                     Gson gson = new Gson();
                     //adhocRequest = gson.fromJson(response, AdhocRequest.class);
 
-                    adhocRequest = MasterDbLists.GetAhocData(_appPrefs.getSERVICEID());
+                    adhocRequestRM = MasterDbLists.GetAhocData(_appPrefs.getSERVICEID());
 
 
                 } else {
@@ -211,40 +205,38 @@ public class UploadBgService extends IntentService {
 
                         AdhocModel adhocModelRm = new AdhocModel();
                         ArrayList<AdhocModel> adhocModel = new ArrayList<>();
-                        adhocModelRm.setCompanyName(adhocRequest.getAdhocdata().get(0).getCompanyName());
-                        adhocModelRm.setAddress(adhocRequest.getAdhocdata().get(0).getAddress());
-                        adhocModelRm.setPestType(adhocRequest.getAdhocdata().get(0).getPestType());
-                        adhocModelRm.setPostal(adhocRequest.getAdhocdata().get(0).getPostal());
-                        adhocModelRm.setEmail(adhocRequest.getAdhocdata().get(0).getEmail());
-                        adhocModelRm.setLatLong(adhocRequest.getAdhocdata().get(0).getLatLong());
-                        adhocModelRm.setLocation(adhocRequest.getAdhocdata().get(0).getLocation());
-                        adhocModelRm.setSalesPersonId(adhocRequest.getAdhocdata().get(0).getSalesPerson_id());
+                        adhocModelRm.setCompanyName(adhocRequestRM.getAdhocdata().get(0).getCompanyName());
+                        adhocModelRm.setAddress(adhocRequestRM.getAdhocdata().get(0).getAddress());
+                        adhocModelRm.setPestType(adhocRequestRM.getAdhocdata().get(0).getPestType());
+                        adhocModelRm.setPostal(adhocRequestRM.getAdhocdata().get(0).getPostal());
+                        adhocModelRm.setEmail(adhocRequestRM.getAdhocdata().get(0).getEmail());
+                        adhocModelRm.setLatLong(adhocRequestRM.getAdhocdata().get(0).getLatLong());
+                        adhocModelRm.setLocation(adhocRequestRM.getAdhocdata().get(0).getLocation());
+                        adhocModelRm.setSalesPersonId(adhocRequestRM.getAdhocdata().get(0).getSalesPerson_id());
                         adhocModel.add(adhocModelRm);
-
 
                         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
                         Date d = new Date();
                         String dayOfTheWeek = sdf.format(d);
 
-
                         final JSONObject object;
                         try{
-                            if(adhocRequest.get_id().length() >0){ // Passing _id Primary key used select model class
+                            if(adhocRequestRM.get_id().length() >0){ // Passing _id Primary key used select model class
 
                                 ADHOCUploadRequestWithID adhocUploadRequest = new ADHOCUploadRequestWithID();
-                                adhocUploadRequest.set_id(adhocRequest.get_id());
+                                adhocUploadRequest.set_id(adhocRequestRM.get_id());
                                 adhocUploadRequest.setServiceOn(dayOfTheWeek);
-                                adhocUploadRequest.setAssignedTo(adhocRequest.getAssignedTo());
-                                adhocUploadRequest.setTeam(adhocRequest.getTeam());
+                                adhocUploadRequest.setAssignedTo(adhocRequestRM.getAssignedTo());
+                                adhocUploadRequest.setTeam(adhocRequestRM.getTeam());
                                 adhocUploadRequest.setWorkorderNo(mWorkOrderNo);
                                 adhocUploadRequest.setContractOrderNo(mContractNo);
-                                adhocUploadRequest.setCustomerName(adhocRequest.getContactPerson());
-                                adhocUploadRequest.setLocation(adhocRequest.getAdhocdata().get(0).getLocation());
+                                adhocUploadRequest.setCustomerName(adhocRequestRM.getContactPerson());
+                                adhocUploadRequest.setLocation(adhocRequestRM.getAdhocdata().get(0).getLocation());
                                 adhocUploadRequest.setStartsat(_appPrefs.getJobStartedTime().toString());
                                 adhocUploadRequest.setEndsat(Utils.getCurrentDateTime());
-                                adhocUploadRequest.setPesttype(adhocRequest.getPestType());
+                                adhocUploadRequest.setPesttype(adhocRequestRM.getPestType());
                                 adhocUploadRequest.setServices(SelectedServices);
-                                adhocUploadRequest.setTeamLead(adhocRequest.getTeamLead());
+                                adhocUploadRequest.setTeamLead(adhocRequestRM.getTeamLead());
                                 adhocUploadRequest.setTeamMember(TeamMember);
                                 adhocUploadRequest.setTeamRemarks(TeamRemarks);
                                 adhocUploadRequest.setTeamSignature(TeamSign);
@@ -299,17 +291,17 @@ public class UploadBgService extends IntentService {
 
                                 final ADHOCUploadRequest adhocUploadRequest = new ADHOCUploadRequest();
                                 adhocUploadRequest.setServiceOn(dayOfTheWeek);
-                                adhocUploadRequest.setAssignedTo(adhocRequest.getAssignedTo());
-                                adhocUploadRequest.setTeam(adhocRequest.getTeam());
+                                adhocUploadRequest.setAssignedTo(adhocRequestRM.getAssignedTo());
+                                adhocUploadRequest.setTeam(adhocRequestRM.getTeam());
                                 adhocUploadRequest.setWorkorderNo(mWorkOrderNo);
                                 adhocUploadRequest.setContractOrderNo(mContractNo);
-                                adhocUploadRequest.setCustomerName(adhocRequest.getContactPerson());
-                                adhocUploadRequest.setLocation(adhocRequest.getAdhocdata().get(0).getLocation());
+                                adhocUploadRequest.setCustomerName(adhocRequestRM.getContactPerson());
+                                adhocUploadRequest.setLocation(adhocRequestRM.getAdhocdata().get(0).getLocation());
                                 adhocUploadRequest.setStartsat(_appPrefs.getJobStartedTime().toString());
                                 adhocUploadRequest.setEndsat(Utils.getCurrentDateTime());
-                                adhocUploadRequest.setPesttype(adhocRequest.getPestType());
+                                adhocUploadRequest.setPesttype(adhocRequestRM.getPestType());
                                 adhocUploadRequest.setServices(SelectedServices);
-                                adhocUploadRequest.setTeamLead(adhocRequest.getTeamLead());
+                                adhocUploadRequest.setTeamLead(adhocRequestRM.getTeamLead());
                                 adhocUploadRequest.setTeamMember(TeamMember);
                                 adhocUploadRequest.setTeamRemarks(TeamRemarks);
                                 adhocUploadRequest.setTeamSignature(TeamSign);
@@ -365,9 +357,9 @@ public class UploadBgService extends IntentService {
                             e.printStackTrace();
                         }
 
-
                     // After Noraml Jobs
                     } else {
+
                         uploadRequest = new UploadRequest();
                         uploadRequest.setServiceId(mList.get(0).get_id());
                         uploadRequest.setTeam(mList.get(0).getTeamdetails().get(0).getTeamName());
@@ -436,6 +428,7 @@ public class UploadBgService extends IntentService {
                                 final String message = object.optString("message");
 
                                 _appPrefs.saveJobStartedTime("" + Utils.getCurrentDateTime());
+
                                 if (message.equalsIgnoreCase("Job Already Completed")) {
 
                                     MasterDbLists.UploadJobStatus(mServiceId, "Completed", "Upload Success");
@@ -475,7 +468,7 @@ public class UploadBgService extends IntentService {
                                     }
 
                                     // Change Job Status in Api
-                                    Call<Object> call2 = apiService.JobStatusUpdate(mJobId, "Completed", _appPrefs.getUserID());
+                         /*           Call<Object> call2 = apiService.JobStatusUpdate(mJobId, "Completed", _appPrefs.getUserID());
                                     call2.enqueue(new Callback<Object>() {
                                         @Override
                                         public void onResponse(Call<Object> call2, Response<Object> response) {
@@ -499,7 +492,7 @@ public class UploadBgService extends IntentService {
                                         public void onFailure(Call<Object> call2, Throwable t) {
                                            MasterDbLists.UploadJobStatus(mServiceId, "Completed", "Upload Failed");
                                        }
-                                    });
+                                    });*/
                                 }
                             }
 
@@ -518,9 +511,9 @@ public class UploadBgService extends IntentService {
 
 
             } catch (Exception e) {
+                MasterDbLists.UploadJobStatus(mServiceId, "In-Progress", "");
                 Utils.dismissDialog();
                 e.printStackTrace();
-
             }
 
             return "true";
@@ -537,7 +530,6 @@ public class UploadBgService extends IntentService {
         }
 
     }
-
 
     public void AdhocUploadResultParse(JSONObject object){
 
@@ -612,7 +604,6 @@ public class UploadBgService extends IntentService {
 
 
     }
-
 
     private void fetchAllDetails() {
 
@@ -892,6 +883,5 @@ public class UploadBgService extends IntentService {
 
 
     }
-
 
 }

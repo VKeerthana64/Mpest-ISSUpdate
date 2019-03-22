@@ -1,0 +1,18 @@
+
+squid:UselessImportCheck"TRemove this unused import 'com.amana.MPESTPestoff.attendance.CheckInAndOutActivity'.(®âÏ“8ßš÷‡-
+\"squid:SwitchLastCaseIsDefaultCheckn""Add a default case to this switch.(¼œóÛüÿÿÿÿ8ßš÷‡-
+usquid:S00117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á…ëøûÿÿÿÿ8ßš÷‡-
+qsquid:UselessImportCheck"FRemove this unused import 'com.amana.MPESTPestoff.utils.AppConstants'.(µ½öÕ8ßš÷‡-
+lsquid:S00116/"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉŒïk8ßš÷‡-
+isquid:S1858Ï"E"getCLIENTID" returns a string, there's no need to call "toString()".(Ú¡öûÿÿÿÿ8‘­÷‡-
+ssquid:S00116."TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ÅÌ›8ßš÷‡-
+~squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¨Ã›ûÿÿÿÿ8ßš÷‡-
+tsquid:UselessImportCheck"IRemove this unused import 'com.amana.MPESTPestoff.myjob.PreviewActivity'.(ÈÊ±†8ßš÷‡-
+vsquid:S00117Ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Ù³½úÿÿÿÿ8‘­÷‡-
+usquid:S00117t"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š·°Íùÿÿÿÿ8ßš÷‡-
+wsquid:UselessImportCheck"GRemove this unused import 'com.amana.MPESTPestoff.adhoc.AdhocActivity'.(­ä×­ÿÿÿÿÿ8ßš÷‡-
+vsquid:S00117À"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡Êâûÿÿÿÿ8‘­÷‡-
+Fsquid:S1148\"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ßš÷‡-
+lsquid:MaximumInheritanceDepth%"<This class has 7 parents which is greater than 5 authorized.(®èÓŠ8ßš÷‡-
+|squid:S00116)"XRename this field "txt_copyRight" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İË–èùÿÿÿÿ8ßš÷‡-
+vsquid:S00117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øœ˜æúÿÿÿÿ8‘­÷‡-

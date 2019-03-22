@@ -38,6 +38,10 @@ import com.amana.CLEANSolutions.MapsActivity;
 import com.amana.CLEANSolutions.R;
 import com.amana.CLEANSolutions.adapter.PreviewMaterialsAdapter;
 import com.amana.CLEANSolutions.adapter.PreviewServicesAdapter;
+import com.amana.CLEANSolutions.dashboard.DashboardActivity;
+import com.amana.CLEANSolutions.model.ADHOCUploadRequest;
+import com.amana.CLEANSolutions.model.ADHOCUploadRequestWithID;
+import com.amana.CLEANSolutions.model.AdhocModel;
 import com.amana.CLEANSolutions.model.AdhocRequest;
 import com.amana.CLEANSolutions.model.MaterialPreviewModel;
 import com.amana.CLEANSolutions.model.UploadRequest;
@@ -45,6 +49,7 @@ import com.amana.CLEANSolutions.model.finalUpload.MaterialsRequest;
 import com.amana.CLEANSolutions.model.finalUpload.PhotoAfterRequest;
 import com.amana.CLEANSolutions.model.finalUpload.PhotoBeforeRequest;
 import com.amana.CLEANSolutions.model.finalUpload.ServicesRequest;
+import com.amana.CLEANSolutions.model.realm.AdhocRm.AdhocRequestRm;
 import com.amana.CLEANSolutions.model.realm.Materials;
 import com.amana.CLEANSolutions.model.realm.jobdetails.FeedbackCaptureRmModel;
 import com.amana.CLEANSolutions.model.realm.jobdetails.PaymentCaptureRmModel;
@@ -85,11 +90,13 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -109,15 +116,22 @@ public class PreviewActivity extends AppCompatActivity {
 
     AppPreferences _appPrefs;
     Context mContext;
-    String mServiceId = "", mStatus = "",SelectedServices = "",SelectedMaterial="";
-    String Breeding="",NoOfCulls = "", Species = "", MistingCariedOutNo = "", MistingCariedOut = "", Density = "",
+    String mServiceId = "", mStatus = "", SelectedServices = "", SelectedMaterial = "";
+    String Breeding = "", NoOfCulls = "", Species = "", MistingCariedOutNo = "", MistingCariedOut = "", Density = "",
             Instar = "", NoOfBurrows = "", NoOfDead = "", Habitat = "", Action = "",
             Recommendation = "", Others = "", Reason = "";
-    String StartTime="", endTime="";
+    String StartTime = "", endTime = "";
 
-    String TeamMember = "",TeamRemarks ="", TeamSign = "";
+    String TeamMember = "", TeamRemarks = "", TeamSign = "";
 
-    String Mode="",TotalPay = "",note="",AreaPlanned ="", AreaCompleted="", paymentRemark="", sor="";
+    String mWorkOrderNo = "", mContractNo = "", mLatitude = "", mLongitube = "";
+    String mJobId = "", msetCustomerName = "",
+            mScheduledDate = "", mActualStartTime = "", mActualEndTime = "",
+            mTeam = "", mTeamMember = "", mPestType = "",
+            mJobPerformedBy = "", mLocation = "",
+            mLatLong = "", msetTypes = "";
+
+    String Mode = "", TotalPay = "", note = "", AreaPlanned = "", AreaCompleted = "", paymentRemark = "", sor = "";
     ArrayList<PhotoBeforeRequest> arr_photoBeforeRequest = new ArrayList<>();
     ArrayList<PhotoAfterRequest> arr_photoAfterRequest = new ArrayList<>();
     ArrayList<ServicesRequest> arr_serviceRequest = new ArrayList<>();
@@ -126,10 +140,12 @@ public class PreviewActivity extends AppCompatActivity {
     ArrayList<String> arr_FilePaths = new ArrayList<>();
     UploadRequest uploadRequest;
 
-    String Reting="", EmailId="",CustomerRemarks="",CustomerSignature="";
+    String Reting = "", EmailId = "", CustomerRemarks = "", CustomerSignature = "";
 
     PreviewServicesAdapter previewServicesAdapter;
     PreviewMaterialsAdapter previewMaterialsAdapter;
+
+    AdhocRequestRm adhocRequestRM = new AdhocRequestRm();
 
     PaymentCaptureRmModel paymentCaptureRmModel = new PaymentCaptureRmModel();
     TeamCaptureRmModel teamCaptureRmModel = new TeamCaptureRmModel();
@@ -220,6 +236,7 @@ public class PreviewActivity extends AppCompatActivity {
 
     ProgressDialog dialog;
     String mADOCServiceID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -246,17 +263,18 @@ public class PreviewActivity extends AppCompatActivity {
             adhocRequest = gson.fromJson(response, AdhocRequest.class);
         }
 
-            restoreValuesFromBundle(savedInstanceState);
+        restoreValuesFromBundle(savedInstanceState);
 
         //updateLocationUI();
 
         checkLocationPermission();
 
-        new getInitialise().execute();
+        new getInitialiseData().execute();
+
     }
 
 
-    public void locationSetup(){
+    public void locationSetup() {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mSettingsClient = LocationServices.getSettingsClient(this);
 
@@ -271,7 +289,6 @@ public class PreviewActivity extends AppCompatActivity {
                 updateLocationUI();
             }
         };
-
 
 
         mRequestingLocationUpdates = false;
@@ -291,13 +308,11 @@ public class PreviewActivity extends AppCompatActivity {
 
     public void init() {
 
-       // Utils.showCustomDialog(mContext);
-
-        if(_appPrefs.getSERVICEID().contains("ADHOC_")){
+        if (_appPrefs.getSERVICEID().contains("ADHOC_")) {
             tv_serviceId.setText(_appPrefs.getSERVICEID());
             tv_customer_name.setText(adhocRequest.getContactPerson());
             tv_location.setText(adhocRequest.getAdhocdata().get(0).getLocation());
-           // tv_scheduled_date.setText(Utils.getRequiredDate(adhocRequest.getStartsat()));
+            // tv_scheduled_date.setText(Utils.getRequiredDate(adhocRequest.getStartsat()));
             tv_pest_type.setText(adhocRequest.getPestType());
             _appPrefs.saveTEAMLEAD(adhocRequest.getTeam()); // set's Team Lead to preferrence
             tv_team.setText(adhocRequest.getTeam());
@@ -314,14 +329,13 @@ public class PreviewActivity extends AppCompatActivity {
             _appPrefs.saveCUSTOMER(adhocRequest.getContactPerson()); // set's Customer Name to preferrence
 
 
-
-        }else{
+        } else {
             tv_serviceId.setText(mList.get(0).getServiceID());
 
             try {
-                if(mList.get(0).getAdhocType().length() > 0){
+                if (mList.get(0).getAdhocType().length() > 0) {
                     tv_customer_name.setText(mList.get(0).getAdhocdata().get(0).getCompanyName());
-                }else{
+                } else {
                     tv_customer_name.setText(mList.get(0).getCustomerdetails().get(0).getCompanyName());
                 }
 
@@ -329,16 +343,16 @@ public class PreviewActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            try{
+            try {
 
-                if(mList.get(0).getAdhocType().length() > 0){
+                if (mList.get(0).getAdhocType().length() > 0) {
                     tv_location.setText(mList.get(0).getAdhocdata().get(0).getLocation());
 
-                }else{
+                } else {
                     tv_location.setText(mList.get(0).getLocation());
                 }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -346,73 +360,67 @@ public class PreviewActivity extends AppCompatActivity {
             tv_pest_type.setText(mList.get(0).getPestType());
 
 
-            if(mList.get(0).getTeamdetails().size() > 0){
+            if (mList.get(0).getTeamdetails().size() > 0) {
 
                 _appPrefs.saveTEAMLEAD(mList.get(0).getTeamdetails().get(0).getTeamLead()); // set's Team Lead to preferrence
                 tv_team.setText(mList.get(0).getTeamdetails().get(0).getTeamName());
                 _appPrefs.saveTEAMNAME(mList.get(0).getTeamdetails().get(0).getTeamName());
             }
 
-            if(mList.get(0).getContracterdetails().size() >0){
+            if (mList.get(0).getContracterdetails().size() > 0) {
                 tv_contract_no.setText(mList.get(0).getContracterdetails().get(0).getContractReferenceNo());
             }
 
 
-            if(mList.get(0).getJobOrdersdetails().size()>0){
+            if (mList.get(0).getJobOrdersdetails().size() > 0) {
                 Types_txt.setText(mList.get(0).getJobOrdersdetails().get(0).getTypes());
             }
 
-            if(mList.get(0).getJobOrdersdetails().size() > 0){
+            if (mList.get(0).getJobOrdersdetails().size() > 0) {
                 tv_work_orderno.setText(mList.get(0).getJobOrdersdetails().get(0).getSalesOrderNo());
 
             }
 
-            if(mList.get(0).getCustomerdetails().size() > 0){
-                _appPrefs.saveCUSTOMEREMAIL(mList.get(0).getCustomerServicedetails().getsEmail());
+            if (mList.get(0).getCustomerdetails().size() > 0) {
+                _appPrefs.saveCUSTOMEREMAIL(mList.get(0).getCustomerdetails().get(0).getEmail());
             }
 
 
-            try{
+            try {
                 _appPrefs.savePESTS(mList.get(0).getPestType()); // set's Pest Type to preferrence
                 _appPrefs.saveCUSTOMER(mList.get(0).getContactPerson()); // set's Customer Name to preferrence
 
-            }catch (Exception e){e.printStackTrace();}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
         }
 
-
-
         tv_performedBy.setText(_appPrefs.getUserID());
-
 
         tv_scheduled_start_time.setText(Utils.CurrentTime(_appPrefs.getJobStartedTime().toString()));
         tv_scheduled_end_time.setText(Utils.CurrentTime());
-
-
 
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_location = new Intent(v.getContext(), MapsActivity.class);
 
-                if(_appPrefs.getSERVICEID().toString().contains("ADHOC_")){
+                if (_appPrefs.getSERVICEID().toString().contains("ADHOC_")) {
                     intent_location.putExtra("LatLong", adhocRequest.getAdhocdata().get(0).getLatLong());
                     intent_location.putExtra("Location", adhocRequest.getAdhocdata().get(0).getLocation());
-                }else{
-                    if(mList.get(0).getAdhocType().length() > 0){
+                } else {
+                    if (mList.get(0).getAdhocType().length() > 0) {
 
                         intent_location.putExtra("LatLong", mList.get(0).getAdhocdata().get(0).getLatLong());
                         intent_location.putExtra("Location", mList.get(0).getAdhocdata().get(0).getLocation());
 
-                    }else{
+                    } else {
                         intent_location.putExtra("LatLong", mList.get(0).getLatLong());
                         intent_location.putExtra("Location", mList.get(0).getLocation());
                     }
                 }
-
-
-
 
                 startActivity(intent_location);
             }
@@ -425,14 +433,13 @@ public class PreviewActivity extends AppCompatActivity {
         rv_services.setItemAnimator(new DefaultItemAnimator());
         // ------ //
 
-
-         arr_previewMaterial.clear();
+        arr_previewMaterial.clear();
 
         for (int j = 0; j < arr_materialedetail.size(); j++) {
-            String materialOthers = "", materials="";
+            String materialOthers = "", materials = "";
 
             materialOthers = arr_materialedetail.get(j).getOthers();
-            if(arr_materialedetail.get(j).getOthers().length() !=0 || arr_materialedetail.get(j).getSM_remarks().length() !=0){
+            if (arr_materialedetail.get(j).getOthers().length() != 0 || arr_materialedetail.get(j).getSM_remarks().length() != 0) {
 
                 for (int i = 0; i < arr_materialedetail.get(j).getMaterialsCaptures().size(); i++) {
 
@@ -445,12 +452,12 @@ public class PreviewActivity extends AppCompatActivity {
                     arr_previewMaterial.add(materialPreviewModel);
                 }
 
-                if(materialOthers.length() > 0){
+                if (materialOthers.length() > 0) {
                     MaterialPreviewModel materialPreviewModel = new MaterialPreviewModel();
 
-                    if(materials.length() >0){
+                    if (materials.length() > 0) {
                         materialPreviewModel.setPestType(materials);
-                    }else{
+                    } else {
                         materialPreviewModel.setPestType(arr_materialedetail.get(j).getPestType());
                     }
 
@@ -484,127 +491,783 @@ public class PreviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Utils.showCustomDialog(mContext);
 
-              /*  uploadRequest = new UploadRequest();
-                uploadRequest.setServiceId(mList.get(0).get_id());
-                uploadRequest.setTeam(mList.get(0).getTeamdetails().get(0).getTeamName());
-                uploadRequest.setScheduledate(Utils.getRequiredDate(mList.get(0).getCreateDate()));
-                uploadRequest.setWorkorderNo(tv_work_orderno.getText().toString());
-                uploadRequest.setContractOrderNo(tv_contract_no.getText().toString());
-                uploadRequest.setCustomerName(mList.get(0).getContactPerson());
-                uploadRequest.setLocation(mList.get(0).getLocation());
-                uploadRequest.setStartsat(_appPrefs.getJobStartedTime().toString());
-                uploadRequest.setEndsat(Utils.getCurrentDateTime());
-                uploadRequest.setPesttype(mList.get(0).getPestType());
-                uploadRequest.setServices(SelectedServices);
-                uploadRequest.setTeamLead(mList.get(0).getTeamdetails().get(0).getTeamLead());
-                uploadRequest.setTeamMember(TeamMember);
-                uploadRequest.setTeamRemarks(TeamRemarks);
-                uploadRequest.setTeamSignature(TeamSign);
-                uploadRequest.setStartLocation(_appPrefs.getLOCATION());
-                uploadRequest.setEndLocation(""+dLatitube+","+dLongitube);
-                uploadRequest.setBreedingFound(Breeding);
-                uploadRequest.setSpecies(Species);
-                uploadRequest.setMistingCariedOutNo(MistingCariedOutNo);
-                uploadRequest.setMistingCariedOut(MistingCariedOut);
-                uploadRequest.setDensity(Density);
-                uploadRequest.setInstar(Instar);
-                uploadRequest.setNoOfCulls(NoOfCulls);
-                uploadRequest.setNoOfBurrows(NoOfBurrows);
-                uploadRequest.setNoOfDead(NoOfDead);
-                uploadRequest.setHabitat(Habitat);
-                uploadRequest.setAction(Action);
-                uploadRequest.setRecommendation(Recommendation);
-                uploadRequest.setSor(sor);
-                uploadRequest.setOthers(Others);
-                uploadRequest.setReason(Reason);
-                uploadRequest.setRating(Reting);
-                uploadRequest.setMaterials(SelectedMaterial);
-                uploadRequest.setCustomerRemarks(CustomerRemarks);
-                uploadRequest.setCustomerSignature(CustomerSignature);
-                uploadRequest.setPaymentmethod(Mode);
-                uploadRequest.setTotalpayment(TotalPay);
-                uploadRequest.setPaymentNotes(note);
-                uploadRequest.setTotalarea(AreaPlanned);
-                uploadRequest.setEmailId(EmailId);
-                uploadRequest.setPaymentRemarks(paymentRemark);
-                uploadRequest.setCustomerCurrentDate(""+Utils.getCurrentTime());
-                uploadRequest.setTotalcompleted(AreaCompleted);
-                uploadRequest.setCreatedBy(_appPrefs.getUserID());
-                uploadRequest.setCreatedBy(_appPrefs.getUserID());
-                uploadRequest.setClientId(mList.get(0).getClient_Id());
-                uploadRequest.setPhotosBeforeArray(arr_photoBeforeRequest);
-                uploadRequest.setPhotosAfterArray(arr_photoAfterRequest);
-                uploadRequest.setServicesArray(arr_serviceRequest);
-                uploadRequest.setMaterialsArray(arr_materialsRequest);
+                if (Utils.isNetConnected(mContext)) {
+
+                    Utils.showCustomDialog(mContext);
 
 
-                Gson gson = new Gson();
-                String json = gson.toJson(uploadRequest);*/
+                    if (_appPrefs.getSERVICEID().toString().contains("ADHOC_")) {
+                        mJobId = "";
+                        mLatLong = adhocRequest.getAdhocdata().get(0).getLatLong();
 
+                    } else {
+                        mJobId = "" + mList.get(0).get_id();
 
-                Intent uploadService = new Intent(mContext,UploadBgService.class);
+                        if (mList.get(0).getAdhocType().length() > 0) {
+                            mLatLong = mList.get(0).getAdhocdata().get(0).getLatLong();
 
-                if(_appPrefs.getSERVICEID().toString().contains("ADHOC_")){
-                    uploadService.putExtra("JobId","");
-                    uploadService.putExtra("LatLong",adhocRequest.getAdhocdata().get(0).getLatLong());
-                }else{
-                    uploadService.putExtra("JobId",mList.get(0).get_id());
-                    if(mList.get(0).getAdhocType().length() > 0){
-                        uploadService.putExtra("LatLong",mList.get(0).getAdhocdata().get(0).getLatLong());
-                    }else{
-                        uploadService.putExtra("LatLong",mList.get(0).getLatLong());
+                        } else {
+                            mLatLong = mList.get(0).getLatLong();
+
+                        }
                     }
+
+                    mServiceId = _appPrefs.getSERVICEID();
+                    mWorkOrderNo = tv_work_orderno.getText().toString();
+                    mContractNo = tv_contract_no.getText().toString();
+                    msetCustomerName = tv_customer_name.getText().toString();
+                    mScheduledDate = tv_scheduled_date.getText().toString();
+                    mActualStartTime = tv_scheduled_start_time.getText().toString();
+                    mActualEndTime = tv_scheduled_end_time.getText().toString();
+                    mTeam = tv_team.getText().toString();
+                    mTeamMember = tv_team_members.getText().toString();
+                    mPestType = tv_pest_type.getText().toString();
+                    mJobPerformedBy = tv_performedBy.getText().toString();
+                    mLocation = tv_location.getText().toString();
+                    msetTypes = Types_txt.getText().toString();
+                    mLatitude = String.valueOf(dLatitube);
+                    mLongitube = String.valueOf(dLongitube);
+
+                    new FinalEndService().execute();
+
+                    Utils.dismissDialog();
+
+                } else {
+                    MasterDbLists.UploadJobStatus(mServiceId, "In-Progress", "");
+                    Toast.makeText(mContext, "Please check your internet connection", Toast.LENGTH_LONG).show();
                 }
-               // uploadService.putExtra("MyData",json);
-
-                uploadService.putExtra("ServiceId",_appPrefs.getSERVICEID());
-                uploadService.putExtra("WorkOrderNo",tv_work_orderno.getText().toString());
-                uploadService.putExtra("ContractNo",tv_contract_no.getText().toString());
-                uploadService.putExtra("setCustomerName",tv_customer_name.getText().toString());
-                uploadService.putExtra("ScheduledDate",tv_scheduled_date.getText().toString());
-                uploadService.putExtra("ActualStartTime",tv_scheduled_start_time.getText().toString());
-                uploadService.putExtra("ActualEndTime",tv_scheduled_end_time.getText().toString());
-                uploadService.putExtra("Team",tv_team.getText().toString());
-                uploadService.putExtra("TeamMember",tv_team_members.getText().toString());
-                uploadService.putExtra("PestType",tv_pest_type.getText().toString());
-                uploadService.putExtra("JobPerformedBy",tv_performedBy.getText().toString());
-                uploadService.putExtra("Location",tv_location.getText().toString());
-                uploadService.putExtra("Latitude",String.valueOf(dLatitube));
-                uploadService.putExtra("Longitube",String.valueOf(dLongitube));
-                 uploadService.putExtra("setTypes",Types_txt.getText().toString());
-                startService(uploadService);
-
-
-                Utils.dismissDialog();
-
-                // Will change the status in local Db
-                if(!(_appPrefs.getSERVICEID().toString().contains("ADHOC_"))) {
-                    MasterDbLists.UploadJobStatus(_appPrefs.getSERVICEID(), "Completed", "Upload InProgress");
-                }
-                Toast.makeText(mContext,"Uploading in background",Toast.LENGTH_LONG).show();
-
-                finish();
-
-                //new FinalEndService().execute();
-
 
             }
         });
 
 
+        //fetchAllDetails();
 
-         //fetchAllDetails();
-
-       // dialog.dismiss();
-       // Utils.dismissDialog();
+        // dialog.dismiss();
+        // Utils.dismissDialog();
     }
 
 
+    //Initialise details n get data
+    class FinalEndService extends AsyncTask<Object, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            Utils.showCustomDialog(mContext);
+            super.onPreExecute();
+        }
+
+        protected String doInBackground(Object... parametros) {
+
+            try {
+
+                mServiceId = _appPrefs.getSERVICEID().toString();
+                /// ADHOC
+                if (_appPrefs.getSERVICEID().contains("ADHOC_")) {
+
+                    AdhocModel adhocModelRm = new AdhocModel();
+                    ArrayList<AdhocModel> adhocModel = new ArrayList<>();
+                    adhocModelRm.setCompanyName(adhocRequestRM.getAdhocdata().get(0).getCompanyName());
+                    adhocModelRm.setAddress(adhocRequestRM.getAdhocdata().get(0).getAddress());
+                    adhocModelRm.setPestType(adhocRequestRM.getAdhocdata().get(0).getPestType());
+                    adhocModelRm.setPostal(adhocRequestRM.getAdhocdata().get(0).getPostal());
+                    adhocModelRm.setEmail(adhocRequestRM.getAdhocdata().get(0).getEmail());
+                    adhocModelRm.setLatLong(adhocRequestRM.getAdhocdata().get(0).getLatLong());
+                    adhocModelRm.setLocation(adhocRequestRM.getAdhocdata().get(0).getLocation());
+                    adhocModelRm.setSalesPersonId(adhocRequestRM.getAdhocdata().get(0).getSalesPerson_id());
+                    adhocModel.add(adhocModelRm);
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+                    Date d = new Date();
+                    String dayOfTheWeek = sdf.format(d);
+
+                    final JSONObject object;
+                    try {
+                        if (adhocRequestRM.get_id().length() > 0) { // Passing _id Primary key used select model class
+
+                            ADHOCUploadRequestWithID adhocUploadRequest = new ADHOCUploadRequestWithID();
+                            adhocUploadRequest.set_id(adhocRequestRM.get_id());
+                            adhocUploadRequest.setServiceOn(dayOfTheWeek);
+                            adhocUploadRequest.setAssignedTo(adhocRequestRM.getAssignedTo());
+                            adhocUploadRequest.setTeam(adhocRequestRM.getTeam());
+                            adhocUploadRequest.setWorkorderNo(mWorkOrderNo);
+                            adhocUploadRequest.setContractOrderNo(mContractNo);
+                            adhocUploadRequest.setCustomerName(adhocRequestRM.getContactPerson());
+                            adhocUploadRequest.setLocation(adhocRequestRM.getAdhocdata().get(0).getLocation());
+                            adhocUploadRequest.setStartsat(_appPrefs.getJobStartedTime().toString());
+                            adhocUploadRequest.setEndsat(Utils.getCurrentDateTime());
+                            adhocUploadRequest.setPesttype(adhocRequestRM.getPestType());
+                            adhocUploadRequest.setServices(SelectedServices);
+                            adhocUploadRequest.setTeamLead(adhocRequestRM.getTeamLead());
+                            adhocUploadRequest.setTeamMember(TeamMember);
+                            adhocUploadRequest.setTeamRemarks(TeamRemarks);
+                            adhocUploadRequest.setTeamSignature(TeamSign);
+                            adhocUploadRequest.setStartLocation(_appPrefs.getLOCATION());
+                            adhocUploadRequest.setEndLocation("" + mLatitude + "," + mLongitube);
+                            adhocUploadRequest.setBreedingFound(Breeding);
+                            adhocUploadRequest.setSpecies(Species);
+                            adhocUploadRequest.setMistingCariedOutNo(MistingCariedOutNo);
+                            adhocUploadRequest.setMistingCariedOut(MistingCariedOut);
+                            adhocUploadRequest.setDensity(Density);
+                            adhocUploadRequest.setInstar(Instar);
+                            adhocUploadRequest.setNoOfCulls(NoOfCulls);
+                            adhocUploadRequest.setNoOfBurrows(NoOfBurrows);
+                            adhocUploadRequest.setNoOfDead(NoOfDead);
+                            adhocUploadRequest.setHabitat(Habitat);
+                            adhocUploadRequest.setAction(Action);
+                            adhocUploadRequest.setRecommendation(Recommendation);
+                            adhocUploadRequest.setSor(sor);
+                            adhocUploadRequest.setOthers(Others);
+                            adhocUploadRequest.setReason(Reason);
+                            adhocUploadRequest.setRating(Reting);
+                            adhocUploadRequest.setMaterials(SelectedMaterial);
+                            adhocUploadRequest.setCustomerRemarks(CustomerRemarks);
+                            adhocUploadRequest.setCustomerSignature(CustomerSignature);
+                            adhocUploadRequest.setPaymentmethod(Mode);
+                            adhocUploadRequest.setTotalpayment(TotalPay);
+                            adhocUploadRequest.setPaymentNotes(note);
+                            adhocUploadRequest.setTotalarea(AreaPlanned);
+                            adhocUploadRequest.setEmailId(EmailId);
+                            adhocUploadRequest.setPaymentRemarks(paymentRemark);
+                            adhocUploadRequest.setCustomerCurrentDate("" + Utils.getCurrentTime());
+                            adhocUploadRequest.setTotalcompleted(AreaCompleted);
+                            adhocUploadRequest.setCreatedBy(_appPrefs.getUserID());
+                            adhocUploadRequest.setClientId("" + _appPrefs.getCLIENTID());
+                            adhocUploadRequest.setPhotosBeforeArray(arr_photoBeforeRequest);
+                            adhocUploadRequest.setPhotosAfterArray(arr_photoAfterRequest);
+                            adhocUploadRequest.setServicesArray(arr_serviceRequest);
+                            adhocUploadRequest.setMaterialsArray(arr_materialsRequest);
+
+                            adhocUploadRequest.setAdhocdata(adhocModel);
+                            final ApiInterface apiService =
+                                    ApiClient.getClient().create(ApiInterface.class);
+                            Call<Object> call = apiService.ADHOCUploadToServerWithPrimaryKey(adhocUploadRequest);
+
+                            object = new JSONObject(new com.google.gson.Gson().toJson(call.execute().body()));
+
+                            _appPrefs.saveJobStartedTime("" + Utils.getCurrentDateTime());
+
+                            AdhocUploadResultParse(object);
+
+                        } else {
+
+                            final ADHOCUploadRequest adhocUploadRequest = new ADHOCUploadRequest();
+                            adhocUploadRequest.setServiceOn(dayOfTheWeek);
+                            adhocUploadRequest.setAssignedTo(adhocRequestRM.getAssignedTo());
+                            adhocUploadRequest.setTeam(adhocRequestRM.getTeam());
+                            adhocUploadRequest.setWorkorderNo(mWorkOrderNo);
+                            adhocUploadRequest.setContractOrderNo(mContractNo);
+                            adhocUploadRequest.setCustomerName(adhocRequestRM.getContactPerson());
+                            adhocUploadRequest.setLocation(adhocRequestRM.getAdhocdata().get(0).getLocation());
+                            adhocUploadRequest.setStartsat(_appPrefs.getJobStartedTime().toString());
+                            adhocUploadRequest.setEndsat(Utils.getCurrentDateTime());
+                            adhocUploadRequest.setPesttype(adhocRequestRM.getPestType());
+                            adhocUploadRequest.setServices(SelectedServices);
+                            adhocUploadRequest.setTeamLead(adhocRequestRM.getTeamLead());
+                            adhocUploadRequest.setTeamMember(TeamMember);
+                            adhocUploadRequest.setTeamRemarks(TeamRemarks);
+                            adhocUploadRequest.setTeamSignature(TeamSign);
+                            adhocUploadRequest.setStartLocation(_appPrefs.getLOCATION());
+                            adhocUploadRequest.setEndLocation("" + mLatitude + "," + mLongitube);
+                            adhocUploadRequest.setBreedingFound(Breeding);
+                            adhocUploadRequest.setSpecies(Species);
+                            adhocUploadRequest.setMistingCariedOutNo(MistingCariedOutNo);
+                            adhocUploadRequest.setMistingCariedOut(MistingCariedOut);
+                            adhocUploadRequest.setDensity(Density);
+                            adhocUploadRequest.setInstar(Instar);
+                            adhocUploadRequest.setNoOfCulls(NoOfCulls);
+                            adhocUploadRequest.setNoOfBurrows(NoOfBurrows);
+                            adhocUploadRequest.setNoOfDead(NoOfDead);
+                            adhocUploadRequest.setHabitat(Habitat);
+                            adhocUploadRequest.setAction(Action);
+                            adhocUploadRequest.setRecommendation(Recommendation);
+                            adhocUploadRequest.setSor(sor);
+                            adhocUploadRequest.setOthers(Others);
+                            adhocUploadRequest.setReason(Reason);
+                            adhocUploadRequest.setRating(Reting);
+                            adhocUploadRequest.setMaterials(SelectedMaterial);
+                            adhocUploadRequest.setCustomerRemarks(CustomerRemarks);
+                            adhocUploadRequest.setCustomerSignature(CustomerSignature);
+                            adhocUploadRequest.setPaymentmethod(Mode);
+                            adhocUploadRequest.setTotalpayment(TotalPay);
+                            adhocUploadRequest.setPaymentNotes(note);
+                            adhocUploadRequest.setTotalarea(AreaPlanned);
+                            adhocUploadRequest.setEmailId(EmailId);
+                            adhocUploadRequest.setPaymentRemarks(paymentRemark);
+                            adhocUploadRequest.setCustomerCurrentDate("" + Utils.getCurrentTime());
+                            adhocUploadRequest.setTotalcompleted(AreaCompleted);
+                            adhocUploadRequest.setCreatedBy(_appPrefs.getUserID());
+                            adhocUploadRequest.setClientId("" + _appPrefs.getCLIENTID());
+                            adhocUploadRequest.setPhotosBeforeArray(arr_photoBeforeRequest);
+                            adhocUploadRequest.setPhotosAfterArray(arr_photoAfterRequest);
+                            adhocUploadRequest.setServicesArray(arr_serviceRequest);
+                            adhocUploadRequest.setMaterialsArray(arr_materialsRequest);
+
+                            adhocUploadRequest.setAdhocdata(adhocModel);
+
+                            final ApiInterface apiService =
+                                    ApiClient.getClient().create(ApiInterface.class);
+                            Call<Object> call = apiService.ADHOCUploadToServerInBackGround(adhocUploadRequest);
+
+                            object = new JSONObject(new com.google.gson.Gson().toJson(call.execute().body()));
+
+                            _appPrefs.saveJobStartedTime("" + Utils.getCurrentDateTime());
+
+                            AdhocUploadResultParse(object);
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(mContext, "Something went wrong. Please try again later", Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
+                    }
+
+                    // After Noraml Jobs
+                } else {
+
+                    uploadRequest = new UploadRequest();
+                    uploadRequest.setServiceId(mList.get(0).get_id());
+                    uploadRequest.setTeam(mList.get(0).getTeamdetails().get(0).getTeamName());
+                    uploadRequest.setScheduledate(Utils.getRequiredDate(mList.get(0).getCreateDate()));
+                    uploadRequest.setWorkorderNo(mWorkOrderNo);
+                    uploadRequest.setContractOrderNo(mContractNo);
+                    uploadRequest.setCustomerName(mList.get(0).getContactPerson());
+                    uploadRequest.setLocation(mList.get(0).getLocation());
+                    uploadRequest.setStartsat(_appPrefs.getJobStartedTime().toString());
+                    uploadRequest.setEndsat(Utils.getCurrentDateTime());
+                    uploadRequest.setPesttype(mList.get(0).getPestType());
+                    uploadRequest.setServices(SelectedServices);
+                    uploadRequest.setTeamLead(mList.get(0).getTeamdetails().get(0).getTeamLead());
+                    uploadRequest.setTeamMember(TeamMember);
+                    uploadRequest.setTeamRemarks(TeamRemarks);
+                    uploadRequest.setTeamSignature(TeamSign);
+                    uploadRequest.setStartLocation(_appPrefs.getLOCATION());
+                    uploadRequest.setEndLocation("" + mLatitude + "," + mLongitube);
+                    uploadRequest.setBreedingFound(Breeding);
+                    uploadRequest.setSpecies(Species);
+                    uploadRequest.setMistingCariedOutNo(MistingCariedOutNo);
+                    uploadRequest.setMistingCariedOut(MistingCariedOut);
+                    uploadRequest.setDensity(Density);
+                    uploadRequest.setInstar(Instar);
+                    uploadRequest.setNoOfCulls(NoOfCulls);
+                    uploadRequest.setNoOfBurrows(NoOfBurrows);
+                    uploadRequest.setNoOfDead(NoOfDead);
+                    uploadRequest.setHabitat(Habitat);
+                    uploadRequest.setAction(Action);
+                    uploadRequest.setRecommendation(Recommendation);
+                    uploadRequest.setSor(sor);
+                    uploadRequest.setOthers(Others);
+                    uploadRequest.setReason(Reason);
+                    uploadRequest.setRating(Reting);
+                    uploadRequest.setMaterials(SelectedMaterial);
+                    uploadRequest.setCustomerRemarks(CustomerRemarks);
+                    uploadRequest.setCustomerSignature(CustomerSignature);
+                    uploadRequest.setPaymentmethod(Mode);
+                    uploadRequest.setTotalpayment(TotalPay);
+                    uploadRequest.setPaymentNotes(note);
+                    uploadRequest.setTotalarea(AreaPlanned);
+                    uploadRequest.setEmailId(EmailId);
+                    uploadRequest.setPaymentRemarks(paymentRemark);
+                    uploadRequest.setCustomerCurrentDate("" + Utils.getCurrentTime());
+                    uploadRequest.setTotalcompleted(AreaCompleted);
+
+                    uploadRequest.setCreatedBy(_appPrefs.getUserID());
+                    uploadRequest.setClientId(mList.get(0).getClient_Id());
+                    uploadRequest.setPhotosBeforeArray(arr_photoBeforeRequest);
+                    uploadRequest.setPhotosAfterArray(arr_photoAfterRequest);
+                    uploadRequest.setServicesArray(arr_serviceRequest);
+                    uploadRequest.setMaterialsArray(arr_materialsRequest);
+
+                    try {
+
+                        final ApiInterface apiService =
+                                ApiClient.getClient().create(ApiInterface.class);
+                        Call<Object> call = apiService.UploadToServerInBackGround(uploadRequest);
+
+                        final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(call.execute().body()));
+
+                        int mStatusCode = object.getInt("statusCode");
+
+                        if (mStatusCode == 200) {
+
+                            String message = object.optString("message");
+
+                            _appPrefs.saveJobStartedTime("" + Utils.getCurrentDateTime());
+
+                            handleUploadResponse(message); // normal job
+
+                            ShowPopupAfterSuccess(message);
+
+                            dialog.dismiss();
+
+                        } else {
+
+                            Toast.makeText(mContext, "Something went wrong. Please try again later.", Toast.LENGTH_LONG).show();
+                        }
+
+                    } catch (Exception e) {
+                        Utils.dismissDialog();
+                         e.printStackTrace();
+
+                    }
+
+                }
+
+
+            } catch (Exception e) {
+                Utils.dismissDialog();
+                Toast.makeText(mContext, "Something went wrong. Please try again later", Toast.LENGTH_LONG).show();
+                MasterDbLists.UploadJobStatus(mServiceId, "In-Progress", "");
+
+                e.printStackTrace();
+            } finally {
+                Utils.dismissDialog();
+            }
+
+            return "true";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            if (result.equalsIgnoreCase("true")) {
+                Utils.dismissDialog();
+            }
+            super.onPostExecute(result);
+        }
+
+    }
+
+    public void AdhocUploadResultParse(JSONObject object) {
+
+        try {
+
+            int mStatusCode = object.getInt("statusCode");
+
+            if (mStatusCode == 200) {
+
+                final String message = object.optString("message");
+
+
+                if (message.equalsIgnoreCase("Job Already Completed")) {
+
+                    // MasterDbLists.UploadJobStatus(mServiceId, "Completed", "Upload Success");
+
+                } else {
+
+                    JSONArray data_Objt = object.optJSONArray("data");
+
+                    final JSONObject jsonObject = data_Objt.optJSONObject(0).getJSONObject("data");
+
+
+                    if (MasterDbLists.GetLogDuplicateCount(jsonObject.optString("ServiceID")) == 0) {
+
+                        MasterDbLists.AddLog("" + jsonObject.optString("id"), jsonObject.optString("ServiceID") + "@@" + mServiceId, "Completed", Utils.CurrentDate(), Utils.CurrentTime());
+
+                        MasterDbLists.UploadAdhocJob(mServiceId, jsonObject.optString("ServiceID"));
+
+                        MasterDbLists.UploadAdhocIdPrimaryKey(mServiceId, jsonObject.optString("id"));
+
+                        // Saves Log details
+                        final Realm realm = Realm.getDefaultInstance(); // opens db
+                        realm.executeTransaction(new Realm.Transaction() {
+                            @Override
+                            public void execute(Realm realm) {
+                                //Create a user if there isn't one
+                                final LogsServiceDetails serviceDetails = realm.createObject(LogsServiceDetails.class); // Create a new String
+                                serviceDetails.setServiceId("" + jsonObject.optString("ServiceID"));
+                                serviceDetails.setWorkOrderNo(mWorkOrderNo);
+                                serviceDetails.setContractNo(mContractNo);
+                                serviceDetails.setCustomerName(msetCustomerName);
+                                serviceDetails.setScheduledDate(mScheduledDate);
+                                serviceDetails.setActualStartTime(mActualStartTime);
+                                serviceDetails.setActualEndTime(mActualEndTime);
+                                serviceDetails.setTeam(mTeam);
+                                serviceDetails.setTeamMember(mTeamMember);
+                                serviceDetails.setPestType(mPestType);
+                                serviceDetails.setJobPerformedBy(mJobPerformedBy);
+                                serviceDetails.setLocation(mLocation);
+                                serviceDetails.setLatLong(mLatLong);
+                                serviceDetails.setTypes(msetTypes);
+                            }
+                        });
+
+                        MasterDbLists.CopyTotalDetailToLog(mServiceId.toString());
+
+                    }
+
+                }
+
+
+                ShowPopupAfterSuccess(message);
+
+
+            } else {
+                Toast.makeText(mContext, "Something went wrong...", Toast.LENGTH_SHORT).show();
+            }
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+    private void fetchAllDetails() {
+
+        //Get selected Services
+        SelectedServices = "";
+        for (int i = 0; i < arr_servicedetail.size(); i++) {
+            SelectedServices = SelectedServices + arr_servicedetail.get(i).getSM_remarks() + ",";
+        }
+
+        //get Selected Materials
+        SelectedMaterial = "";
+        for (int i = 0; i < arr_materialedetail.size(); i++) {
+            SelectedMaterial = SelectedMaterial + arr_materialedetail.get(i).getSM_remarks() + ",";
+
+        }
+        try {
+            SelectedMaterial = SelectedMaterial.substring(0, SelectedMaterial.length() - 1);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            SelectedServices = SelectedServices.substring(0, SelectedServices.length() - 1);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Get Mosquito Details
+        ServicesCapturesRmModel MosquitoDetails = new ServicesCapturesRmModel();
+        ServicesCapturesRmModel BirDsDetails = new ServicesCapturesRmModel();
+        ServicesCapturesRmModel RodentDetails = new ServicesCapturesRmModel();
+
+        for (int i = 0; i < arr_servicedetail.size(); i++) {
+
+            try {
+                if (arr_servicedetail.get(i).getPestType().equalsIgnoreCase("BIRDS")) {
+
+                    BirDsDetails = arr_servicedetail.get(i).getServcieCaptures().get(0);
+                } else if (arr_servicedetail.get(i).getPestType().equalsIgnoreCase("RODENTS")) {
+                    RodentDetails = arr_servicedetail.get(i).getServcieCaptures().get(0);
+                } else if (arr_servicedetail.get(i).getPestType().equalsIgnoreCase("MOSQUITOES")) {
+                    MosquitoDetails = arr_servicedetail.get(i).getServcieCaptures().get(0);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (MosquitoDetails != null) {
+            Species = MosquitoDetails.getSpeices() == null ? "" : MosquitoDetails.getSpeices();
+            MistingCariedOutNo = MosquitoDetails.getMistingCarriedIFNo() == null ? "" : MosquitoDetails.getMistingCarriedIFNo();
+            MistingCariedOut = MosquitoDetails.getMistingCarriedOut() == null ? "" : MosquitoDetails.getMistingCarriedOut();
+            Density = MosquitoDetails.getDensity() == null ? "" : MosquitoDetails.getDensity();
+            Instar = MosquitoDetails.getInstar() == null ? "" : MosquitoDetails.getInstar();
+            NoOfBurrows = MosquitoDetails.getNoBorrows() == null ? "" : MosquitoDetails.getNoBorrows();
+            NoOfDead = MosquitoDetails.getNoDead() == null ? "" : MosquitoDetails.getNoDead();
+            Habitat = MosquitoDetails.getHabitat() == null ? "" : MosquitoDetails.getHabitat();
+            Action = MosquitoDetails.getAction() == null ? "" : MosquitoDetails.getAction();
+            Recommendation = MosquitoDetails.getRecommendation() == null ? "" : MosquitoDetails.getRecommendation();
+            Others = MosquitoDetails.getMistingCarriedOthers() == null ? "" : MosquitoDetails.getMistingCarriedOthers();
+            Reason = MosquitoDetails.getReason() == null ? "" : MosquitoDetails.getReason();
+            Breeding = MosquitoDetails.getBreeding() == null ? "" : MosquitoDetails.getBreeding();
+        }
+
+        if (BirDsDetails != null) {
+            NoOfCulls = BirDsDetails.getNoCulls();
+        } else {
+            NoOfCulls = "";
+        }
+
+        if (RodentDetails != null) {
+            NoOfBurrows = RodentDetails.getNoBorrows();
+            NoOfDead = RodentDetails.getNoDead();
+        }
+        // ------------------- //
+
+
+        if (feedbackCaptureRmModel != null) {
+            Reting = feedbackCaptureRmModel.getRating();
+            EmailId = feedbackCaptureRmModel.getEmailID();
+            CustomerRemarks = feedbackCaptureRmModel.getRemarks();
+            CustomerSignature = feedbackCaptureRmModel.getCustomerSign();
+        }
+
+        if (!mServiceId.contains("ADHOC_")) {
+            if (mList.get(0).getJobOrdersdetails().size() > 0) {
+                StartTime = mList.get(0).getJobOrdersdetails().get(0).getServiceStartDate();
+                endTime = mList.get(0).getJobOrdersdetails().get(0).getServiceEndDate();
+            }
+
+        }
+
+
+        if (teamCaptureRmModel != null) {
+
+            TeamMember = teamCaptureRmModel.getTeamMembers();
+            tv_team_members.setText(TeamMember);
+            TeamRemarks = teamCaptureRmModel.getRemarks();
+            TeamSign = teamCaptureRmModel.getTechSign();
+        }
+
+
+        if (paymentCaptureRmModel != null) {
+
+            Mode = paymentCaptureRmModel.getPaymentMode();
+            TotalPay = paymentCaptureRmModel.getTotalPayment();
+            note = paymentCaptureRmModel.getPaymentNote_chequeNo();
+            AreaPlanned = paymentCaptureRmModel.getTotalAreaPlanned();
+            AreaCompleted = paymentCaptureRmModel.getTotalAreaCompleted();
+            paymentRemark = paymentCaptureRmModel.getPaymentRemarks();
+            sor = paymentCaptureRmModel.getSOR();
+
+        }
+
+        arr_FilePaths.clear();
+        if (arr_photoBEFORE.size() > 0) {
+
+            for (int i = 0; i < arr_photoBEFORE.size(); i++) {
+                PhotoBeforeRequest photoBeforeRequest = new PhotoBeforeRequest();
+                photoBeforeRequest.setPestType(arr_photoBEFORE.get(i).getPestType());
+                // photoBeforeRequest.setRemarks(arr_photoBEFORE.get(i).getRemarks());
+
+                if (arr_photoBEFORE.get(i).getOthers().length() > 0 && arr_photoBEFORE.get(i).getRemarks().length() > 0) {
+                    photoBeforeRequest.setRemarks(arr_photoBEFORE.get(i).getRemarks().toString() + "," + arr_photoBEFORE.get(i).getOthers().toString());
+
+
+                } else if (arr_photoBEFORE.get(i).getOthers().length() > 0 && arr_photoBEFORE.get(i).getRemarks().length() == 0) {
+                    photoBeforeRequest.setRemarks(arr_photoBEFORE.get(i).getOthers().toString());
+                } else if (arr_photoBEFORE.get(i).getOthers().length() == 0 && arr_photoBEFORE.get(i).getRemarks().length() > 0) {
+                    photoBeforeRequest.setRemarks(arr_photoBEFORE.get(i).getRemarks().toString());
+                } else {
+                    photoBeforeRequest.setRemarks("");
+                }
+
+                File imgFile = new File(arr_photoBEFORE.get(i).getImgBase64().toString());
+                if (imgFile.exists()) {
+
+                    try {
+                        Bitmap imgBitmap = Utils.compressImage(arr_photoBEFORE.get(i).getImgBase64().toString());
+
+                        photoBeforeRequest.setSchimgbefore(Utils.convertBitmapToBase64(imgBitmap));
+
+                        arr_photoBeforeRequest.add(photoBeforeRequest);
+                        arr_FilePaths.add(arr_photoBEFORE.get(i).getImgBase64().toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+            }
+        }
+
+        if (arr_photoAFTER.size() > 0) {
+
+            for (int i = 0; i < arr_photoAFTER.size(); i++) {
+
+                PhotoAfterRequest photoAfterRequest = new PhotoAfterRequest();
+                photoAfterRequest.setPestType(arr_photoAFTER.get(i).getPestType());
+
+                if (arr_photoAFTER.get(i).getOthers().length() > 0 && arr_photoAFTER.get(i).getRemarks().length() > 0) {
+                    photoAfterRequest.setRemarks(arr_photoAFTER.get(i).getRemarks().toString() + "," + arr_photoAFTER.get(i).getOthers().toString());
+
+                } else if (arr_photoAFTER.get(i).getOthers().length() > 0 && arr_photoAFTER.get(i).getRemarks().length() == 0) {
+                    photoAfterRequest.setRemarks(arr_photoAFTER.get(i).getOthers().toString());
+
+                } else if (arr_photoAFTER.get(i).getOthers().length() == 0 && arr_photoAFTER.get(i).getRemarks().length() > 0) {
+                    photoAfterRequest.setRemarks(arr_photoAFTER.get(i).getRemarks().toString());
+                } else {
+                    photoAfterRequest.setRemarks("");
+                }
+
+
+                File imgFile = new File(arr_photoAFTER.get(i).getImgBase64().toString());
+                if (imgFile.exists()) {
+
+                    try {
+                        Bitmap imgBitmap = Utils.compressImage(arr_photoAFTER.get(i).getImgBase64().toString());
+
+                        photoAfterRequest.setSchimgafter(Utils.convertBitmapToBase64(imgBitmap));
+
+                        arr_photoAfterRequest.add(photoAfterRequest);
+
+                        arr_FilePaths.add(arr_photoAFTER.get(i).getImgBase64().toString());
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+            }
+        }
+
+
+        if (arr_servicedetail.size() > 0) {
+
+            for (int i = 0; i < arr_servicedetail.size(); i++) {
+
+
+                if (arr_servicedetail.get(i).getSM_remarks().length() != 0 || arr_servicedetail.get(i).getOthers().length() != 0) {
+
+                    ServicesRequest servicesRequest = new ServicesRequest();
+                    servicesRequest.setPestType(arr_servicedetail.get(i).getPestType());
+
+                    if (arr_servicedetail.get(i).getOthers().length() > 0 && arr_servicedetail.get(i).getSM_remarks().length() > 0) {
+                        servicesRequest.setServices(arr_servicedetail.get(i).getSM_remarks() + "," + arr_servicedetail.get(i).getOthers());
+                    } else if (arr_servicedetail.get(i).getOthers().length() == 0 && arr_servicedetail.get(i).getSM_remarks().length() > 0) {
+                        servicesRequest.setServices(arr_servicedetail.get(i).getSM_remarks());
+                    } else if (arr_servicedetail.get(i).getOthers().length() > 0 && arr_servicedetail.get(i).getSM_remarks().length() == 0) {
+                        servicesRequest.setServices(arr_servicedetail.get(i).getOthers());
+                    } else {
+                        servicesRequest.setServices("");
+                    }
+
+                    arr_serviceRequest.add(servicesRequest);
+                }
+
+            }
+        }
+
+        arr_previewMaterial.clear();
+
+        for (int j = 0; j < arr_materialedetail.size(); j++) {
+            String materialOthers = "", materials = "";
+
+            materialOthers = arr_materialedetail.get(j).getOthers();
+            if (arr_materialedetail.get(j).getOthers().length() != 0 || arr_materialedetail.get(j).getSM_remarks().length() != 0) {
+
+                for (int i = 0; i < arr_materialedetail.get(j).getMaterialsCaptures().size(); i++) {
+
+                    materials = arr_materialedetail.get(j).getPestType();
+                    MaterialPreviewModel materialPreviewModel = new MaterialPreviewModel();
+                    materialPreviewModel.setPestType(arr_materialedetail.get(j).getPestType());
+                    materialPreviewModel.setMaterials(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getMaterialName());
+                    materialPreviewModel.setQuantity(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getQuantity());
+                    materialPreviewModel.setUnit(arr_materialedetail.get(j).getMaterialsCaptures().get(i).getUnit());
+                    arr_previewMaterial.add(materialPreviewModel);
+                }
+
+                if (materialOthers.length() > 0) {
+                    MaterialPreviewModel materialPreviewModel = new MaterialPreviewModel();
+
+                    if (materials.length() > 0) {
+                        materialPreviewModel.setPestType(materials);
+                    } else {
+                        materialPreviewModel.setPestType(arr_materialedetail.get(j).getPestType());
+                    }
+
+                    materialPreviewModel.setMaterials(materialOthers);
+                    materialPreviewModel.setQuantity("");
+                    materialPreviewModel.setUnit("");
+                    arr_previewMaterial.add(materialPreviewModel);
+
+                }
+
+            }
+
+        }
+
+
+        if (arr_previewMaterial.size() > 0) {
+
+            for (int i = 0; i < arr_previewMaterial.size(); i++) {
+                MaterialsRequest materialsRequest = new MaterialsRequest();
+                // if(arr_previewMaterial.get(i).ge)
+                materialsRequest.setMaterialName(arr_previewMaterial.get(i).getMaterials());
+                materialsRequest.setPestType(arr_previewMaterial.get(i).getPestType());
+                materialsRequest.setQuantity(arr_previewMaterial.get(i).getQuantity());
+                materialsRequest.setUnit(arr_previewMaterial.get(i).getUnit());
+                arr_materialsRequest.add(materialsRequest);
+            }
+
+        }
+
+
+    }
+
+    private void ShowPopupAfterSuccess(final String mMessage) {
+
+        Utils.dismissDialog();
+        FancyAlertDialog.Builder alert = new FancyAlertDialog.Builder(mContext)
+                .setAlertFont("fonts/Avenir-Medium.otf")
+                .setSubTitleFont("fonts/Avenir-Heavy.otf")
+                .setTextSubTitle(mMessage)
+                .setPositiveButtonText("OK")
+                .setCancelable(false)
+                .setPositiveColor(R.color.colorPositive)
+                .setOnPositiveClicked(new FancyAlertDialog.OnPositiveClicked() {
+                    @Override
+                    public void OnClick(View view, Dialog dialog) {
+
+                        Intent intent = new Intent(PreviewActivity.this, DashboardActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                        dialog.dismiss();
+                    }
+                })
+
+                .build();
+        alert.show();
+    }
+
+    private void handleUploadResponse(String mMessage) {
+
+        if (mMessage.equalsIgnoreCase("Job Already Completed")) {
+
+            MasterDbLists.UploadJobStatus(mServiceId, "Completed", "Upload Success");
+            // MasterDbLists.ClearDbAfterUpload();
+
+        } else {
+
+            MasterDbLists.UploadJobStatus(mServiceId, "Completed", "Upload Success");
+
+            if (MasterDbLists.GetLogDuplicateCount(mServiceId) == 0) {
+
+                MasterDbLists.AddLog(mJobId, mServiceId, "Completed", Utils.CurrentDate(), Utils.CurrentTime());
+
+                // Saves Log details
+                final Realm realm = Realm.getDefaultInstance(); // opens db
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        //Create a user if there isn't one
+                        final LogsServiceDetails serviceDetails = realm.createObject(LogsServiceDetails.class); // Create a new String
+                        serviceDetails.setServiceId(mServiceId);
+                        serviceDetails.setWorkOrderNo(mWorkOrderNo);
+                        serviceDetails.setContractNo(mContractNo);
+                        serviceDetails.setCustomerName(msetCustomerName);
+                        serviceDetails.setScheduledDate(mScheduledDate);
+                        serviceDetails.setActualStartTime(mActualStartTime);
+                        serviceDetails.setActualEndTime(mActualEndTime);
+                        serviceDetails.setTeam(mTeam);
+                        serviceDetails.setTeamMember(mTeamMember);
+                        serviceDetails.setPestType(mPestType);
+                        serviceDetails.setJobPerformedBy(mJobPerformedBy);
+                        serviceDetails.setLocation(mLocation);
+                        serviceDetails.setLatLong(mLatLong);
+                        serviceDetails.setTypes(msetTypes);
+                    }
+                });
+
+                MasterDbLists.CopyTotalDetailToLog(mServiceId.toString());
+            }
+        }
+
+    }
+
 
     //Initialise details n get data
-    class getInitialise extends AsyncTask<Object, Void, String> {
+    class getInitialiseData extends AsyncTask<Object, Void, String> {
 
         protected void onPreExecute() {
             Utils.showCustomDialogwithBG(mContext);
@@ -614,22 +1277,22 @@ public class PreviewActivity extends AppCompatActivity {
 
             try {
 
-                if(_appPrefs.getSERVICEID().contains("ADHOC_")){
+                if (_appPrefs.getSERVICEID().contains("ADHOC_")) {
 
-                }else{
+                } else {
                     // set  job details
                     mList = MasterDbLists.getServiceDetailsfromDb(_appPrefs.getSERVICEID().toString());
-                    AppLogger.verbose("mList ",""+mList.size());
+                    AppLogger.verbose("mList ", "" + mList.size());
 
                 }
 
 
-                arr_photoAFTER = MasterDbLists.getPhotoRemarksDetails("AFTER",_appPrefs.getSERVICEID());
-                arr_photoBEFORE = MasterDbLists.getPhotoRemarksDetails("BEFORE",_appPrefs.getSERVICEID());
+                arr_photoAFTER = MasterDbLists.getPhotoRemarksDetails("AFTER", _appPrefs.getSERVICEID());
+                arr_photoBEFORE = MasterDbLists.getPhotoRemarksDetails("BEFORE", _appPrefs.getSERVICEID());
 
-                AppLogger.verbose("arr_photoAFTER ",""+arr_photoAFTER.size());
+                AppLogger.verbose("arr_photoAFTER ", "" + arr_photoAFTER.size());
 
-                AppLogger.verbose("arr_photoBEFORE ",""+arr_photoBEFORE.size());
+                AppLogger.verbose("arr_photoBEFORE ", "" + arr_photoBEFORE.size());
                 //Material Details from db
                 arr_materialedetail = MasterDbLists.getServiceMaterialFromDB(_appPrefs.getSERVICEID(), "MATERIALS");
 
@@ -637,10 +1300,9 @@ public class PreviewActivity extends AppCompatActivity {
                 arr_servicedetail = MasterDbLists.getServiceMaterialFromDB(_appPrefs.getSERVICEID(), "SERVICE");
 
 
-                AppLogger.verbose("arr_materialedetail ",""+arr_materialedetail.size());
+                AppLogger.verbose("arr_materialedetail ", "" + arr_materialedetail.size());
 
-                AppLogger.verbose("arr_servicedetail ",""+arr_servicedetail.size());
-
+                AppLogger.verbose("arr_servicedetail ", "" + arr_servicedetail.size());
 
 
             } catch (Exception e) {
@@ -656,7 +1318,7 @@ public class PreviewActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             if (result.equalsIgnoreCase("true")) {
-                try{
+                try {
 
                     //Payment Details
                     paymentCaptureRmModel = MasterDbLists.getPaymentSavedDetails(_appPrefs.getSERVICEID().toString());
@@ -671,7 +1333,7 @@ public class PreviewActivity extends AppCompatActivity {
                     fetchAllDetails();
 
                     Utils.dismissDialog();
-                }catch (Exception e){
+                } catch (Exception e) {
                     Utils.dismissDialog();
                     e.printStackTrace();
                 }
@@ -681,7 +1343,7 @@ public class PreviewActivity extends AppCompatActivity {
         }
 
     }
-
+ /*
     class FinalEndService extends AsyncTask<Object, Void, String> {
 
         protected void onPreExecute() {
@@ -774,7 +1436,7 @@ public class PreviewActivity extends AppCompatActivity {
 
         protected String doInBackground(Object... parametros) {
 
-          /*  try {
+          *//*  try {
 
                     final ApiInterface apiService =
                             ApiClient.getClient().create(ApiInterface.class);
@@ -816,7 +1478,7 @@ public class PreviewActivity extends AppCompatActivity {
 
                                     }
                                 })
-                                *//* .setAutoHide(true)*//*
+                                *//**//* .setAutoHide(true)*//**//*
                                 .build();
                         alert.show();
 
@@ -832,7 +1494,7 @@ public class PreviewActivity extends AppCompatActivity {
                 Utils.dismissDialog();
                 e.printStackTrace();
 
-            }*/
+            }*//*
 
             return "true";
         }
@@ -1096,7 +1758,7 @@ public class PreviewActivity extends AppCompatActivity {
         }
 
          Utils.dismissDialog();
-    }
+    }*/
 
     /**
      * Restoring values from saved instance state
@@ -1120,7 +1782,6 @@ public class PreviewActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * Update the UI displaying the location data
      * and toggling the buttons
@@ -1131,7 +1792,7 @@ public class PreviewActivity extends AppCompatActivity {
             dLatitube = mCurrentLocation.getLatitude();
             dLongitube = mCurrentLocation.getLongitude();
 
-            AppLogger.verbose("Location Details --",""+dLatitube+","+dLongitube);
+            AppLogger.verbose("Location Details --", "" + dLatitube + "," + dLongitube);
 
         }
 
@@ -1199,9 +1860,7 @@ public class PreviewActivity extends AppCompatActivity {
                 });
     }
 
-
-
-    public void checkLocationPermission(){
+    public void checkLocationPermission() {
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(new PermissionListener() {
@@ -1215,7 +1874,7 @@ public class PreviewActivity extends AppCompatActivity {
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
                         showSettingsAlert();
-                       // openSettings();
+                        // openSettings();
                     }
 
                     @Override
@@ -1241,7 +1900,6 @@ public class PreviewActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-
     public void stopLocationUpdates() {
         // Removing location updates
         mFusedLocationClient
@@ -1254,7 +1912,6 @@ public class PreviewActivity extends AppCompatActivity {
                     }
                 });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -1296,13 +1953,13 @@ public class PreviewActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        try{
+        try {
             if (mRequestingLocationUpdates && checkPermissions()) {
                 startLocationUpdates();
             }
 
             updateLocationUI();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -1335,64 +1992,5 @@ public class PreviewActivity extends AppCompatActivity {
         finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
-
-    /**
-     * Finally Update Status
-     */
-    public void JobStatusUpdate(String _id, String UserID) {
-
-        Utils.dismissDialog();
-        Utils.showCustomDialog(mContext);
-
-     /*   try{
-            for(int i=0; i< arr_FilePaths.size(); i++){
-
-                Utils.DeleteFile(arr_FilePaths.get(i));
-                Utils.DeleteAndScanFile(mContext,arr_FilePaths.get(i));
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }*/
-
-        final ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
-        Call<Object> call = apiService.JobStatusUpdate(_id, "Completed", UserID);
-        call.enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-
-                try {
-                    final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(response.body()));
-
-                    int mStatusCode = object.getInt("statusCode");
-
-                    if (mStatusCode == 200) {
-                        MasterDbLists.UploadJobStatus(_appPrefs.getSERVICEID(), "Completed");
-                       // MasterDbLists.ClearDbAfterUpload();
-                        Intent intent = new Intent(PreviewActivity.this, JobDetailsActivity.class);
-                        startActivity(intent);
-                        finish();
-
-                    }else{
-                        Utils.CommanPopup(mContext,"StatusCode --"+mStatusCode);
-                    }
-
-                    Utils.dismissDialog();
-                } catch (Exception e) {
-
-                    e.printStackTrace();
-                    Utils.dismissDialog();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-                Utils.dismissDialog();
-            }
-
-        });
-    }
-
 
 }

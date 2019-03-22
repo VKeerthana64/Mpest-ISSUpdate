@@ -520,7 +520,6 @@ public class AdhocActivity extends AppCompatActivity implements OnTimeSetListene
                         for (int i = 0; i < selectedIds.size(); i++) {
                             mSelected = mSelected + selectedNames.get(i) + ",";
 
-
                         }
 
 

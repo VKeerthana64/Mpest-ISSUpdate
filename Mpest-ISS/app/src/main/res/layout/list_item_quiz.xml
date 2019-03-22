@@ -79,7 +79,7 @@
                                 android:maxLines="4"
                                 android:text=" What is your name"
                                 android:textSize="@dimen/_12sdp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 
@@ -110,7 +110,7 @@
                                 android:textColor="@color/black"
                                 android:text="Completed"
                                 android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold"
+
                                 app:fontName="Font_Bold" />
                         </LinearLayout>
 

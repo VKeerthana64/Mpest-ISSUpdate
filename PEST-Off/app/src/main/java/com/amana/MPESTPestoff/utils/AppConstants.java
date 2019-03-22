@@ -17,6 +17,6 @@ public class AppConstants {
     public static final int TAB_MOVE_FEEDBACK = 5;
     public static final int TAB_MOVE_PAYMENT = 6;
 
-
+    public static String TYPE_KIND = "Chemical";
 
 }

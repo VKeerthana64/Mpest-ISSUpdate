@@ -15,7 +15,7 @@
             android:id="@+id/rl_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/_12sdp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -29,7 +29,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Service Id"
+                    android:text="Service ID"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -37,6 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -62,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
                     android:text="Work Order No"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -69,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -93,39 +97,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Contract No"
-                    app:fontName="Font_Light" />
-
-                <com.amana.MPESTPestoff.components.CustomFontTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="  : "
-                    app:fontName="Font_Light" />
-
-                <com.amana.MPESTPestoff.components.CustomFontTextView
-                    android:id="@+id/contract_no_txt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="65"
-                    android:text=""
-                    android:textColor="@color/oil"
-                    app:fontName="Font_Bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-                <com.amana.MPESTPestoff.components.CustomFontTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="35"
                     android:text="Customer Name"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -133,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -157,7 +131,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Job Type"
+                    android:textColor="@color/oil"
+                    android:text="Person in Charge"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -165,6 +140,75 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:id="@+id/personofcharge_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Contract No"
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:id="@+id/contract_no_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Job Type"
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -183,6 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:weightSum="100">
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -215,6 +260,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:weightSum="100">
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -247,6 +293,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:weightSum="100">
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -279,6 +326,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:weightSum="100">
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -318,6 +366,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
                     android:text="Team Member"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -325,6 +374,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -349,7 +399,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Pest Types"
+                    android:text="Location"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -357,6 +408,41 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:id="@+id/location_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:text=""
+                    android:textColor="@color/colorAccent"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Pest Coverage"
+                    android:textColor="@color/oil"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -373,7 +459,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_60sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:weightSum="100">
 
@@ -381,7 +467,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="35"
-                    android:text="Location"
+                    android:text="Remarks"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
@@ -389,27 +476,23 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="  : "
+                    android:textColor="@color/oil"
                     app:fontName="Font_Light" />
 
                 <com.amana.MPESTPestoff.components.CustomFontTextView
-                    android:id="@+id/location_txt"
+                    android:id="@+id/remarks_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="65"
                     android:text=""
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/oil"
                     app:fontName="Font_Bold" />
 
             </LinearLayout>
 
-
-
-
         </LinearLayout>
 
-
     </ScrollView>
-
 
     <LinearLayout
         android:id="@+id/ll_booknow"

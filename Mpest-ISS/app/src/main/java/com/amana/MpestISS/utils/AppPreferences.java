@@ -23,6 +23,7 @@ public class AppPreferences {
     public static final String KEY_JOBSTARTEDTIME = "KEY_JOBSTARTEDTIME";
     public static final String KEY_LOCATION = "KEY_LOCATION";
     public static final String KEY_ADHOCJSON = "KEY_ADHOCJSON";
+    public static final String KEY_CHECKSTATUS = "KEY_CHECKSTATUS";
 
     private static final String APP_SHARED_PREFS = AppPreferences.class.getSimpleName(); //  Name of the file -.xml
     private SharedPreferences _sharedPrefs;
@@ -48,6 +49,15 @@ public class AppPreferences {
 
     public void saveUserName(String text) {
         _prefsEditor.putString(KEY_PREFS_USER_NAME, text);
+        _prefsEditor.commit();
+    }
+
+    public String getCheckStatus() {
+        return _sharedPrefs.getString(KEY_CHECKSTATUS, "Check OUT");
+    }
+
+    public void saveCheckStatus(String text) {
+        _prefsEditor.putString(KEY_CHECKSTATUS, text);
         _prefsEditor.commit();
     }
 

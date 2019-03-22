@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4DBAAC</color>
-    <color name="colorPrimaryDark">#008DAA</color>
+    <color name="colorPrimary">#1C3765</color>
+    <color name="colorPrimaryDark">#1C3765</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
-    <color name="colorAccent">#F6A016</color>
+    <color name="colorAccent">#FFFFFF</color>
 
 
     <color name="black">#000000</color>
@@ -17,6 +17,9 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFA600</color>
+
+    <color name="appblue">#008DAA</color>
     <color name="Red">#ff0000</color>
     <color name="dark_white">#f3eedf</color>
     <color name="background">#EEEEEE </color>

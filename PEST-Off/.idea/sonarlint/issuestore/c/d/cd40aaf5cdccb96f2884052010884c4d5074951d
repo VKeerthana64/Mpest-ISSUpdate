@@ -1,0 +1,84 @@
+
+1squid:S1643"Use a StringBuilder instead.(Ñ¼ÙÍ
+Isquid:EmptyStatementUsageCheck"Remove this empty statement.(Åñ­õşÿÿÿÿ
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(Ñƒ¨áúÿÿÿÿ
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(×ö³–úÿÿÿÿ
+N"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(•öÀø
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(×ö³–úÿÿÿÿ
+Psquid:S3398"6Move this method into "LocationAddressResultReceiver".(ÒïµÅûÿÿÿÿ
+Bsquid:S1659"(Declare "dLongitube" on a separate line.(º—¥åøÿÿÿÿ
+nsquid:S1192"TDefine a constant instead of duplicating this literal "last_known_location" 3 times.(˜¹öƒüÿÿÿÿ
+jsquid:S1192"PDefine a constant instead of duplicating this literal "last_updated_on" 3 times.(¸áçõüÿÿÿÿ
+psquid:S1192"VDefine a constant instead of duplicating this literal "is_requesting_updates" 3 times.(·«€èşÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ñïÊõùÿÿÿÿ
+Gsquid:S1199"-Extract this nested code block into a method.(»ÎÏÿÿÿÿÿ
+0squid:S3626"Remove this redundant jump.(ûÁİ…
+0squid:S3626"Remove this redundant jump.(ûÁİ…
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Ñƒ¨áúÿÿÿÿ
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ
+`squid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(•öÀø
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ú’
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…×«
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆ¨ë‹ûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›ËˆÖ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ê£
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü¶‘üÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ãÄ¶ùÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ñ«õéıÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(í¨µÅüÿÿÿÿ
+squid:S1319"vThe type of the "selectedIds" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒõÄşøÿÿÿÿ
+’squid:S1319"xThe type of the "selectedNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒõÄşøÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(¡úœĞ
+Bsquid:S1125"(Remove the literal "true" boolean value.(Ñ¸¬Üûÿÿÿÿ
+”"squid:ClassVariableVisibilityCheck"cMake utilsAlertDialogBuilder a static final constant or non-public and provide accessors if needed.( ìÑËıÿÿÿÿ
+"squid:ClassVariableVisibilityCheck"\Make utilsAlertDialog a static final constant or non-public and provide accessors if needed.(”‘„Ÿøÿÿÿÿ
+’"squid:ClassVariableVisibilityCheck"aMake addressResultReceiver a static final constant or non-public and provide accessors if needed.(İ¡Çìûÿÿÿÿ
+Csquid:S1481")Remove this unused "time" local variable.(Õ‘ß›ùÿÿÿÿ
+Csquid:S2140")Use "java.util.Random.nextInt()" instead.(ÕÕÚ³üÿÿÿÿ
+›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”â¼€úÿÿÿÿ
+Rsquid:S1854"8Remove this useless assignment to local variable "time".(Õ‘ß›ùÿÿÿÿ
+qsquid:S00116"[Rename this field "arr_pestTypeList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üİÃù
+rsquid:S00116"WRename this field "arr_PestType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹©çûÿÿÿÿ
+osquid:S00116"TRename this field "arr_teams" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âşˆşÿÿÿÿ
+isquid:S00116"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›—íúÿÿÿÿ
+jsquid:S00116"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ÅÌ›
+qsquid:S00116"VRename this field "AddressFlag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ª½¡ûÿÿÿÿ
+lsquid:S00116"WRename this field "MAX_DURATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãç‹y
+rsquid:S00116"WRename this field "txt_latitube" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É™Õÿÿÿÿÿ
+nsquid:S00116"XRename this field "txt_longitube" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ©«ˆ
+nsquid:S00116"XRename this field "edt_startTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ßá¨
+qsquid:S00116"VRename this field "edt_endTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½¥ùÚùÿÿÿÿ
+rsquid:S00116"WRename this field "edt_pestType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã‘˜ûøÿÿÿÿ
+jsquid:S00116"TRename this field "edt_email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶‚Êİ
+nsquid:S00116"SRename this field "edt_team" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã½¢ûÿÿÿÿ
+lsquid:S00116"VRename this field "edt_address" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÓŒ«
+tsquid:S00116"YRename this field "edt_postalCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÒì–øÿÿÿÿ
+vsquid:S00116"[Rename this field "edt_customerName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğè‰ ıÿÿÿÿ
+vsquid:S00116"[Rename this field "err_customername" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô áªùÿÿÿÿ
+jsquid:S00116"TRename this field "err_email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡–å‚
+rsquid:S00116"WRename this field "err_pestType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜µÒûÿÿÿÿ
+nsquid:S00116"SRename this field "err_team" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨Œâ“úÿÿÿÿ
+ssquid:S00116"XRename this field "err_startTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ÿúÿÿÿÿ
+qsquid:S00116"VRename this field "err_endTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©¢“üıÿÿÿÿ
+osquid:S00116"TRename this field "spnr_team" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íü½ øÿÿÿÿ
+psquid:S00116"URename this field "btn_submit" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç¥ˆıÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å­üªøÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÕÚ³üÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦œ™ãùÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÚëƒ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–‡Êâûÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Ù³½úÿÿÿÿ
+psquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ş¬àö
+Wsquid:UselessImportCheck"0Remove this unused import 'butterknife.OnClick'.(ÔÌÓ¿ÿÿÿÿÿ
+lsquid:UselessImportCheck"JRemove this unused import 'com.geniusforapp.fancydialog.FancyAlertDialog'.(ÖÌ×Ã
+usquid:UselessImportCheck"TRemove this unused import 'com.amana.MPESTPestoff.model.masterdetails.MaterialData'.(²™Ÿ
+xsquid:UselessImportCheck"VRemove this unused import 'com.amana.MPESTPestoff.model.realm.taskdetail.MyTaskRealm'.(ú‹»¹
+psquid:UselessImportCheck"IRemove this unused import 'com.amana.MPESTPestoff.model.realm.Materials'.(Ôæ½’şÿÿÿÿ
+wsquid:UselessImportCheck"URemove this unused import 'com.amana.MPESTPestoff.model.checkinout.CheckingResponse'.(‚š·
+ksquid:UselessImportCheck"IRemove this unused import 'com.amana.MPESTPestoff.myjob.PreviewActivity'.(ÈÊ±†
+{squid:UselessImportCheck"TRemove this unused import 'com.amana.MPESTPestoff.model.checkinout.CheckingRequest'.(Æ²Á–ûÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ö™„‚
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(ŸçÒÑüÿÿÿÿ

@@ -1,0 +1,404 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    tools:context=".myjob.MyJobActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollIndicators="right"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MPESTPestoff.components.CustomFontEditText
+                        android:id="@+id/input_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:hint="Customer Name *"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+
+                <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:theme="@style/TextLabelDialog"
+                    android:visibility="gone"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MPESTPestoff.components.CustomFontEditText
+                        android:id="@+id/input_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date *"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+                <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MPESTPestoff.components.tokenAutoComplete.ContactsCompletionView
+                        android:id="@+id/searchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="true"
+                        android:hint="Email id"
+                        android:imeOptions="actionDone"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:nextFocusDown="@+id/input_name"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_12sdp"
+                        android:theme="@style/TextLabelDialog" />
+                </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+                <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:theme="@style/TextLabelDialog"
+                    android:visibility="gone"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MPESTPestoff.components.CustomFontEditText
+                        android:id="@+id/input_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email Id"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Please Rate Our Service"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_13sdp"
+                    app:fontName="Font_Bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MPESTPestoff.components.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:text="Attitube :"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                    <ImageView
+                        android:id="@+id/clear_img1"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ratingBar"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:src="@drawable/ic_rating_clear" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:numStars="5"
+                        android:rating="0.0"
+                        android:stepSize="1.0"
+                        android:theme="@style/RatingBar" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MPESTPestoff.components.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_toLeftOf="@+id/clear_img2"
+                        android:text="Appearance of Technician :"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                    <ImageView
+                        android:id="@+id/clear_img2"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ratingBar2"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:src="@drawable/ic_rating_clear" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:numStars="5"
+                        android:rating="0.0"
+                        android:stepSize="1.0"
+                        android:theme="@style/RatingBar" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <com.amana.MPESTPestoff.components.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_toLeftOf="@+id/clear_img3"
+                        android:text="Service Quality:"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                    <ImageView
+                        android:id="@+id/clear_img3"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ratingBar3"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:src="@drawable/ic_rating_clear" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:numStars="5"
+                        android:rating="0.0"
+                        android:stepSize="1.0"
+                        android:theme="@style/RatingBar" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MPESTPestoff.components.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_toLeftOf="@+id/clear_img4"
+                        android:layout_alignParentLeft="true"
+                        android:text="Punctuality :"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                    <ImageView
+                        android:id="@+id/clear_img4"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ratingBar4"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:src="@drawable/ic_rating_clear" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:numStars="5"
+                        android:rating="0.0"
+                        android:stepSize="1.0"
+                        android:theme="@style/RatingBar" />
+                </RelativeLayout>
+
+
+                <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+                    android:id="@+id/err_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MPESTPestoff.components.CustomFontEditText
+                        android:id="@+id/input_remarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Feedback"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_weight="50"
+                        android:background="@drawable/button_border_orange"
+                        android:orientation="vertical">
+
+                        <com.amana.MPESTPestoff.components.CustomFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:text="Payment of $1500"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                        <com.amana.MPESTPestoff.components.CustomFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:text="Cheque UOB 1234"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </LinearLayout>
+
+                    <com.amana.MPESTPestoff.components.CustomFontButton
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight="50"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Preview Service Report"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        app:fontName="Font_Bold" />
+
+                </LinearLayout>
+
+                <com.amana.MPESTPestoff.components.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Customer Signature :"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+
+                <com.github.gcacace.signaturepad.views.SignaturePad
+                    android:id="@+id/signature_pad"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@drawable/button_border" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MPESTPestoff.components.CustomFontButton
+                        android:id="@+id/clear_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                         android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/btn_shape_green"
+                        android:text="Clear"
+                        app:fontName="Font_Medium" />
+
+                    <com.amana.MPESTPestoff.components.CustomFontButton
+                        android:id="@+id/submit_btn"
+                        android:layout_toRightOf="@+id/clear_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/btn_shape_green"
+                        android:text="Submit"
+                        app:fontName="Font_Medium" />
+
+                    <com.amana.MPESTPestoff.components.CustomFontButton
+                        android:id="@+id/proceed_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@+id/submit_btn"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:textColor="@color/white"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/button_border_blue"
+                        android:text="Customer not present"
+                        app:fontName="Font_Medium" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

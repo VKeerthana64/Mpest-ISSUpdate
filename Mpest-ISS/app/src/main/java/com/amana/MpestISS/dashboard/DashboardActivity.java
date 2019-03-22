@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.amana.MpestISS.LoginActivity;
 import com.amana.MpestISS.R;
 import com.amana.MpestISS.adhoc.AdhocActivity;
+import com.amana.MpestISS.announcement.AnnouncementActivity;
 import com.amana.MpestISS.attendance.CheckInAndOutActivity;
 import com.amana.MpestISS.logs.LogsActivity;
 import com.amana.MpestISS.joblist.JobDetailsActivity;
@@ -40,6 +41,10 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
     RecyclerView recyclerView;
     @BindView(R.id.copyRight_txt)
     TextView txt_copyRight;
+    @BindView(R.id.checkStatus_txt)
+    TextView txt_Checkstatus;
+    @BindView(R.id.username_txt)
+    TextView txt_username;
 
     DashboardAdapter adapter;
     Context mcontext;
@@ -55,14 +60,31 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
         _appPrefs = new AppPreferences(getApplicationContext());
         mcontext = this;
 
+
+        handleHeader();
+
         FooterTextWithUserName();
 
         updateGridAdapter();
     }
 
+    private void handleHeader() {
+
+        txt_username.setText("Hi, " + _appPrefs.getUserID());
+        txt_Checkstatus.setText("You are: " + _appPrefs.getCheckStatus());
+
+    }
+
+    @Override
+    protected void onRestart() {
+        handleHeader();
+        super.onRestart();
+    }
+
     public void FooterTextWithUserName() {
         if (!_appPrefs.getUserID().isEmpty()) {
-            txt_copyRight.setText("" + getString(R.string.powered_by) + "  [" + _appPrefs.getUserID() + "]");
+           txt_copyRight.setText("" + getString(R.string.powered_by));
+          // txt_copyRight.setText("" + getString(R.string.powered_by) + "  [" + _appPrefs.getUserID() + "]");
         }
     }
 
@@ -70,16 +92,16 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
 
         try {
 
-            String[] data = {"QUIZ COMPILATION", "LOGOUT", "CHECK IN/OUT", "MY TASKS",
-                    "MY SCHEDULE", "MASTER SYNC","ADHOC", "LOGS"};
+            String[] data = {"CHECK IN/OUT","ANNOUNCEMENT", "JOB DETAILS","LOGS",
+                    "MY SCHEDULE", "MASTER SYNC","ADHOC", "LOGOUT"};
 
-            int[] icons = {R.drawable.db_quiz, R.drawable.db_logout, R.drawable.db_checkin, R.drawable.db_mytask,
+            int[] icons = {R.drawable.db_checkin, R.drawable.db_quiz, R.drawable.db_mytask, R.drawable.db_logs,
                     R.drawable.db_schedule, R.drawable.db_sync,
-                    R.drawable.db_adhoc, R.drawable.db_logs};
+                    R.drawable.db_adhoc, R.drawable.db_logout};
             // set up the RecyclerView
             int numberOfColumns = 2;
             recyclerView.setLayoutManager(new GridLayoutManager(DashboardActivity.this, numberOfColumns));
-            adapter = new DashboardAdapter(DashboardActivity.this, data, icons, 0, false);
+            adapter = new DashboardAdapter(DashboardActivity.this, data, icons, 1, false);
             adapter.setClickListener(this);
             recyclerView.setAdapter(adapter);
 
@@ -106,19 +128,24 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
 
             case 0: // home
                // AppConstants.EXTRA_MENU = "HOME";
-                Intent intent_quiz = new Intent(mcontext, QuizActivity.class);
-                startActivity(intent_quiz);
-                break;
-            case 1: // logOut
-                logout(mcontext);
-                break;
-            case 2: // Check in
                 Intent shedule = new Intent(mcontext, CheckInAndOutActivity.class);
                 startActivity(shedule);
+
+
                 break;
-            case 3: // My Task
+            case 1: // logOut
+                Intent intent_quiz = new Intent(mcontext, AnnouncementActivity.class);
+                startActivity(intent_quiz);
+
+                break;
+            case 2: // Check in
                 Intent intent_myTask = new Intent(mcontext, JobDetailsActivity.class);
                 startActivity(intent_myTask);
+
+                break;
+            case 3: // My Task
+                Intent intent_logs = new Intent(mcontext, LogsActivity.class);
+                startActivity(intent_logs);
                 break;
 
             case 4: // My Schedule
@@ -134,8 +161,8 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
                 startActivity(intent_ad);
                 break;
             case 7: // logs
-                Intent intent_logs = new Intent(mcontext, LogsActivity.class);
-                startActivity(intent_logs);
+
+                logout(mcontext);
                 break;
 
 
@@ -170,6 +197,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardAda
                     public void OnClick(View view, Dialog dialog) {
 
                         _appPrefs.saveUserID("");
+                        _appPrefs.saveCheckStatus("Checked OUT");
                         Intent loginIntent = new Intent(context, LoginActivity.class);
                         startActivity(loginIntent);
                         finish();

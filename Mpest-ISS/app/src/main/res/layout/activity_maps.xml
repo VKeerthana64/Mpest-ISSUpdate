@@ -43,7 +43,7 @@
                     android:text="Location"
                     android:textColor="@color/white"
                     android:textSize="@dimen/title_size"
-                    android:textStyle="bold"
+
                     app:fontName="Font_Bold" />
                 
             </LinearLayout>

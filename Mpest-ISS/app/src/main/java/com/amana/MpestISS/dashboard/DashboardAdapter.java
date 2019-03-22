@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.amana.MpestISS.R;
@@ -45,6 +46,13 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
         holder.myTextView.setText(label);
         holder.imgIcon.setImageResource(mData_icons[position]);
 
+        if(label.equalsIgnoreCase("ANNOUNCEMENT")){
+            holder.count_lnr.setVisibility(View.VISIBLE);
+            holder.tvCount.setText(""+METTINGS_COUNT);
+        }else {
+            holder.count_lnr.setVisibility(View.GONE);
+        }
+
     }
 
     // total number of cells
@@ -58,9 +66,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView myTextView, tvCount;
         public ImageView imgIcon, imgMsgUnRead;
+        public LinearLayout count_lnr;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            tvCount = itemView.findViewById(R.id.count_txt);
+            count_lnr = itemView.findViewById(R.id.count_lnr);
             myTextView = itemView.findViewById(R.id.info_text);
             imgIcon = itemView.findViewById(R.id.imgIcon);
 

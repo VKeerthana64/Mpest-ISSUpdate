@@ -1,0 +1,119 @@
+
+Isquid:EmptyStatementUsageCheck"Remove this empty statement.(Åñ­õþÿÿÿÿ
+isquid:S1192"ODefine a constant instead of duplicating this literal "ADHOCServiceId" 3 times.(Éž‹îùÿÿÿÿ
+csquid:S1192"IDefine a constant instead of duplicating this literal "PestType" 7 times.(®ö—žøÿÿÿÿ
+bsquid:S1192"HDefine a constant instead of duplicating this literal "SM_Type" 7 times.(Åþ·‡ûÿÿÿÿ
+fsquid:S1192"LDefine a constant instead of duplicating this literal "BeforeAfter" 3 times.(î‘éÆþÿÿÿÿ
+esquid:S1192"KDefine a constant instead of duplicating this literal "ServiceId" 19 times.(œ¾ÄØûÿÿÿÿ
+osquid:S1192"UDefine a constant instead of duplicating this literal "Something Went wrong" 5 times.(ú¸¿ßúÿÿÿÿ
+[squid:S1192"GDefine a constant instead of duplicating this literal "Status" 4 times.(ô´ö|
+ksquid:S1192"VDefine a constant instead of duplicating this literal "unable to get details" 5 times.(Î¸—ü
+_squid:S1192"KDefine a constant instead of duplicating this literal "ServiceID" 19 times.(©á‡n
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈÒ\
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈÒ\
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈÒ\
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈÒ\
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈÒ\
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÏÊé
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÏÊé
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Õñ‚µ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Â¿ŽÉ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Õñ‚µ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ìÓŠéùÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(íÿºÏ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‚äÍ¹
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Üºß™ûÿÿÿÿ
+…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÐÓÊ¾
+…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(—×§²
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ç’Ž±ùÿÿÿÿ
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²Ëûäÿÿÿÿÿ
+„squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ò–´U
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉïµÒþÿÿÿÿ
+Žsquid:S1319"tThe type of the "arrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(Ž¸¶èøÿÿÿÿ
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(€‰åøÿÿÿÿ
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(èÇüŒüÿÿÿÿ
+…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ä¦¡Õ
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(öŒ‹úúÿÿÿÿ
+Žsquid:S1319"tThe type of the "arrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(ÊÊëÚøÿÿÿÿ
+squid:S1319"‚The type of the "servicesCapturesRmModel" object should be an interface such as "List" rather than the implementation "ArrayList".(³—ò“ûÿÿÿÿ
+™squid:S1319"„The type of the "materialsCapturesRmModels" object should be an interface such as "List" rather than the implementation "ArrayList".(ÂÕÌY
+‰squid:S1319"tThe type of the "arrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(Çò»Å
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(òÏž€þÿÿÿÿ
+…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ç¿Ì 
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ó›òÍûÿÿÿÿ
+…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(«Á¾›
+…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ã´‚õ
+Šsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Þ—ü•øÿÿÿÿ
+‚squid:S1488"hImmediately return this expression instead of assigning it to the temporary variable "photoWithRemarks".(º“£Òýÿÿÿÿ
+‚squid:S1488"hImmediately return this expression instead of assigning it to the temporary variable "photoWithRemarks".(º“£Òýÿÿÿÿ
+‚squid:S1488"hImmediately return this expression instead of assigning it to the temporary variable "photoWithRemarks".(ñÞÚåýÿÿÿÿ
+squid:S1488"gImmediately return this expression instead of assigning it to the temporary variable "adhocRequestRms".(£Ø‡°ýÿÿÿÿ
+Ssquid:S3400"9Remove this method and declare a constant for this value.(ˆæÌ¥ÿÿÿÿÿ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(à¤µÆ
+Nsquid:S1118":Add a private constructor to hide the implicit public one.(–Áþ@
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êòñó
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›±½Éúÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ž¸¶èøÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€‰åøÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èÇüŒüÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä¦¡Õ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖõÐ¡
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒ‹úúÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÊëÚøÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬õøûÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³—ò“ûÿÿÿÿ
+csquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂÕÌY
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÔã€ýÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÐõÞ©ûÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©¡§ˆüÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÀé£ùÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×è—ˆüÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õåÎ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«Á¾›
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã´‚õ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦þ™š
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎØ™ž
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý¬ý™
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ÿ²†úÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ×À¯üÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¤µÆ
+Wsquid:S00107"<Method has 9 parameters, which is greater than 7 authorized.(œÇîÆÿÿÿÿÿ
+_squid:S1854"ERemove this useless assignment to local variable "multiSelectModels".(ÞÝÍØúÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç³óÞ
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ÈñT
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³»ÕÆùÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ú–Ã
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ÈñT
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å•“Ñ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÞÞæ¤ÿÿÿÿÿ
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ÈñT
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Ò³Ó
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó¸´
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”›Øëøÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Æ¶‹
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±·¢½
+^squid:S1858"J"getMaterialsName" returns a string, there's no need to call "toString()".(Ñùÿ
+]squid:S1858"H"getServicetype" returns a string, there's no need to call "toString()".(¥ªáÖ
+[squid:S1858"A"getName" returns a string, there's no need to call "toString()".(°ÙñËûÿÿÿÿ
+bsquid:S1858"H"TeamList" is an array of strings, there's no need to call "toString()".(Ýô¬ëúÿÿÿÿ
+bsquid:S1858"H"TeamList" is an array of strings, there's no need to call "toString()".(Ýô¬ëúÿÿÿÿ
+[squid:S1858"A"getName" returns a string, there's no need to call "toString()".(‘Á½Çÿÿÿÿÿ
+psquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ñ—ßÜ
+hsquid:UselessImportCheck"FRemove this unused import 'com.amana.MPESTPestoff.model.AdhocRequest'.(Ûüíœ
+Ysquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ôŽƒ¶
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(âÆ‚
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(òœ©Ñûÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(‰ÕÙ¹úÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(½ªÌúûÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(î‚—øÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(âÊ¤æùÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(³¸”Èøÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(âÊ¤æùÿÿÿÿ

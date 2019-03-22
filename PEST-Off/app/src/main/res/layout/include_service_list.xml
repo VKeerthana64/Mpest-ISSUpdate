@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_view_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="5dp"
+                        android:weightSum="100">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="60"
+                            android:orientation="horizontal">
+
+                            <com.amana.MPESTPestoff.components.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mosquito Breeding"
+                                android:textSize="@dimen/_13sdp"
+                                android:textColor="@color/oil"
+                                app:fontName="Font_Bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="40"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <com.amana.MPESTPestoff.components.CustomFontTextView
+                                android:id="@+id/lbl_quote_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Paid Amt  "
+                                android:visibility="gone"
+                                app:fontName="Font_Medium" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="100"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="75"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal">
+
+                                    <com.amana.MPESTPestoff.components.CustomFontTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Treatment  : "
+                                        android:textSize="@dimen/_12sdp"
+                                        android:textColor="@color/oil"
+                                        app:fontName="Font_Regular" />
+
+                                    <com.amana.MPESTPestoff.components.CustomFontTextView
+                                        android:id="@+id/customer_txt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:maxLines="1"
+                                        android:text="Larviciding"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:textColor="@color/oil"
+                                        app:fontName="Font_Bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="100"
+                                        android:orientation="horizontal">
+
+                                        <com.amana.MPESTPestoff.components.CustomFontTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Chemical    : "
+                                            android:textSize="@dimen/_12sdp"
+                                            android:textColor="@color/oil"
+                                            app:fontName="Font_Regular" />
+
+                                        <com.amana.MPESTPestoff.components.CustomFontTextView
+                                            android:id="@+id/location_txt"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="2"
+                                            android:text="Able Max"
+                                            android:textColor="@color/oil"
+                                            android:textSize="@dimen/_12sdp"
+                                            android:textStyle="bold"
+                                            app:fontName="Font_Bold" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:layout_marginBottom="@dimen/_10sdp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="100"
+                                        android:orientation="horizontal">
+
+                                        <com.amana.MPESTPestoff.components.CustomFontTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Dilution      : "
+                                            android:textSize="@dimen/_12sdp"
+                                            android:textColor="@color/colorPrimary"
+                                            app:fontName="Font_Regular" />
+
+                                        <com.amana.MPESTPestoff.components.CustomFontTextView
+                                            android:id="@+id/team_txt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:text="20ml/5 litre water"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="@dimen/_12sdp"
+                                            android:textStyle="bold"
+                                            app:fontName="Font_Bold" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="25"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <com.amana.MPESTPestoff.components.CustomFontButton
+                                android:id="@+id/clear_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:background="@drawable/button_border_blue"
+                                android:text="SOP"
+                                android:textSize="@dimen/_15sdp"
+                                android:textColor="@color/white"
+                                app:fontName="Font_Medium" />
+
+                            <com.amana.MPESTPestoff.components.CustomFontTextView
+                                android:id="@+id/ReSubmit_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:maxLines="1"
+                                android:textAlignment="center"
+                                android:text="RE-UPLOAD"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp"
+                                android:background="@drawable/button_border_color"
+                                android:visibility="gone"
+                                app:fontName="Font_Bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+</LinearLayout>

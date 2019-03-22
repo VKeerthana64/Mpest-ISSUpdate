@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/proceed_btn"
+
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/proceed_btn"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="15dp"
+            android:theme="@style/TextLabelDialog"
+            app:fontName="Font_Medium">
+
+            <com.amana.MPESTPestoff.components.CustomFontEditText
+                android:id="@+id/input_chemical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:focusable="false"
+                android:hint="Chemicals *"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Medium" />
+        </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+        <com.amana.MPESTPestoff.components.CustomFontTextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:theme="@style/TextLabelDialog"
+            app:fontName="Font_Medium">
+
+            <com.amana.MPESTPestoff.components.CustomFontEditText
+                android:id="@+id/input_baits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:focusable="false"
+                android:hint="Baits *"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Medium" />
+        </com.amana.MPESTPestoff.components.CustomFontTextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_chemicallist"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <com.amana.MPESTPestoff.components.CustomFontTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="center_horizontal"
+                android:text="Chemicals Details"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Bold" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/chemicallist_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_Baitsllist"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_height="wrap_content">
+
+            <com.amana.MPESTPestoff.components.CustomFontTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="center_horizontal"
+                android:text="Baits Details"
+                android:textColor="@color/oil"
+                android:textSize="@dimen/_12sdp"
+                app:fontName="Font_Bold" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/Baitslist_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.amana.MPESTPestoff.components.CustomFontButton
+        android:id="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Submit"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:fontName="Font_Bold" />
+</RelativeLayout>

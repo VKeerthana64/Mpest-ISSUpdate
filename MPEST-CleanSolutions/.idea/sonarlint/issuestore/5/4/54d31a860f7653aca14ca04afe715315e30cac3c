@@ -1,0 +1,49 @@
+
+bsquid:S1192"HDefine a constant instead of duplicating this literal "#f3eedf" 6 times.(²ŒÌ’øÿÿÿÿ
+asquid:S1192"LDefine a constant instead of duplicating this literal "In-Progress" 4 times.(‰ëöå
+=squid:S1068"(Remove this unused "menu" private field.(î·öÁ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(è”‘Ä
+hsquid:S1450"SRemove the "menu" field and declare it as a local variable in the relevant methods.(î·öÁ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±åÍ×
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™Ñ¨Êúÿÿÿÿ
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éŒý"
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(òÆÒîÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ñ«õéýÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(£‘§õøÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Æ÷û”
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Æ÷û”
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÚíÄüÿÿÿÿ
+Osquid:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(û¦èþÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(”ý¾
+›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ì¤Èÿÿÿÿÿ
+<squid:S1185"(Remove this method to simply inherit it.(¹§ 
+osquid:S00116"TRename this field "_appPrefs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯‹ÿäùÿÿÿÿ
+rsquid:S00116"WRename this field "sheduled_tab" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßý£¼úÿÿÿÿ
+tsquid:S00116"YRename this field "inProgress_tab" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ˆƒóùÿÿÿÿ
+ssquid:S00116"XRename this field "completed_tab" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¯ôüúÿÿÿÿ
+jsquid:S00116"TRename this field "tv_nodata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â´Ù
+nsquid:S00116"SRename this field "fab_sync" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ðÎ¿Åùÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”‘Ä
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ýî¯Ñ
+Ysquid:S1858"D"s" is already a string, there's no need to call "toString()" on it.(Ã¦Íõ
+Zsquid:S1858"E"getCLIENTID" returns a string, there's no need to call "toString()".(Ù‹Ùø
+\squid:S1858"G"getEMPLOYEEID" returns a string, there's no need to call "toString()".(Ù‹Ùø
+Zsquid:S1858"E"getCLIENTID" returns a string, there's no need to call "toString()".(ÓŽ£ú
+\squid:S1858"G"getEMPLOYEEID" returns a string, there's no need to call "toString()".(ÓŽ£ú
+psquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(î»Œ
+xsquid:UselessImportCheck"VRemove this unused import 'com.amana.CLEANSolutions.model.realm.taskdetail.Adhocdata'.(ãØÞÿ
+}squid:UselessImportCheck"[Remove this unused import 'com.amana.CLEANSolutions.model.realm.taskdetail.Customerdetail'.(èœ³¼
+osquid:UselessImportCheck"HRemove this unused import 'com.amana.CLEANSolutions.model.AdhocRequest'.(âÔÅÃÿÿÿÿÿ
+lsquid:UselessImportCheck"ERemove this unused import 'com.amana.CLEANSolutions.utils.AppLogger'.( ¡Œ¼ûÿÿÿÿ
+ƒsquid:UselessImportCheck"\Remove this unused import 'com.amana.CLEANSolutions.model.realm.taskdetail.JobOrdersdetail'.(ËêÖ“ûÿÿÿÿ
+Zsquid:UselessImportCheck"3Remove this unused import 'android.text.TextUtils'.(û˜½Õøÿÿÿÿ
+squid:UselessImportCheck"]Remove this unused import 'com.amana.CLEANSolutions.model.realm.taskdetail.Contracterdetail'.(ß¨éÝ
+ysquid:UselessImportCheck"WRemove this unused import 'com.amana.CLEANSolutions.model.realm.taskdetail.Teamdetail'.(ü•
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ý¤ê£
+Rsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(­µË@

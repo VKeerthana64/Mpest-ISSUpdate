@@ -4,13 +4,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.amana.MPESTPestoff.fragment.FeedbackFragment;
-import com.amana.MPESTPestoff.fragment.MaterialFragment;
-import com.amana.MPESTPestoff.fragment.PaymentFragment;
-import com.amana.MPESTPestoff.fragment.PhotoAfterFragment;
-import com.amana.MPESTPestoff.fragment.PhotoBeforeFragment;
-import com.amana.MPESTPestoff.fragment.ServicesFragment;
-import com.amana.MPESTPestoff.fragment.TeamsFragment;
+
+import com.amana.MPESTPestoff.jobtabs.NewEndServicesFragment;
+import com.amana.MPESTPestoff.jobtabs.NewFeedbackFragment;
+import com.amana.MPESTPestoff.jobtabs.NewInfestationLevelFragment;
+import com.amana.MPESTPestoff.jobtabs.NewPaymentFragment;
+import com.amana.MPESTPestoff.jobtabs.NewServicesFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,28 +25,18 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 	public MyPagerAdapter(FragmentManager fm) {
 		super(fm);
 		this.mFragmentList = new ArrayList<Fragment>();
-		mFragmentList.add(new PhotoBeforeFragment()); // photo before
-		mFragmentList.add(new ServicesFragment());
-		mFragmentList.add(new MaterialFragment());
-		mFragmentList.add(new PhotoAfterFragment()); // Photo after
-		mFragmentList.add(new TeamsFragment());
-		mFragmentList.add(new FeedbackFragment());
-		mFragmentList.add(new PaymentFragment());
+		mFragmentList.add(new NewServicesFragment());
+		mFragmentList.add(new NewFeedbackFragment());
+		mFragmentList.add(new NewInfestationLevelFragment()); // Photo after
+		mFragmentList.add(new NewPaymentFragment());
+		mFragmentList.add(new NewEndServicesFragment());
 
-		mFragmentTitleList.add("Photos Before");
 		mFragmentTitleList.add("Services");
-		mFragmentTitleList.add("Materials");
-		mFragmentTitleList.add("Photos After");
-		mFragmentTitleList.add("Team Members");
 		mFragmentTitleList.add("Feedback");
+		mFragmentTitleList.add("Infestation Level");
 		mFragmentTitleList.add("Payment");
-	/*	.addFrag(new PhotoBeforeFragment(), "Photos Before");
-		adapter.addFrag(new ServicesFragment(), "Services");
-		adapter.addFrag(new MaterialFragment(), "Materials");
-		adapter.addFrag(new PhotoAfterFragment(), "Photos After");
-		adapter.addFrag(new TeamsFragment(), "Team Members");
-		adapter.addFrag(new FeedbackFragment(), "Feedback");
-		adapter.addFrag(new PaymentFragment(), "Payment");*/
+		mFragmentTitleList.add("End Service");
+
 	}
 
 	@Override

@@ -536,7 +536,7 @@ public class Utils {
 
     public static String SingaporeCurrentTime(String mDate) {
         //SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat input = new SimpleDateFormat("dd-MM-yyyy");
         SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
         Date d = null;
@@ -550,10 +550,10 @@ public class Utils {
         return formatted;
     }
 
-    public static String SingaporeDateTime(String mDate) {
+    public static String GetDateTime(String mDate) {
         //SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        SimpleDateFormat input = new SimpleDateFormat("yyyy-m-d");
-        SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        SimpleDateFormat output = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
 
         Date d = null;
         try {

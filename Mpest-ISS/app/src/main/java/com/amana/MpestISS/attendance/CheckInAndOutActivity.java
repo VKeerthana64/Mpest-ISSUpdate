@@ -506,9 +506,13 @@ public class CheckInAndOutActivity extends AppCompatActivity {
 
                     if (response.body().getStatusCode() == 200) {
 
+
+
                         if(type.equalsIgnoreCase("IN")){
+                            _appPrefs.saveCheckStatus("Check IN");
                             _appPrefs.saveCHECKIN_DT(Utils.getCurrentTime());
                         }else{
+                            _appPrefs.saveCheckStatus("Check OUT");
                             _appPrefs.saveCHECKOUT_DT(Utils.getCurrentTime());
                         }
                         CustomePopuptitleMSG(mContext,title,mMsg);

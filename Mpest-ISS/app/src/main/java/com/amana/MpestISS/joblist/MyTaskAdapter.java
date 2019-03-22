@@ -138,9 +138,9 @@ public class MyTaskAdapter extends RecyclerView.Adapter<MyTaskAdapter.ViewHolder
         }
 
         try {
-            holder.tvComments.setText("Comments (" + datum.getCommentsdetails().size() + ")");
+            holder.tvComments.setText("Comments From Tech/Office (" + datum.getCommentsdetails().size() + ")");
         } catch (Exception e) {
-            holder.tvComments.setText("Comments (" + datum.getCommentCount() + ")");
+            holder.tvComments.setText("Comments From Tech/Office (" + datum.getCommentCount() + ")");
         }
         holder.tvComments.setOnClickListener(new View.OnClickListener() {
             @Override

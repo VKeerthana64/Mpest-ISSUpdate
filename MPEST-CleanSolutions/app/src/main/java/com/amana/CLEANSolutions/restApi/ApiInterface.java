@@ -1,5 +1,7 @@
 package com.amana.CLEANSolutions.restApi;
 
+import com.amana.CLEANSolutions.dashboard.AppVersionResponse;
+import com.amana.CLEANSolutions.joblist.model.InProgressList;
 import com.amana.CLEANSolutions.model.ADHOCUploadRequest;
 import com.amana.CLEANSolutions.model.ADHOCUploadRequestWithID;
 import com.amana.CLEANSolutions.model.AdhocRequest;
@@ -23,6 +25,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
@@ -30,16 +33,12 @@ public interface ApiInterface {
 
     //Global URl
     //UAT
-   // String BASE_URL = "http://www.amanaasia.net:9000/";// UAT
-    //String REPORT_URL = "http://www.amanaasia.net:8080/CLEANSolutions.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
-
-    // String REPORT_URL = "http://www.amanaasia.net:8080/CLEANSolutions.Reports/Reports/";
+    String BASE_URL = "http://www.amanaasia.net:9000/";// UAT
+    String REPORT_URL = "http://www.amanaasia.net:8080/CLEANSolutions.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
 
     //PRoducion
-    String BASE_URL = "http://104.215.149.183:84/";// Production
-    String REPORT_URL = "http://104.215.149.183:8080/MPEST.Reports/Reports/CompletedEmailServiceReport.aspx?ID=";//' + SERVICE_ID + '&Type=Download';
-
-    //String REPORT_URL = "http://104.215.149.183:8080/MPEST.Reports/Reports/";
+   // String BASE_URL = "http://104.215.149.183:84/";// Production
+   // String REPORT_URL = "http://104.215.149.183:8080/MPEST.Reports/Reports/CompletedEmailServiceReport.aspx?ID=";//' + SERVICE_ID + '&Type=Download';
 
     String POST_SIGNIN = "login";
     String POST_CHECKING = "attendance/updatepunch";
@@ -49,6 +48,7 @@ public interface ApiInterface {
     String POST_SETTINGS_PAYMENTMODE = "settings/PaymentMode";
     String POST_TEAM = "team";
     String POST_SCHEDULER = "scheduler/getScheduledJobs";  //  getforMobile
+    String POST_INPROGRESSJOBS = "scheduler/getInProgressforMobile";  //  getforMobile
     String POST_SCHEDULERFILTER = "scheduler/getOutstandingJobs";
 
     String POST_GETCALENDERLIST = "scheduler/getJobsForCalendarView";
@@ -65,6 +65,11 @@ public interface ApiInterface {
     String POST_GETALLCOMMENTS= "comment/getByRequestID";
     String POST_ADDCOMMENT= "comment/add";
     String POST_PESTTYPE= "pesttype";
+
+    String GET_APPVERSION = "client/getAppVersion";
+
+    @GET(BASE_URL + GET_APPVERSION)
+    Call<AppVersionResponse> GetAppVersion();
 
     @POST(BASE_URL + POST_SIGNIN)
     Call<LoginApiResponse> signIN(@Body LoginApiRequest loginApiRequest);
@@ -102,6 +107,20 @@ public interface ApiInterface {
     @POST(BASE_URL + POST_SCHEDULER)
     Call<Object> getMyTaskDetails(@Field("Client_Id") String Client_Id, @Field("EmployeeID") String EmployeeID, @Field("UserID") String UserID);
 
+
+    //My Task Api
+    @FormUrlEncoded
+    @POST(BASE_URL + POST_INPROGRESSJOBS)
+    Call<InProgressList> getInprogressJobList(@Field("EmployeeID") String EmployeeID, @Field("UserID") String UserID, @Field("CurrentDate") String CurrentDate);
+
+
+    //My Task Api
+    @FormUrlEncoded
+    @POST(BASE_URL + POST_INPROGRESSJOBS)
+    Call<Object> AddInprogressJobList(@Field("EmployeeID") String EmployeeID);
+
+
+
     @FormUrlEncoded
     @POST(BASE_URL + POST_SCHEDULERFILTER)
     Call<Object> getMyTaskDetailsByFilter(@Field("Client_Id") String Client_Id, @Field("EmployeeID") String EmployeeID, @Field("UserID") String UserID, @Field("FilterDate") String FilterDate );
@@ -129,7 +148,7 @@ public interface ApiInterface {
     //My Task Api
     @FormUrlEncoded
     @PUT(BASE_URL + POST_STATUSUPDATE)
-    Call<Object> JobStatusUpdate(@Field("_id") String _Id, @Field("Status") String mStatus,@Field("UpdatedBy") String mUpdatedBy);
+    Call<Object> JobStatusUpdate(@Field("_id") String _Id, @Field("Status") String mStatus,@Field("UpdatedBy") String mUpdatedBy, @Field("AppVersion") String AppVersion, @Field("MobileVersion") String MobileVersion );
 
     @FormUrlEncoded
     @POST(BASE_URL + POST_PHOTOAFTER)

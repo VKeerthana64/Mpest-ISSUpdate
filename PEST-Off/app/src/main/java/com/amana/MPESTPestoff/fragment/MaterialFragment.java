@@ -185,8 +185,6 @@ public class MaterialFragment extends Fragment implements PestAdapter.ItemClickL
                 lnr_materiallist.setVisibility(View.GONE);
             }
 
-
-
         } else {
             // no data
             edt_materials.setText("");

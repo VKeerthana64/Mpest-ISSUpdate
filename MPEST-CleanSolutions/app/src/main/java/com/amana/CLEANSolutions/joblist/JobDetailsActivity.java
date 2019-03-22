@@ -12,7 +12,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,19 +20,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.amana.CLEANSolutions.R;
-import com.amana.CLEANSolutions.model.AdhocRequest;
-import com.amana.CLEANSolutions.model.comments.CommetsResponse;
-import com.amana.CLEANSolutions.model.realm.AdhocRm.AdhocRequestRm;
-import com.amana.CLEANSolutions.model.realm.taskdetail.Adhocdata;
-import com.amana.CLEANSolutions.model.realm.taskdetail.Contracterdetail;
-import com.amana.CLEANSolutions.model.realm.taskdetail.Customerdetail;
+import com.amana.CLEANSolutions.joblist.model.InProgressData;
+import com.amana.CLEANSolutions.joblist.model.InProgressList;
 import com.amana.CLEANSolutions.model.realm.taskdetail.Datum;
-import com.amana.CLEANSolutions.model.realm.taskdetail.JobOrdersdetail;
 import com.amana.CLEANSolutions.model.realm.taskdetail.MyTaskRealm;
-import com.amana.CLEANSolutions.model.realm.taskdetail.Teamdetail;
 import com.amana.CLEANSolutions.restApi.ApiClient;
 import com.amana.CLEANSolutions.restApi.ApiInterface;
-import com.amana.CLEANSolutions.utils.AppLogger;
 import com.amana.CLEANSolutions.utils.AppPreferences;
 import com.amana.CLEANSolutions.utils.MasterDbLists;
 import com.amana.CLEANSolutions.utils.Utils;
@@ -81,8 +74,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.fab_sync)
     FloatingActionButton fab_sync;
-    ArrayList<AdhocRequestRm> adhocRequestRmsList = new ArrayList<>();
-
+    ArrayList<InProgressData> arr_datum = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +90,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         init();
-
+        Realm.init(mContext);
         if (Utils.isNetConnected(mContext)) {
             new GetAllTaskList().execute();
         } else {
@@ -176,8 +168,12 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 inProgress_tab.setTextColor(Color.WHITE);
 
                 mStatus = "In-Progress";
+                mSwipeRefreshLayout.setVisibility(View.GONE);
+                tv_nodata.setVisibility(View.VISIBLE);
 
-                getTaskFromDbSetList(mStatus, "");
+                new GetInProgressTaskList().execute();
+
+
 
             }
         });
@@ -261,9 +257,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
         if(mStatus.equalsIgnoreCase("Completed")){
 
-          //  adhocRequestRmsList = MasterDbLists.GetAdhocList();
-
-            ArrayList<Datum> WithUploadArray = new ArrayList<Datum>();
+             ArrayList<Datum> WithUploadArray = new ArrayList<Datum>();
 
             for(Datum event : mList){
                 try {
@@ -285,10 +279,7 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 mList.clear();
                 mList = MasterDbLists.getMytaskListFromdb(mStatus, mSerach);
 
-
-
             }
-
 
            Collections.reverse(mList);
 
@@ -363,6 +354,8 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
         super.onRestart();
     }
 
+
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -428,12 +421,16 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 final Realm realm = Realm.getDefaultInstance(); // opens db
 
                 realm.beginTransaction();
-                realm.where(MyTaskRealm.class).findAll().deleteAllFromRealm();
+               realm.where(MyTaskRealm.class).findAll().deleteAllFromRealm();
                 //realm.rem(Datum.class).clear();
                 RealmResults<Datum> users = realm.where(Datum.class)
                         .notEqualTo("Status", "In-Progress")
                         .and()
+                        .notEqualTo("Status", "Completed")
+                        .and()
                         .notEqualTo("UploadStatus", "Upload InProgress")
+                        .and()
+                        .notEqualTo("UploadStatus", "Upload Failed")
                         .and()
                         .notEqualTo("UploadStatus", "Upload Success")
                         .findAll();
@@ -545,6 +542,90 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
 
     }
 
+    //Get QuoteDetails when Quotation Number is passed
+    class GetInProgressTaskList extends AsyncTask<Object, Void, String> {
+
+        protected void onPreExecute() {
+            Utils.showCustomDialog(mContext);
+        }
+
+        protected String doInBackground(Object... parametros) {
+
+            Calendar c = Calendar.getInstance();
+            System.out.println("Current time =&gt; "+c.getTime());
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            String currentDate = df.format(c.getTime());
+
+
+            // Do some validation here
+            final ApiInterface apiService =
+                    ApiClient.getClientForList().create(ApiInterface.class);
+
+            Call<InProgressList> call = apiService.getInprogressJobList(_appPrefs.getEMPLOYEEID().toString(), _appPrefs.getUserID(), currentDate);
+            try {
+
+                arr_datum.clear();
+                arr_datum = call.execute().body().getData();
+
+                if(arr_datum.size() > 0){
+
+                    for(int i=0; i< arr_datum.size(); i++){
+
+                        InProgressData inProgressList = arr_datum.get(i);
+
+                        Log.d("In Progress List ---: ",inProgressList.getId());
+
+                        try{
+
+                          //  MasterDbLists.ChecknUpdateInProgressTaskList(inProgressList.getId(),inProgressList);
+                            MasterDbLists.DeleteDuplicateInProgress(inProgressList.getId());
+                        }catch (Exception e){
+                       e.printStackTrace();
+                        }
+
+                    }
+
+                }else{
+                    getTaskFromDbSetList(mStatus, "");
+                }
+
+
+            } catch (Exception e) {
+               e.printStackTrace();
+            }finally {
+
+                Call<Object> call2 = apiService.AddInprogressJobList(_appPrefs.getEMPLOYEEID().toString());
+
+                try {
+                    final JSONObject object = new JSONObject(new com.google.gson.Gson().toJson(call2.execute().body()));
+
+                    final Realm realm = Realm.getDefaultInstance(); // opens db
+
+                    realm.beginTransaction();
+                    realm.createObjectFromJson(MyTaskRealm.class, object);// Insert from a string
+                    realm.commitTransaction();
+
+                    Utils.dismissDialog();
+                } catch (Exception e) {
+
+                    Utils.dismissDialog();
+                }
+            }
+            return "true";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            if (result.equalsIgnoreCase("true")) {
+                getTaskFromDbSetList(mStatus, "");
+               Utils.dismissDialog();
+            }
+            super.onPostExecute(result);
+        }
+
+    }
 
     //Get QuoteDetails when Quotation Number is passed
     class GetTaskListByDateFilter extends AsyncTask<Object, Void, String> {
@@ -569,37 +650,6 @@ public class JobDetailsActivity extends AppCompatActivity implements MyTaskAdapt
                 realm.createObjectFromJson(MyTaskRealm.class, object);// Insert from a string
                 realm.commitTransaction();
 
-               /* ArrayList<Datum> arr_Datum = MasterDbLists.getMytaskListFromdb();
-
-                if (arr_Datum.size() > 0) {
-
-                    for (Datum datum : arr_Datum) {
-
-                        Call<CommetsResponse> call2 = apiService.GetallComments(datum.get_id());
-
-                        CommetsResponse commetsResponse = (CommetsResponse) call2.execute().body();
-
-                        try {
-
-                            int mStatusCode = commetsResponse.getStatusCode();
-
-                            if (mStatusCode == 200) {
-
-                                if (commetsResponse.getData().size() > 0) {
-                                    MasterDbLists.UpdateMyTaskList(commetsResponse.getData().size(), datum.getServiceID());
-                                }
-
-                            }
-
-
-                        } catch (Exception e) {
-                            Utils.dismissDialog();
-                            e.printStackTrace();
-
-                        }
-
-                    }
-                }*/
                 Utils.dismissDialog();
             } catch (Exception e) {
 

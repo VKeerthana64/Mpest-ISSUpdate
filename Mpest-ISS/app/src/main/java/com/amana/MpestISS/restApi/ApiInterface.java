@@ -1,5 +1,6 @@
 package com.amana.MpestISS.restApi;
 
+import com.amana.MpestISS.announcement.model.AnnouncementResponse;
 import com.amana.MpestISS.model.ADHOCUploadRequest;
 import com.amana.MpestISS.model.ADHOCUploadRequestWithID;
 import com.amana.MpestISS.model.AdhocRequest;
@@ -33,15 +34,15 @@ public interface ApiInterface {
 
     //Global URl
     //UAT ---- https://www.amanaasia.net:86
-   // String BASE_URL = "https://www.amanaasia.net:86/";// UAT
-   // String REPORT_URL = "https://www.amanaasia.net/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+    String BASE_URL = "https://www.amanaasia.net:86/";// UAT
+    String REPORT_URL = "https://www.amanaasia.net/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
    // String REPORT_URL = "http://www.amanaasia.net:8080/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
 
    // String BASE_URL = "https://203.127.124.197:86/";// prod
     //String REPORT_URL = "https://203.127.124.197/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
 
-    String BASE_URL = "https://mpest.isssg.biz:86/";// prod
-    String REPORT_URL = "https://mpest.isssg.biz/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
+   // String BASE_URL = "https://mpest.isssg.biz:86/";// prod
+   // String REPORT_URL = "https://mpest.isssg.biz/ISS.Reports/Reports/CompletedEmailServiceReport.aspx?ID="; //' + SERVICE_ID + '&Type=Download';
 
 
     String POST_SIGNIN = "login";
@@ -70,10 +71,13 @@ public interface ApiInterface {
     String POST_PESTTYPE= "pesttype";
     String POST_QUIZ= "quiz/get";
     String POST_QUIZADD= "quizanswer/add";
+    String POST_ANNOUNCEMENTS="announcements";
+
+    String POST_STARTTIME = "/schedulertracking/add";
+    String POST_ENDTIME = "/schedulertracking/update";
 
     @POST(BASE_URL + POST_SIGNIN)
     Call<LoginApiResponse> signIN(@Body LoginApiRequest loginApiRequest);
-
 
     @POST(BASE_URL + POST_CHECKING)
     Call<CheckingResponse> checkingIn_out(@Body CheckingRequest checkingRequest);
@@ -81,6 +85,21 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(BASE_URL + POST_MATERIALS)
     Call<MaterialData> getMaterials(@Field("Client_Id") String Client_Id);
+
+    @FormUrlEncoded
+    @POST(BASE_URL + POST_ANNOUNCEMENTS)
+    Call<AnnouncementResponse> getAnnouncement(@Field("Client_Id") String Client_Id, @Field("UserID") String UserID);
+
+
+    @FormUrlEncoded
+    @POST(BASE_URL + POST_STARTTIME)
+    Call<Object> ApiStartTime(@Field("Scheduler_Id") String Scheduler_Id, @Field("StartLocation") String StartLocation, @Field("CreatedBy") String CreatedBy);
+
+
+    @FormUrlEncoded
+    @POST(BASE_URL + POST_ANNOUNCEMENTS)
+    Call<Object> ApiEndTime(@Field("Scheduler_Id") String Scheduler_Id, @Field("EndLocation") String EndLocation, @Field("UpdatedBy") String UpdatedBy);
+
 
     @FormUrlEncoded
     @POST(BASE_URL + POST_PESTTYPE)
