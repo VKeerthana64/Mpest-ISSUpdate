@@ -1,0 +1,611 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:id="@+id/nest_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/pests_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:orientation="horizontal"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:reverseLayout="false" />
+
+
+            <com.amana.MpestISS.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/materials_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:focusable="false"
+                    android:hint="Services *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+            </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+            <com.amana.MpestISS.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/input_others"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Service Description"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+            </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+            <com.amana.MpestISS.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/finding_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:hint="Findings *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+            </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+            <com.amana.MpestISS.components.CustomFontTextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:theme="@style/TextLabelDialog"
+                app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/recommendation_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:hint="Recommendations *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+            </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_birds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_culls"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="No.of culls"
+                        android:inputType="number"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_Rodent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="50"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_borrows"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="No. of burrows"
+                        android:inputType="number"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_weight="50"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_dead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="No. of dead"
+                        android:inputType="number"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_mosquito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                        android:id="@+id/spnr_habitat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="50"
+                        android:hint="Habitat"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="@dimen/_12sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:met_floatingLabel="normal" />
+
+
+                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                        android:id="@+id/spnr_reason"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="50"
+                        android:hint="Reason"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="@dimen/_12sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:met_floatingLabel="normal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+
+                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                        android:id="@+id/spnr_Action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="100"
+                        android:hint="Action"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="@dimen/_12sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:met_floatingLabel="normal" />
+
+
+                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                        android:id="@+id/spnr_recommendation"
+                        android:layout_width="0dp"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="50"
+                        android:hint="Recommendation"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="@dimen/_12sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:met_floatingLabel="normal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="100"
+                    android:orientation="horizontal">
+
+                    <com.amana.MpestISS.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="40"
+                        android:text="Breeding Found?       "
+                        android:textColor="@color/jumbo"
+                        android:textSize="@dimen/_10sdp"
+                        app:fontName="Font_Medium" />
+
+                    <com.amana.MpestISS.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="5"
+                        android:text=" : "
+                        android:textSize="@dimen/_10sdp"
+                        app:fontName="Font_Medium" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_breeding"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="55"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbn_breedingYES"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:text=" YES"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <RadioButton
+                            android:id="@+id/rbn_breedingNO"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text=" NO"
+                            android:textSize="@dimen/_12sdp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnr_breeding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_weight="100"
+                        android:orientation="horizontal">
+
+                        <com.amana.MpestISS.components.CustomFontTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="40"
+
+                            android:text="Species                "
+                            android:textColor="@color/jumbo"
+                            android:textSize="@dimen/_10sdp"
+                            app:fontName="Font_Medium" />
+
+                        <com.amana.MpestISS.components.CustomFontTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="5"
+                            android:text=" : "
+                            android:textSize="@dimen/_10sdp"
+                            app:fontName="Font_Medium" />
+
+                        <RadioGroup
+                            android:id="@+id/rg_Species"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="55"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rbn_SpecieYES"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:text=" AEDES"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <RadioButton
+                                android:id="@+id/rbn_SpecieNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" CULEX"
+                                android:textSize="@dimen/_11sdp" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="100">
+
+
+                        <com.amana.MpestISS.components.CustomFontTextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_weight="50"
+                            android:theme="@style/TextLabelDialog"
+                            app:fontName="Font_Medium">
+
+                            <com.amana.MpestISS.components.CustomFontEditText
+                                android:id="@+id/input_density"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Density"
+                                android:inputType="number"
+                                android:textColor="@color/oil"
+                                android:textSize="@dimen/_12sdp"
+                                app:fontName="Font_Medium" />
+
+                        </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+
+                        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                            android:id="@+id/spnr_instar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="50"
+                            android:hint="Instar"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textSize="@dimen/_12sdp"
+                            android:theme="@style/TextLabelDialog"
+                            app:met_floatingLabel="normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="100"
+                    android:orientation="horizontal">
+
+                    <com.amana.MpestISS.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="40"
+                        android:text="Misting Carried Out?   "
+                        android:textColor="@color/jumbo"
+                        android:textSize="@dimen/_10sdp"
+                        app:fontName="Font_Medium" />
+
+                    <com.amana.MpestISS.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="5"
+                        android:text=" : "
+                        android:textSize="@dimen/_10sdp"
+                        app:fontName="Font_Medium" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_misting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="55"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbn_mistingYES"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:text=" YES"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <RadioButton
+                            android:id="@+id/rbn_mistingNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" NO"
+                            android:textSize="@dimen/_11sdp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnr_misting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="100"
+                    android:orientation="horizontal">
+
+                    <com.amana.MpestISS.components.CustomFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="45"
+                        android:text="Misting Carried Out   "
+                        android:textSize="@dimen/_10sdp"
+                        android:visibility="invisible"
+                        app:fontName="Font_Medium" />
+
+
+                    <RadioGroup
+                        android:id="@+id/rg_misting_ifNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="55"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rbn_raining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:text=" Due to raining"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                        <RadioButton
+                            android:id="@+id/rbn_cusReject"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" Customer reject"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <RadioButton
+                            android:id="@+id/rbn_others"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" Others"
+                            android:textSize="@dimen/_11sdp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnr_misting_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+
+                        android:layout_weight="45"
+                        android:theme="@style/TextLabelDialog"
+                        android:visibility="invisible"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="55"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/input_misting_others"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Specify"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <com.amana.MpestISS.components.CustomFontButton
+                android:id="@+id/save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/btn_shape_green"
+                android:elevation="@dimen/_10sdp"
+                android:text="Save"
+                android:textColor="@color/colorPrimary"
+                android:visibility="gone"
+                app:fontName="Font_Bold" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.amana.MpestISS.components.CustomFontButton
+        android:id="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp"
+        android:text="Proceed"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:fontName="Font_Bold" />
+</RelativeLayout>

@@ -1,0 +1,623 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myjob.MyJobActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_50sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:visibility="gone"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_paymentMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_edit_green"
+                        android:hint="Payment Mode"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_amountcollect"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount To Collect"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_total_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Collection Amount"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_note_chqno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Payment Notes/Cheque No."
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_remarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Remarks"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    android:visibility="gone"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_planned_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Total Area Planned (Sq.mt)"
+                        android:inputType="numberDecimal"
+                        android:text="0"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:visibility="gone"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_completed_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Total Area Completed (Sq.mt)"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_sor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="SOR (Schedule of Rates)"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontCheckBox
+                    android:id="@+id/follwup_chbk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text=" Follow up required ?"
+                    app:fontName="Font_Medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/lin_laydate"
+                    android:layout_height="wrap_content">
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_followupDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_followupDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:clickable="true"
+                        android:drawableRight="@drawable/ic_calender"
+                        android:focusable="false"
+                        android:hint="Follow up date *"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_pestType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/pestType_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:drawableRight="@drawable/ic_edit_green"
+                        android:focusable="false"
+                        android:hint="Pest Type *"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:textColor="@color/oil"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    android:id="@+id/textinputjob"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_servicearea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Job Details *"
+                        android:inputType="text"
+                        android:text="Follow up service at"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_notes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Job Notes"
+                        android:inputType="text"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+                </LinearLayout>
+                <com.amana.MpestISS.components.CustomFontCheckBox
+                    android:id="@+id/service_chbk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text=" Service Call ?"
+                    app:fontName="Font_Medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/lin_Service"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:id="@+id/err_ServicefollowupDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/input_ServicefollowupDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/ic_calender"
+                            android:focusable="false"
+                            android:hint="Follow up date *"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:id="@+id/err_ServicepestType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/ServicepestType_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/ic_edit_green"
+                            android:focusable="false"
+                            android:hint="Pest Type *"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        android:id="@+id/Servicetextinputjob"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/Serviceinput_servicearea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Job Details *"
+                            android:inputType="text"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/Serviceinput_notes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Job Notes"
+                            android:inputType="text"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+                </LinearLayout>
+
+                <com.amana.MpestISS.components.CustomFontCheckBox
+                    android:id="@+id/ctne_chbk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text=" Continue Job ?"
+                    app:fontName="Font_Medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/lin_ctne"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:id="@+id/err_ctnefollowupDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/input_ctnefollowupDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/ic_calender"
+                            android:focusable="false"
+                            android:hint="Follow up date *"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:id="@+id/err_ctnepestType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/ctnepestType_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/ic_edit_green"
+                            android:focusable="false"
+                            android:hint="Pest Type *"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        android:id="@+id/ctnetextinputjob"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/ctneinput_ctnearea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Job Details *"
+                            android:inputType="text"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/ctneinput_notes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Job Notes"
+                            android:inputType="text"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+                </LinearLayout>
+
+                <com.amana.MpestISS.components.CustomFontCheckBox
+                    android:id="@+id/adhoc_chbk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text=" Adhoc ?"
+                    app:fontName="Font_Medium" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/lin_Adhoc"
+                    android:layout_height="wrap_content">
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:id="@+id/err_AdhocfollowupDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/input_AdhocfollowupDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/ic_calender"
+                            android:focusable="false"
+                            android:hint="Follow up date *"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:id="@+id/err_AdhocpestType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/AdhocpestType_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/ic_edit_green"
+                            android:focusable="false"
+                            android:hint="Pest Type *"
+                            android:inputType="textMultiLine|textNoSuggestions"
+                            android:textColor="@color/oil"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        android:id="@+id/Adhoctextinputjob"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/Adhocinput_Adhocarea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Job Details *"
+                            android:inputType="text"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                    <com.amana.MpestISS.components.CustomFontTextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:theme="@style/TextLabelDialog"
+                        app:fontName="Font_Medium">
+
+                        <com.amana.MpestISS.components.CustomFontEditText
+                            android:id="@+id/Adhocinput_notes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Job Notes"
+                            android:inputType="text"
+                            android:textColor="@color/oil"
+                            android:textSize="@dimen/_12sdp"
+                            app:fontName="Font_Medium" />
+
+                    </com.amana.MpestISS.components.CustomFontTextInputLayout>
+                </LinearLayout>
+
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                    <com.amana.MpestISS.components.CustomFontEditText
+                        android:id="@+id/input_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:inputType="number"
+                        android:textColor="@color/oil"
+                        android:textSize="@dimen/_12sdp"
+                        app:fontName="Font_Medium" />
+
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.amana.MpestISS.components.CustomFontButton
+        android:id="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/_8sdp"
+        android:text="End Service"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:fontName="Font_Bold" />
+
+</RelativeLayout>
