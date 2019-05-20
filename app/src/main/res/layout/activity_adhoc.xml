@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.amana.MpestISS.attendance.CheckInAndOutActivity">
+
+    <ScrollView
+        android:id="@+id/nest_sv"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/proceed_btn"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <com.amana.MpestISS.components.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latitude        :  "
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/_10sdp"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MpestISS.components.CustomFontTextView
+                    android:id="@+id/lat_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:text=" --- "
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <com.amana.MpestISS.components.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Longitude     :  "
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/_10sdp"
+                    app:fontName="Font_Light" />
+
+                <com.amana.MpestISS.components.CustomFontTextView
+                    android:id="@+id/long_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:text=" --- "
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_customerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+                    
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/customer_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:hint="Customer Name *"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:hint="Email ID *"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_pestType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+                    
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/pestType_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:focusable="false"
+                    android:hint="Pest Type *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+                    
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/Team_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:focusable="false"
+                    android:hint="Team *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/spnr_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:layout_marginTop="@dimen/_10sdp"
+                     android:hint="Team *"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/_12sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:met_floatingLabel="normal" />
+
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/address_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:hint="Address"
+                    android:maxLines="5"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_postalcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+                
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/postalCode_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:hint="Postal Code"
+                    android:textColor="@color/oil"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_startTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/startTime_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:focusable="false"
+                    android:hint="Service Start Time *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+
+                <!--  Email Label -->
+                <com.amana.MpestISS.components.CustomFontTextInputLayout
+                    android:id="@+id/err_endTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:theme="@style/TextLabelDialog"
+                    app:fontName="Font_Medium">
+
+                <com.amana.MpestISS.components.CustomFontEditText
+                    android:id="@+id/endTime_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_edit_green"
+                    android:focusable="false"
+                    android:hint="Service End Time *"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:textColor="@color/oil"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:textSize="@dimen/_12sdp"
+                    app:fontName="Font_Medium" />
+                </com.amana.MpestISS.components.CustomFontTextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.amana.MpestISS.components.CustomFontButton
+        android:id="@+id/proceed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp"
+        android:text="Submit"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:fontName="Font_Bold" />
+
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/quotecreate_img"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/layout_bg_dark"
+                    android:layout_marginLeft="@dimen/_9sdp" />
+
+                <View
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/quotecreate_img"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:id="@+id/view_line"
+                    android:visibility="gone"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/colorPrimaryDark" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <com.amana.MpestISS.components.CustomFontTextView
+                    android:id="@+id/date_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_toRightOf="@+id/quotecreate_img"
+                    android:gravity="left"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:text="QUOTE CREATED"
+                    app:fontName="Font_Medium" />
+
+                <com.amana.MpestISS.components.CustomFontTextView
+                    android:id="@+id/value_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date_txt"
+                    android:layout_toRightOf="@+id/quotecreate_img"
+                    android:layout_weight="45"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:text="Date"
+                    android:textColor="@color/black"
+                    app:fontName="Font_Bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
