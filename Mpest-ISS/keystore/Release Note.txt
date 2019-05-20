@@ -1,5 +1,5 @@
 
 KeyStore
 
-Alias : key0
+Alias : key 0
 Pwd : 123456
